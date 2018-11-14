@@ -1,0 +1,39 @@
+
+<div class="regularBnnrWrap">
+
+  <div class="sliderWrap">
+
+    <div id="regBnnrSlider" class="regBnnrSlider carousel slide" data-interval="10000" data-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let bnnrItm of regSliderCont; let i = index" class="carousel-item carRegItm-{{i}}">
+          <img src="assets/img/regularBnnr/{{bnnrItm.img}}" alt="{{bnnrItm.ttl}}">
+        </div>
+      </div>
+    </div>
+
+    <div class="regBnnrInfo" ngi>
+      <div class="info">
+        <div class="mainLabel animated fadeInUp" *ngIf="regBnnrInfoActive">{{regBnnrInfo.label}}</div>
+        <div class="title animated fadeInUp" *ngIf="regBnnrInfoActive">{{regBnnrInfo.ttl}}</div>
+        <div class="body animated fadeInUp" *ngIf="regBnnrInfoActive">{{regBnnrInfo.body}}</div>
+        <div class="btnWrap animated fadeInUp" *ngIf="regBnnrInfoActive">
+          <button mat-button *ngFor="let btn of regBnnrInfo.btn" class="matBtn {{btn.style}}">{{btn.label}}</button>
+        </div>
+      </div>
+
+      <div class="regBnnrPagerWrap">
+        <div class="leftArrow" (click)="arrowChangeSlide('prev')">
+          <i class="icm icm-lftBnnrArrow"></i>
+        </div>
+        <div class="pager">
+          <div *ngFor="let pager of regSliderCont; let i = index" class="pageRegitem pageRegitem-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
+        </div>
+        <div class="rightArrow" (click)="arrowChangeSlide('next')">
+          <i class="icm icm-rgtBnnrArrow"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</div>

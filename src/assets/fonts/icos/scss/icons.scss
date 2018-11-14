@@ -1,0 +1,138 @@
+/*------------------------
+	icons
+-------------------------*/
+@function unicode($str) {
+  @return unquote("\"\\#{$str}\"");
+}
+
+$icm-allPin: unicode(ea01);
+$icm-book: unicode(ea02);
+$icm-career: unicode(ea03);
+$icm-centro: unicode(ea04);
+$icm-centrosPin: unicode(ea05);
+$icm-clock: unicode(ea06);
+$icm-lftBnnrArrow: unicode(ea07);
+$icm-map: unicode(ea08);
+$icm-mapCenter: unicode(ea09);
+$icm-microPhone: unicode(ea0a);
+$icm-phone: unicode(ea0b);
+$icm-playCirc: unicode(ea0c);
+$icm-rgtArrow: unicode(ea0d);
+$icm-rgtBnnrArrow: unicode(ea0e);
+$icm-search: unicode(ea0f);
+$icm-sedePin: unicode(ea10);
+$icm-socialAll: unicode(ea11);
+$icm-socialFb: unicode(ea12);
+$icm-socialGp: unicode(ea13);
+$icm-socialIn: unicode(ea14);
+$icm-socialLi: unicode(ea15);
+$icm-socialPn: unicode(ea16);
+$icm-socialTw: unicode(ea17);
+$icm-socialYt: unicode(ea18);
+$icm-student: unicode(ea19);
+$icm-uni: unicode(ea1a);
+
+.icm-allPin::before {
+  content: $icm-allPin;
+}
+
+.icm-book::before {
+  content: $icm-book;
+}
+
+.icm-career::before {
+  content: $icm-career;
+}
+
+.icm-centro::before {
+  content: $icm-centro;
+}
+
+.icm-centrosPin::before {
+  content: $icm-centrosPin;
+}
+
+.icm-clock::before {
+  content: $icm-clock;
+}
+
+.icm-lftBnnrArrow::before {
+  content: $icm-lftBnnrArrow;
+}
+
+.icm-map::before {
+  content: $icm-map;
+}
+
+.icm-mapCenter::before {
+  content: $icm-mapCenter;
+}
+
+.icm-microPhone::before {
+  content: $icm-microPhone;
+}
+
+.icm-phone::before {
+  content: $icm-phone;
+}
+
+.icm-playCirc::before {
+  content: $icm-playCirc;
+}
+
+.icm-rgtArrow::before {
+  content: $icm-rgtArrow;
+}
+
+.icm-rgtBnnrArrow::before {
+  content: $icm-rgtBnnrArrow;
+}
+
+.icm-search::before {
+  content: $icm-search;
+}
+
+.icm-sedePin::before {
+  content: $icm-sedePin;
+}
+
+.icm-socialAll::before {
+  content: $icm-socialAll;
+}
+
+.icm-socialFb::before {
+  content: $icm-socialFb;
+}
+
+.icm-socialGp::before {
+  content: $icm-socialGp;
+}
+
+.icm-socialIn::before {
+  content: $icm-socialIn;
+}
+
+.icm-socialLi::before {
+  content: $icm-socialLi;
+}
+
+.icm-socialPn::before {
+  content: $icm-socialPn;
+}
+
+.icm-socialTw::before {
+  content: $icm-socialTw;
+}
+
+.icm-socialYt::before {
+  content: $icm-socialYt;
+}
+
+.icm-student::before {
+  content: $icm-student;
+}
+
+.icm-uni::before {
+  content: $icm-uni;
+}
+

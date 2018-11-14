@@ -27,9 +27,21 @@
               "src/assets"
             ],
             "styles": [
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "node_modules/bxslider/dist/jquery.bxslider.min.css",
+              "node_modules/animate.css/animate.min.css",
+              "node_modules/leaflet/dist/leaflet.css",
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.js",
+              "node_modules/jquery-touchswipe/jquery.touchSwipe.min.js",
+              "node_modules/parallax-js/dist/parallax.min.js",
+              "node_modules/bxslider/dist/jquery.bxslider.min.js",
+              "node_modules/emergence.js/dist/emergence.min.js",
+              "node_modules/imagesloaded/imagesloaded.pkgd.min.js",
+            ]
           },
           "configurations": {
             "production": {

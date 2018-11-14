@@ -1,0 +1,80 @@
+
+
+<div class="mainBannerWrapper">
+
+  <!-- /* image slider Wrap */ -->
+  <div class="sliderWrap" (mousedown)="sliderChangeMouseDown()" (window:scroll)="bnnrScroll($event)">
+    <div id="mainBnnrSlider" class="mainBnnrSlider carousel slide" data-interval="10000" data-ride="carousel">
+      <div class="carousel-inner">
+        <div *ngFor="let bnnrItm of sliderContent; let i = index" class="carousel-item carItm{{i}}">
+          <!-- mouseParallax -->
+          <div class="bnnr" *ngIf="bnnrItm.type == 'mouseParallax' ">
+            <div class="bgParallax" id="bannrSlider{{i}}">
+              <div class="parallaxLayer" *ngFor="let imgs of bnnrItm.bgImgs" [attr.data-depth]="imgs.depth">
+                <img src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+              </div>
+            </div>
+          </div>
+          <!-- basic -->
+          <div class="bnnr"  *ngIf="bnnrItm.type == 'basic' ">
+            <div class="basicBg">
+              <img *ngFor="let imgs of bnnrItm.bgImgs" src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+            </div>
+          </div>
+          <!-- scrollParallax -->
+          <div class="bnnr"  *ngIf="bnnrItm.type == 'scrollParallax' ">
+            <div class="scrollParallaxBg" *ngFor="let imgs of bnnrItm.bgImgs; let i = index">
+              <div class="scllParLyr scllParLyr{{i}}">
+                <img src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="contentMainBnnr {{bnnrInfo.class}}">
+    <!-- search Box -->
+    <div class="searchBox" *ngIf="this.bnnrInfo.hasSearch">
+      <div class="selWrap">
+        <mat-form-field>
+          <mat-select [(value)]="levelsSel">
+            <mat-option value="all">Todos los niveles</mat-option>
+            <mat-option value="opt1">Option 2</mat-option>
+            <mat-option value="opt2">Option 3</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class="inpWrap">
+        <input type="text" class="searchInp" placeholder="¿Qué querés estudiar?">
+        <button class="searchBtn">
+          <i class="icm icm-search"></i>
+        </button>
+      </div>
+      <div class="allWrap">
+        <p>Ver todos<br> los programas</p>
+      </div>
+    </div>
+
+    <!-- Banner text items -->
+    <div class="textInfoWrap">
+      <div class="textInfo" *ngIf="bnnrInfoActive">
+        <div class="subttl animated fadeInUp">{{bnnrInfo.subtitle}}</div>
+        <div class="ttl animated fadeInUp">{{bnnrInfo.title}}</div>
+        <div class="body animated fadeInUp">{{bnnrInfo.body}}</div>
+
+        <div class="btnWrap animated fadeInUp">
+          <button mat-button *ngFor="let btns of bnnrInfo.bnnrBtn" class="matBtn {{btns.type}}">{{btns.btntext}} <i *ngIf="btns.icon" class="icm icm-{{btns.icon}}"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- banner pager -->
+    <div class="sliderPager">
+      <div *ngFor="let pager of sliderContent; let i = index" class="pagerItm pagerItm-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
+    </div>
+
+  </div>
+
+</div>

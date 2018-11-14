@@ -1,0 +1,335 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.newsWrapper {
+     background: #f2f4f7;
+     padding: 100px 0;
+
+     // title
+     .newsTtl {
+          padding: 0 0 50px 0;
+
+          h2 {
+               text-align: center;
+               font-size: 40px;
+               color: $titlesColor;
+
+               @include mainfont-lg();
+               
+               b {
+                    @include mainfont-bd();
+               }
+          }
+
+          @include transitionAll(0.3s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+     }
+
+     // tabs btn
+     .btnWrapper {
+          display: flex;
+          justify-content: center;
+          
+          .btnWrap {
+               display: flex;
+               justify-content: center;
+               border: 1px solid $lightGrey;
+               padding: 2px;
+               border-radius: 4px;
+     
+               .btnItem {
+                    
+                    button.mat-button {
+                         color: $dark; 
+                         font-size: 16px;
+                         padding: 0 50px;
+                         
+                         span {
+                              @include mainfont-lg();
+                         }
+     
+                         &.clear {
+                              background: transparent;
+                         }
+                    }
+                    
+                    &.active {                         
+                         button.mat-button {
+                              color: $light;
+                              background: $mainColor;
+                         }
+                    }
+               }
+          }
+
+          @include transitionAll(0.3s, 0.15s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+     }
+
+     // radio btn
+     .radioBtnWrap {
+          position: relative;
+
+          .radioBtn {
+               position: absolute;
+               right: 20px;
+               display: flex;
+               align-items: center;
+               color: $grey;
+               top: -45px;
+               @include mainfont-lg();
+
+               .icon {
+                    font-size: 43px;
+                    line-height: 0;
+                    width: 38px;
+               }
+
+               .text {
+                    .top {
+                         display: flex;
+                         align-items: center;
+                         text-transform: uppercase;
+
+                         img {
+                              margin: 0 0 0 3px;
+                         }
+                    }
+                    .bottom {
+                         text-align: center;
+                         text-transform: uppercase;
+                         margin: 5px 0 0 0;
+                    }
+               }
+          }
+
+          @include transitionAll(0.3s, 0.15s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+     }
+
+     // news content
+     .columnWrapper {
+          margin: 40px 0 0 0;
+          box-sizing: border-box;
+
+          @include transitionAll(0.3s, 0.15s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+
+          ngx-masonry {
+               margin: auto;
+          }
+          
+          .colItem {
+               // width: calc( 25% - 30px );
+               width: 320px;
+               margin: 15px;
+
+               $mainPadding: 20px;
+
+               .item {
+                    background: white;
+                    border: thin solid $lightGrey;
+                    border-radius: 4px;
+                    overflow: hidden;
+
+                    .imgWrap {
+                         width: 100%;
+
+                         img {
+                              width: 100%;
+                              height: auto;
+                         }
+                    }
+                    .textWrap {
+                         padding: $mainPadding;
+
+                         .top {
+                              h3 {
+                                   line-height: 1.3;
+                                   @include mainfont-rg();
+                                   font-size: 18px;
+                              }
+                         }
+                    }
+
+                    &.itemNews {
+                         .textWrap {
+                              .top {
+                                   h3 {
+                                        color: $newsColor;
+                                   }
+                              }
+                              .bottom {
+                                   color: $grey;
+                                   margin: 15px 0 0 0;
+                                   line-height: 1.3;
+
+                                   .ttl {
+                                        @include mainfont-bd();
+                                        margin: 0 0 5px 0;
+                                        font-size: 20px;
+                                   }
+                                   .body {
+                                        @include mainfont-rg();
+                                   }
+                              }
+                         }
+                    }
+
+                    &.itemEvent {
+                         .topWrap {
+                              padding: $mainPadding;
+                              display: flex;
+                              align-items: center;
+
+                              .date {
+                                   margin: 0 10px 0 0;
+                                   padding: 0 0 10px 0;
+                                   border-bottom: 3px solid $mainColor;
+                                   color: $grey;
+
+                                   .day {
+                                        @include mainfont-bd();
+                                        font-size: 30px;
+                                   }
+                                   .month {
+                                        text-transform: uppercase;
+                                        margin: 0px 0 0 0;
+                                        @include mainfont-rg();
+                                   }
+                              }
+
+                              .info {
+                                   color: $grey;
+                                   margin: 0 0 0 10px;
+
+                                   .top {
+                                        text-transform: uppercase;
+                                        font-size: 14px;
+                                        margin: 0 0 5px 0;
+                                   }
+                                   .bottom {
+                                        @include mainfont-bd();
+                                        font-size: 20px;
+                                   }
+                              }
+                         }
+                         .bottomWrap {
+                              padding: 0 $mainPadding $mainPadding $mainPadding;
+
+                              .dur, .place {
+                                   display: flex;
+
+                                   .icon {
+                                        margin: 0 8px 0 0;
+                                        font-size: 20px;
+                                        color: $blue2;
+                                   }
+                                   .txt {
+                                        color: $grey;
+                                        line-height: 1.4;
+                                   }
+                              }
+                              .dur{
+                                   align-items: center;
+                                   margin: 0 0 10px 0;
+
+                                   .icon {
+                                        color: $mainColor;
+                                   }
+                              }
+                         }
+                    }
+
+                    &.itemBlog {
+                         .textWrap {
+                              .top {
+                                   h3 {
+                                        color: $blogColor;
+                                   }
+                              }
+                              .bottom {
+                                   color: $grey;
+                                   margin: 15px 0 0 0;
+                                   line-height: 1.3;
+
+                                   .ttl {
+                                        @include mainfont-bd();
+                                        margin: 0 0 5px 0;
+                                        font-size: 20px;
+                                   }
+                                   .body {
+                                        @include mainfont-rg();
+                                   }
+                              }
+                         }
+
+                    }
+               }
+          }
+
+     }
+
+
+     // bottom btn
+     .bottomBtnWrap {
+          display: flex;
+          justify-content: center;
+          margin: 50px 0 0 0;
+
+          button {
+               color: $grey;
+               font-size: 14px;
+               background: $light;
+               border: thin solid $mainColor;
+               border-radius: 40px;
+               padding: 5px 35px;
+
+               span {
+                    text-transform: uppercase;
+               }
+
+               i {
+                    font-size: 28px;
+                    margin: 0 0 0 5px;
+               }
+          }
+     }
+
+}

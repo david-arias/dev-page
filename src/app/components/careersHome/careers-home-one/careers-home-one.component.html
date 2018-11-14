@@ -1,0 +1,121 @@
+
+<div class="careersWrapper">
+    <div class="container-fluid">
+      <div class="careerTtle"  data-emergence="hidden">
+        <h2>¡Elegí la carrera que se adapta <b>a tu ritmo de vida</b>!</h2>
+      </div>
+  
+      <div class="careerTabsBtn"  data-emergence="hidden">
+        <div class="btnTabItem btnTab-presencial active" (click)="changeSlide( 'presencial' )">
+          <button mat-button class="clear">Presencial</button>
+        </div>
+        <div class="btnTabItem btnTab-semiSede" (click)="changeSlide( 'semiSede' )">
+          <button mat-button class="clear">Semi - Presencial Sedes</button>
+        </div>
+        <div class="btnTabItem btnTab-semiCentro" (click)="changeSlide( 'semiCentro' )">
+          <button mat-button class="clear">Semi - Presencial Centros</button>
+        </div>
+        <div class="btnTabItem btnTab-virtual" (click)="changeSlide( 'virtual' )">
+          <button mat-button class="clear">Programas Online</button>
+        </div>
+      </div>
+  
+      <div class="careerTabsContent"  data-emergence="hidden">
+  
+        <div class="container-fluid" *ngIf="currSlide == 'presencial'">
+          <div class="slider animated fadeIn">
+            
+            <div class="colItem" *ngFor="let car of car_presencial">
+              <div class="carSingleItem">
+                <div class="topImg">
+                  <img src="assets/img/careers/{{car.img}}" alt="image">
+                </div>
+                <div class="name">{{car.name}}</div>
+                <div class="info">{{car.type}} | {{car.time}}</div>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="pager">
+            <div *ngFor="let pgr of car_presencial_pager" class="pagerItem pagerItem{{pgr}}" (click)="pgrSlide( pgr )">
+              {{pgr}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="container-fluid" *ngIf="currSlide == 'semiSede'">
+          <div class="slider animated fadeIn">
+            
+            <div class="colItem" *ngFor="let car of car_semiSede">
+              <div class="carSingleItem">
+                <div class="topImg">
+                  <img src="assets/img/careers/{{car.img}}" alt="image">
+                </div>
+                <div class="name">{{car.name}}</div>
+                <div class="info">{{car.type}} | {{car.time}}</div>
+              </div>
+            </div>
+  
+          </div>
+  
+          <div class="pager">
+            <div *ngFor="let pgr of car_semiSede_pager" class="pagerItem pagerItem{{pgr}}" (click)="pgrSlide( pgr )">
+              {{pgr}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="container-fluid" *ngIf="currSlide == 'semiCentro'">
+          <div class="slider animated fadeIn">
+            
+            <div class="colItem" *ngFor="let car of car_semiCentro">
+              <div class="carSingleItem">
+                <div class="topImg">
+                  <img src="assets/img/careers/{{car.img}}" alt="image">
+                </div>
+                <div class="name">{{car.name}}</div>
+                <div class="info">{{car.type}} | {{car.time}}</div>
+              </div>
+            </div>
+  
+          </div>
+          
+          <div class="pager">
+            <div *ngFor="let pgr of car_semiCentro_pager" class="pagerItem pagerItem{{pgr}}" (click)="pgrSlide( pgr )">
+              {{pgr}}
+            </div>
+          </div>
+  
+        </div>
+  
+        <div class="container-fluid" *ngIf="currSlide == 'virtual'">
+          <div class="slider animated fadeIn">
+            
+            <div class="colItem" *ngFor="let car of car_virtual">
+              <div class="carSingleItem">
+                <div class="topImg">
+                  <img src="assets/img/careers/{{car.img}}" alt="image">
+                </div>
+                <div class="name">{{car.name}}</div>
+                <div class="info">{{car.type}} | {{car.time}}</div>
+              </div>
+            </div>
+  
+          </div>
+          
+          <div class="pager">
+            <div *ngFor="let pgr of car_virtual_pager" class="pagerItem pagerItem{{pgr}}" (click)="pgrSlide( pgr )">
+              {{pgr}}
+            </div>
+          </div>
+  
+        </div>
+  
+  
+      </div>
+  
+    </div>
+  </div>

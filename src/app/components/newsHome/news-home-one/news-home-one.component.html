@@ -1,0 +1,161 @@
+
+<div class="newsWrapper">
+  <div class="newsTtl"  data-emergence="hidden">
+    <h2>Nos encanta estar <b>estar comunicados...</b></h2>
+  </div>
+
+  <div class="btnWrapper"  data-emergence="hidden">
+    <div class="btnWrap">
+      <div class="btnItem btnItem-all active" (click)="changeNewsTab('all')" >
+        <button mat-button class="clear">Todos</button>
+      </div>
+      <div class="btnItem btnItem-news" (click)="changeNewsTab('news')" >
+        <button mat-button class="clear">Noticias</button>
+      </div>
+      <div class="btnItem btnItem-events" (click)="changeNewsTab('event')" >
+        <button mat-button class="clear">Eventos</button>
+      </div>
+      <div class="btnItem btnItem-blog" (click)="changeNewsTab('blog')" >
+        <button mat-button class="clear">Blog</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="radioBtnWrap"  data-emergence="hidden">
+    <div class="radioBtn">
+      <div class="icon"><i class="icm icm-microPhone"></i></div>
+      <div class="text">
+        <div class="top">
+          <span>Radio</span>
+          <img src="assets/img/radioOnAir.jpg" alt="">
+        </div>
+        <div class="bottom">Campus 21</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="columnWrapper" data-emergence="hidden">
+    <div class="container-fluid">
+
+      <ngx-masonry [useImagesLoaded]="true" [options]="{ columnWidth: 350 }">
+        <div ngxMasonryItem class="colItem" *ngFor="let item of selItems">
+            <!-- news -->
+            <div *ngIf="item.type == 'news' " class="item itemNews">
+              <div class="imgWrap">
+                <img src="/assets/img/events/{{item.img}}" alt="">
+              </div>
+              <div class="textWrap">
+                <div class="top">
+                  <h3>{{item.topTtl}} | {{item.time | date:'dd MMM y'}}</h3>
+                </div>
+                <div class="bottom">
+                  <div class="ttl">{{item.mainTtl}}:</div>
+                  <div class="body">{{item.bodyTxt}}</div>
+                </div>
+              </div>
+            </div>
+            <!-- events -->
+            <div *ngIf="item.type == 'event' " class="item itemEvent">
+              <div class="topWrap">
+                <div class="date">
+                  <div class="day">{{item.time | date:'dd'}}</div>
+                  <div class="month">{{item.time | date:'MMM'}}</div>
+                </div>
+                <div class="info">
+                  <div class="top">{{item.topTtl}}</div>
+                  <div class="bottom">{{item.mainTtl}}</div>
+                </div>
+              </div>
+              <div class="bottomWrap">
+                <div class="dur">
+                  <div class="icon"><i class="icm icm-clock"></i></div>
+                  <div class="txt">{{item.duration}}</div>
+                </div>
+                <div class="place">
+                  <div class="icon"><i class="icm icm-map"></i></div>
+                  <div class="txt">{{item.place}}</div>
+                </div>
+              </div>
+            </div>
+            <!-- blog -->
+            <div *ngIf="item.type == 'blog' " class="item itemBlog">
+              <div class="imgWrap">
+                <img src="/assets/img/events/{{item.img}}" alt="">
+              </div>
+              <div class="textWrap">
+                <div class="top">
+                  <h3>{{item.topTtl}}</h3>
+                </div>
+                <div class="bottom">
+                  <div class="body">{{item.bodyTxt}}</div>
+                </div>
+              </div>
+            </div>
+        </div>
+      </ngx-masonry> 
+      
+      <!--div class="newsColumn">
+        <div class="colItem" *ngFor="let item of selItems">
+
+            <div *ngIf="item.type == 'news' " class="item itemNews">
+              <div class="imgWrap">
+                <img src="/assets/img/events/{{item.img}}" alt="">
+              </div>
+              <div class="textWrap">
+                <div class="top">
+                  <h3>{{item.topTtl}} | {{item.time | date:'dd MMM y'}}</h3>
+                </div>
+                <div class="bottom">
+                  <div class="ttl">{{item.mainTtl}}:</div>
+                  <div class="body">{{item.bodyTxt}}</div>
+                </div>
+              </div>
+            </div>
+    
+            <div *ngIf="item.type == 'event' " class="item itemEvent">
+              <div class="topWrap">
+                <div class="date">
+                  <div class="day">{{item.time | date:'dd'}}</div>
+                  <div class="month">{{item.time | date:'MMM'}}</div>
+                </div>
+                <div class="info">
+                  <div class="top">{{item.topTtl}}</div>
+                  <div class="bottom">{{item.mainTtl}}</div>
+                </div>
+              </div>
+              <div class="bottomWrap">
+                <div class="dur">
+                  <div class="icon"><i class="icm icm-clock"></i></div>
+                  <div class="txt">{{item.duration}}</div>
+                </div>
+                <div class="place">
+                  <div class="icon"><i class="icm icm-map"></i></div>
+                  <div class="txt">{{item.place}}</div>
+                </div>
+              </div>
+            </div>
+    
+            <div *ngIf="item.type == 'blog' " class="item itemBlog">
+              <div class="imgWrap">
+                <img src="/assets/img/events/{{item.img}}" alt="">
+              </div>
+              <div class="textWrap">
+                <div class="top">
+                  <h3>{{item.topTtl}}</h3>
+                </div>
+                <div class="bottom">
+                  <div class="body">{{item.bodyTxt}}</div>
+                </div>
+              </div>
+            </div>
+
+        </div>
+      </div -->
+    </div>
+  </div>
+
+  <div class="bottomBtnWrap">
+    <button mat-button>Ver más contenido</button>
+  </div>
+
+</div>

@@ -1,0 +1,155 @@
+/* --------------------------------
+
+ilumno-cms Web Font
+Generated using nucleoapp.com
+
+-------------------------------- */
+@import "variables";
+@import "mixins";
+
+@font-face {
+  font-family: 'ilumno-cms';
+  src: url('#{$icm-font-path}/ilumno-cms.eot');
+  src: url('#{$icm-font-path}/ilumno-cms.eot') format('embedded-opentype'),
+    url('#{$icm-font-path}/ilumno-cms.woff2') format('woff2'),
+    url('#{$icm-font-path}/ilumno-cms.woff') format('woff'),
+    url('#{$icm-font-path}/ilumno-cms.ttf') format('truetype'),
+    url('#{$icm-font-path}/ilumno-cms.svg') format('svg');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/*------------------------
+	base class definition
+-------------------------*/
+
+.icm {
+  display: inline-block;
+  font: normal normal normal 1em/1 'ilumno-cms';
+  speak: none;
+  text-transform: none;
+  /* Better Font Rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/*------------------------
+  change icon size
+-------------------------*/
+
+/* relative units */
+.icm-sm {
+  font-size: 0.8em;
+}
+.icm-lg {
+  font-size: 1.2em;
+}
+/* absolute units */
+.icm-16 {
+  font-size: 16px;
+}
+.icm-32 {
+  font-size: 32px;
+}
+
+/*----------------------------------
+  add a square/circle background
+-----------------------------------*/
+
+.icm-bg-square,
+.icm-bg-circle {
+  padding: 0.35em;
+  background-color: $icm-background-color;
+}
+
+.icm-bg-circle {
+  border-radius: 50%;
+}
+
+/*------------------------------------
+  use icons as list item markers
+-------------------------------------*/
+
+.icm-ul {
+  padding-left: 0;
+  list-style-type: none;
+
+  > li {
+    display: flex;
+    align-items: flex-start;
+    line-height: 1.4;
+  }
+
+  > li > .icm {
+    margin-right: $icm-li-margin-right;
+    line-height: inherit;
+  }
+}
+
+/*------------------------
+  spinning icons
+-------------------------*/
+
+.icm-is-spinning {
+  -webkit-animation: icm-spin 2s infinite linear;
+  -moz-animation: icm-spin 2s infinite linear;
+  animation: icm-spin 2s infinite linear;
+}
+
+@-webkit-keyframes icm-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+  }
+}
+@-moz-keyframes icm-spin {
+  0% {
+    -moz-transform: rotate(0deg);
+  }
+  100% {
+    -moz-transform: rotate(360deg);
+  }
+}
+@keyframes icm-spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    -moz-transform: rotate(0deg);
+    -ms-transform: rotate(0deg);
+    -o-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    -moz-transform: rotate(360deg);
+    -ms-transform: rotate(360deg);
+    -o-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+/*------------------------
+  rotated/flipped icons
+-------------------------*/
+
+.icm-rotate-90  {
+	@include icm-rotate(90deg, 1);
+}
+
+.icm-rotate-180 {
+	@include icm-rotate(180deg, 2);
+}
+
+.icm-rotate-270 {
+	@include icm-rotate(270deg, 3);
+}
+
+.icm-flip-y {
+	@include icm-flip(-1, 1, 0);
+}
+.icm-flip-x {
+	@include icm-flip(1, -1, 2);
+}
+
+@import "icons";

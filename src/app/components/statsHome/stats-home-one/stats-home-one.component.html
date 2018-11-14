@@ -1,0 +1,24 @@
+
+<div class="statsWrapper">
+  <div class="bgImg" [ngStyle]="{ 'background-image': 'url('+bgCampus+')' }"></div>
+
+  <div class="campusInfo">
+    <div class="ttl" data-emergence="hidden">
+      <h2>SIGLO 21, la Universidad provada<br><b>más elegida por los Argentinos</b></h2>
+    </div>
+
+    <div class="factsItms">
+      <div class="factsItm" *ngFor="let item of facts" data-emergence="hidden">
+        <div class="ico">
+          <i class="icm {{item.icon}}"></i>
+        </div>
+        <div class="top" [innerHtml]="item.mainStat"></div>
+        <div class="mid" [innerHtml]="item.bottomStat"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vidBtnWrap">
+    <button mat-button>Asi se ve La Siglo <i class="icm icm-playCirc"></i></button>
+  </div>
+</div>

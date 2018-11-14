@@ -1,0 +1,181 @@
+
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+.careersWrapper {
+
+     background: #f2f4f7;
+     padding: 100px 0;
+
+     .careerTtle {
+          padding: 0 0 50px 0;
+
+          h2 {
+               text-align: center;
+               font-size: 45px;
+               color: $titlesColor;
+
+               @include mainfont-lg();
+               
+               b {
+                    @include mainfont-bd();
+               }
+          }
+
+          @include transitionAll(0.3s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+     }
+
+     .careerTabsBtn {
+          display: flex;
+          justify-content: center;
+
+          @include transitionAll(0.3s, 0.15s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+
+          .btnTabItem {
+               border-bottom: 1px solid $lightGrey;
+               
+               button.mat-button {
+                    color: $dark; 
+                    font-size: 18px;
+                    padding: 0 30px;
+                    
+                    /deep/ span {
+                         @include mainfont-lg();
+                    }
+
+                    &.clear {
+                         background: transparent;
+                         
+                         &:hover, &:focus {
+                              background: transparent;
+
+                              .mat-button-focus-overlay {
+                                   opacity: 0;
+                              }
+                         }
+                    }
+               }
+               
+               &.active {
+                    border-bottom: 2px solid $mainColor;
+                    
+                    button.mat-button {
+                         color: $mainColor;
+                    }
+               }
+          }
+     }
+
+     .careerTabsContent {
+          margin: 60px 0 0 0;
+
+          /deep/ .bx-wrapper {
+               margin: 0 auto;
+          }
+
+          @include transitionAll(0.3s, 0.15s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+
+          .colItem {
+               padding: 0 15px;
+               
+               .carSingleItem {
+                    .topImg {
+                         overflow: hidden;
+                         position: relative;
+                         width: 320px;
+                         height: 220px;
+                         border-radius: 0px;
+                         border: thin solid #ccc;
+
+                         @include transitionAll( 0.3s );
+                         img {
+                              position: absolute;
+                              top: 50%;
+                              left: 50%;
+                              transform: translate(-50%, -50%) scale(1);
+                              width: 100%;
+                              height: auto;
+
+                              @include transitionAll( 0.3s );
+                         }
+                    }
+                    .name {
+                         color: $blue2;
+                         @include mainfont-rg();
+                         margin: 8px 0 5px 0;
+                    }
+                    
+                    .info {
+                         font-size: 14px;
+                         @include mainfont-rg();
+                         color: $grey;
+                    }
+
+                    &:hover {
+                         .topImg {
+                              border-radius: 10px;
+
+                              img {
+                                   transform: translate(-50%, -50%) scale(1.1);
+                              }
+                         }
+                    }
+               }
+          }
+
+          .pager {
+               display: flex;
+               justify-content: center;
+               margin: 40px 0 20px;
+
+               .pagerItem {
+                    margin: 0 7px;
+                    border: 1px solid $darkBlue;
+                    width: 10px;
+                    height: 10px;
+                    border-radius: 50%;
+                    font-size: 0;
+                    background: transparent;
+                    cursor: pointer;
+
+                    @include transitionAll( 0.3s );
+
+                    &.active {
+                         background: $darkBlue;;
+                    }
+               }
+          }
+     }
+
+}

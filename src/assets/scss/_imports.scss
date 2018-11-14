@@ -1,0 +1,65 @@
+//-------------------------------------------
+//    RESET STYLES
+//-------------------------------------------
+@import '/reset';
+
+
+//-------------------------------------------
+//    VARIBALES
+//-------------------------------------------
+@import '/vars';
+
+//-------------------------------------------
+//    Fonts STYLES
+//-------------------------------------------
+@import '/fonts';
+
+//-------------------------------------------
+//    MATERIAL STYLES
+//-------------------------------------------
+@import '/materialTheme';
+
+
+//-------------------------------------------
+//    INIT STYLES
+//-------------------------------------------
+/* reset Body */
+body {
+     @include mainfont-rg();
+     color: $blue;
+ 
+     -webkit-font-smoothing: antialiased;
+     -moz-osx-font-smoothing: grayscale;
+}
+
+/* reset Buttons */
+* button {
+     outline: none !important;
+
+     &:focus {
+          outline: none !important;
+     }
+
+     &.matBtn {
+          overflow: hidden;
+          position: relative;
+      
+          height: 40px;
+          border-radius: 6px;
+          padding: 0 15px;
+          font-size: 14px;
+
+          span.mat-button-wrapper {
+               display: flex;
+               align-items: center;
+          }
+     }
+}
+
+/* reset BxSlider */
+.bx-wrapper {
+     box-shadow: none;
+     border: none;
+     margin: 0;
+     background: none;
+ }

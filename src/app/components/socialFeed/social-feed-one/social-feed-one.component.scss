@@ -1,0 +1,41 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.socialFeedWrapper {
+     background: #f2f4f7;
+     padding: 100px 0;
+
+     .socialFeedTtl {
+          padding: 0 0 50px 0;
+
+          h2 {
+               text-align: center;
+               font-size: 40px;
+               color: $titlesColor;
+
+               @include mainfont-lg();
+               
+               b {
+                    @include mainfont-bd();
+               }
+          }
+
+          @include transitionAll(0.3s);
+          &[data-emergence=hidden] {
+               opacity: 0;
+               transform: translate(0, 100px)
+          }
+          &[data-emergence=visible] {
+               opacity: 1;
+               transform: translate(0, 0px)
+          }
+     }
+}
