@@ -156,8 +156,8 @@
           }
           
           .colItem {
-               // width: calc( 25% - 30px );
-               width: 320px;
+               width: calc( 25% - 30px );
+            //    width: 320px;
                margin: 15px;
 
                $mainPadding: 20px;

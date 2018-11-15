@@ -128,6 +128,12 @@ export class NewsHomeOneComponent implements OnInit {
 
   selItems:any = [];
 
+  masonryOpt:any = {
+    // columnWidth: 350
+    percentPosition: true,
+    columnWidth: '.colItem',
+  }
+
   constructor() {
     this.changeNewsTab( 'all' );
   }

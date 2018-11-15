@@ -11,80 +11,142 @@
 
 .leadFormWrap {
 
-     form {
-          display: flex;
-          flex-wrap: wrap;
-          justify-content: center;
-          margin: 0 auto;
-          // width: 100vw;
+      form {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin: 0 auto;
+            // width: 100vw;
 
-          .formItm {
-               width: calc(33% - 3%);
-               margin: 18px 0 0 0;
-               padding: 0 2%;
+            .formItm {
+                  width: calc(33% - 3%);
+                  margin: 18px 0 0 0;
+                  padding: 0 2%;
 
-               /deep/ .mat-form-field {
-                    width: 100%;
-                    
-                    .mat-form-field-infix {
-                         width: 100%;
-                         font-size: 18px;
-                         color: $dark;
-                    }
+                  /deep/ .mat-form-field {
+                        width: 100%;
+                        
+                        .mat-form-field-infix {
+                              width: 100%;
+                              font-size: 18px;
+                              color: $dark;
+                        }
 
-                    .mat-form-field-label {
-                         font-size: 18px;
-                         color: $mainColor;
-                    }
-               }
-           
-               button {
-                    background: $mainColor;
-                    border: thin solid white;
-                    color: white;
-                    text-transform: uppercase;
-                    width: 100%;
-               }
-          }
+                        .mat-form-field-label {
+                              font-size: 18px;
+                              color: $mainColor;
+                        }
+                  }
+            
+                  button {
+                        background: $mainColor;
+                        border: thin solid white;
+                        color: white;
+                        text-transform: uppercase;
+                        width: 100%;
+                  }
+            }
 
-          .formBottom {
-               width: calc(100% - 4%);
-               margin: 18px 0 18px 0;
-               padding: 0 4%;
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
+            .formBottom {
+                  width: calc(100% - 4%);
+                  margin: 18px 0 18px 0;
+                  padding: 0 4%;
+                  display: flex;
+                  justify-content: space-between;
+                  align-items: center;
 
-               .legalcheck {
-                    color: $dark;
+                  .legalcheck {
+                        color: $dark;
 
-                    /deep/ .mat-checkbox-inner-container {
-                         height: 18px;
-                         width: 18px;
+                        /deep/ .mat-checkbox-inner-container {
+                              height: 18px;
+                              width: 18px;
 
-                         .mat-checkbox-frame {
-                              border-width: 1px;
-                         }
+                              .mat-checkbox-frame {
+                                    border-width: 1px;
+                              }
 
-                    }
-                    /deep/ .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
-                         background-color: $mainColor;
-                    }
-                    /deep/ .mat-checkbox-checked.mat-accent .mat-checkbox-background {
-                         background-color: $mainColor;
-                    }
-               }
+                        }
+                        /deep/ .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+                              background-color: $mainColor;
+                        }
+                        /deep/ .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+                              background-color: $mainColor;
+                        }
+                  }
 
 
-               .sendButton {
-                    button {
-                         background: $mainColor;
-                         border: thin solid white;
-                         color: white;
-                         text-transform: uppercase;
-                         width: 100%;
-                    }
-               }
-          }
-     }
+                  .sendButton {
+                        button {
+                              background: $mainColor;
+                              border: thin solid white;
+                              color: white;
+                              text-transform: uppercase;
+                              width: 100%;
+                        }
+                  }
+            }
+      }
+
+      &.dark {
+            form {
+      
+                  .formItm {
+      
+                        /deep/ .mat-form-field {                              
+                              .mat-form-field-infix {
+                                    color: $light;
+                              }
+
+                              .mat-select-value-text {
+                                    color: $light;
+                              }
+      
+                              .mat-form-field-label {
+                                    color: $light;
+                              }
+
+                              .mat-form-field-underline {
+                                    background-color: rgba(255, 255, 255, 1);
+                              }
+                              .mat-select-arrow {
+                                    color: rgba(255, 255, 255, 1);
+                              }
+                        }
+                  
+                        button {
+                              background: $mainColor;
+                              border: thin solid $light;
+                              color: $light;
+                        }
+                  }
+      
+                  .formBottom {
+      
+                        .legalcheck {
+                              color: $light;
+
+                              /deep/ .mat-checkbox:not(.mat-checkbox-disabled).mat-accent .mat-checkbox-ripple .mat-ripple-element {
+                                    background-color: $mainColor;
+                              }
+                              /deep/ .mat-checkbox-checked.mat-accent .mat-checkbox-background {
+                                    background-color: $mainColor;
+                              }
+
+                              /deep/ .mat-checkbox-frame {
+                                    border-color: rgba(255, 255, 255, 0.54);
+                              }
+                        }
+      
+      
+                        .sendButton {
+                              button {
+                                    background: $mainColor;
+                                    border: none;
+                                    color: white;
+                              }
+                        }
+                  }
+            }
+      }
 }

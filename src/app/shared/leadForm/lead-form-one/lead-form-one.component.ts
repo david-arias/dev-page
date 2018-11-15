@@ -7,18 +7,18 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LeadFormOneComponent implements OnInit {
 
-  @Input() styleForm: string = "";
+  @Input('styleForm') formTheme: string = "light";
 
   typeSel:string = "";
   careerSel:string = "";
   modSel:string = "";
 
   constructor() {
-    console.log( this.styleForm );
-    
   }
-
+  
+  
   ngOnInit() {
+    console.log( this.formTheme );
   }
 
 }

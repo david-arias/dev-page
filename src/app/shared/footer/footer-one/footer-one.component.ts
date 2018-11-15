@@ -109,6 +109,7 @@ export class FooterOneComponent implements OnInit {
     }
   ]
 
+  formStyle:string = "dark";
   constructor() { }
 
   ngOnInit() {

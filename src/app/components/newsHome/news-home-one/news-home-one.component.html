@@ -37,7 +37,7 @@
   <div class="columnWrapper" data-emergence="hidden">
     <div class="container-fluid">
 
-      <ngx-masonry [useImagesLoaded]="true" [options]="{ columnWidth: 350 }">
+      <ngx-masonry [useImagesLoaded]="true" [options]=" masonryOpt ">
         <div ngxMasonryItem class="colItem" *ngFor="let item of selItems">
             <!-- news -->
             <div *ngIf="item.type == 'news' " class="item itemNews">
