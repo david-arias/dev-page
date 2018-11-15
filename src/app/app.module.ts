@@ -43,6 +43,7 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AlliancesOneComponent } from './components/alliances/alliances-one/alliances-one.component';
 import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.component';
 import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
+import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-one.component';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { FooterOneComponent } from './shared/footer/footer-one/footer-one.compon
     TestimonialOneComponent,
     AlliancesOneComponent,
     TopNavOneComponent,
-    FooterOneComponent
+    FooterOneComponent,
+    LeadFormOneComponent
   ],
   imports: [
     BrowserModule,

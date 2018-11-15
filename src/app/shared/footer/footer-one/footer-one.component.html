@@ -1,8 +1,20 @@
 
 <div class="footerWrapper">
 
-  <div class="formWrap">
-    formWrap
+  <div class="leadFormMain">
+    <div class="leadFormCont">
+
+      <div class="ttl">
+        <h2>
+          Estudiá en Siglo 21, completa el formulario y recibí información sobre tu carrera
+        </h2>
+      </div>
+      <div class="formWrapper">
+          <app-lead-form-one></app-lead-form-one>
+      </div>
+
+    </div>
+
   </div>
 
   <div class="footMenuWrap">
@@ -28,5 +40,40 @@
         </div>
       </div>
     </div>
+
+    <div class="footSocial">
+      <div class="lft">
+        <div class="logo">
+          <img src="assets/img/bttmLogo.png" alt="logo Siglo 21">
+        </div>
+        <div class="tel">
+          <a href="">
+            <i class="icm icm-phone"></i>
+            <span>Línea única 0810-555-0202</span>
+          </a>
+        </div>
+      </div>
+      <div class="rgt">
+        <div class="socailLinks">
+          <div class="label">Seguínos</div>
+
+          <div class="items">
+            <div class="itm" *ngFor="let social of footerSocial">
+              <a href="{{social.link}}">
+                <i class="icm {{social.icon}}"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </div>
+  
+  <div class="footBttm">
+    <p>
+        &copy; Copyright 2019 - Universidad Siglo 21. Todos los derechos reservados.  Consulte la política de privacidad y términos y condiciones de uso
+    </p>
+  </div>
+
 </div>

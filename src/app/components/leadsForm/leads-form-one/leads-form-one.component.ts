@@ -9,10 +9,6 @@ declare var emergence:any;
 })
 export class LeadsFormOneComponent implements OnInit {
 
-  typeSel:string = "";
-  careerSel:string = "";
-  modSel:string = "";
-
   constructor() { }
 
   ngOnInit() {

@@ -77,6 +77,38 @@ export class FooterOneComponent implements OnInit {
     }
   ]
 
+  footerSocial:any = [
+    {
+      label: "Facebook",
+      icon: "icm-socialFb",
+      link: "#"
+    }, {
+      label: "Twitter",
+      icon: "icm-socialTw",
+      link: "#"
+    }, {
+      label: "Youtube",
+      icon: "icm-socialYt",
+      link: "#"
+    }, {
+      label: "Instagram",
+      icon: "icm-socialIn",
+      link: "#"
+    }, {
+      label: "Google Plus",
+      icon: "icm-socialGp",
+      link: "#"
+    }, {
+      label: "LinkedIn",
+      icon: "icm-socialLi",
+      link: "#"
+    }, {
+      label: "Pinterest",
+      icon: "icm-socialPn",
+      link: "#"
+    }
+  ]
+
   constructor() { }
 
   ngOnInit() {

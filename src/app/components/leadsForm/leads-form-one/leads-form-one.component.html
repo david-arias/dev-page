@@ -5,68 +5,10 @@
       <h2>Completá el formulario y recibí información sobre tu carrera</h2>
     </div>
 
-    <div class="formWrap" data-emergence="hidden">
-      <form action="">
+    <div class="formWrapper" data-emergence="hidden">
 
-        <div class="formItm">
-          <mat-form-field>
-            <mat-select [(value)]="typeSel" placeholder="Tipo de estudio">
-              <mat-option value="1">Tipo #1</mat-option>
-              <mat-option value="2">Tipo #2</mat-option>
-              <mat-option value="3">Tipo #3</mat-option>
-              <mat-option value="4">Tipo #4</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="formItm">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Nombres y apellidos">
-          </mat-form-field>
-        </div>
-
-        <div class="formItm">
-          <mat-form-field>
-            <mat-select [(value)]="careerSel" placeholder="Carrera">
-              <mat-option value="1">Carrera #1</mat-option>
-              <mat-option value="2">Carrera #2</mat-option>
-              <mat-option value="3">Carrera #3</mat-option>
-              <mat-option value="4">Carrera #4</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="formItm">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="E-mail" type="email">
-          </mat-form-field>
-        </div>
-
-        <div class="formItm">
-          <mat-form-field>
-            <mat-select [(value)]="modSel" placeholder="Modalidad">
-              <mat-option value="1">Modalidad #1</mat-option>
-              <mat-option value="2">Modalidad #2</mat-option>
-            </mat-select>
-          </mat-form-field>
-        </div>
-
-        <div class="formItm">
-          <mat-form-field class="example-full-width">
-            <input matInput placeholder="Celular" type="number">
-          </mat-form-field>
-        </div>
-
-        <div class="formBottom">
-          <div class="legalcheck">
-            <mat-checkbox>Acepto los términos y condiciones sobre la política de datos personales</mat-checkbox>
-          </div>
-          <div class="sendButton">
-            <button mat-button type="submit">Solicitar información</button>
-          </div>
-        </div>
-
-      </form>
+      <app-lead-form-one></app-lead-form-one>
+      
     </div>
   </div>
 </div>
