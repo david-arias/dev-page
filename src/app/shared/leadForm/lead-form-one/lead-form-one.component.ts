@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-lead-form-one',
@@ -7,11 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LeadFormOneComponent implements OnInit {
 
+  @Input() styleForm: string = "";
+
   typeSel:string = "";
   careerSel:string = "";
   modSel:string = "";
 
-  constructor() { }
+  constructor() {
+    console.log( this.styleForm );
+    
+  }
 
   ngOnInit() {
   }
