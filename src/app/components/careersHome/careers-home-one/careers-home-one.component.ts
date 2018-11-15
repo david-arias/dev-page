@@ -8,7 +8,7 @@ declare var emergence:any;
   templateUrl: './careers-home-one.component.html',
   styleUrls: ['./careers-home-one.component.scss']
 })
-export class CareersHomeOneComponent implements OnInit {
+export class CareersHomeOneComponent implements OnInit, AfterViewInit {
 
   careers:any = [
     {

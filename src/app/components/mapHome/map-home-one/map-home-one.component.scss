@@ -215,8 +215,14 @@
      }
 }
 
+/deep/ .mat-autocomplete-panel {
+     padding: 10px 0;
+}
+
 /deep/ .mat-option {
      height: 130px !important;
+     border: thin solid #ccc;
+     margin: 0 10px;
 
      .autoCont {
           @extend %autoCompleteContent;

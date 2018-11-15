@@ -1,0 +1,60 @@
+
+
+<div class="testimonialWrapper">
+
+    <div class="topTtl">
+      <div class="ttl">
+        <h1>¡<b>Mamá</b> la estoy rompiendo!</h1>
+      </div>
+      <div class="text">
+        <div class="txt">
+          ¡Estos son algunos de nuestros <b>Egresados que están triunfando!</b>
+        </div>
+        <button mat-button class="matBtn fill">Sumate a ellos</button>
+      </div>
+    </div>
+  
+    <div class="sliderHallWrapper">
+      <div class="ttl">
+        <h3>Hall de la fama</h3>
+      </div>
+  
+      <div class="sliderHall">
+        <div class="prevArrow">
+          <button mat-button (click)="chngSlider( 'next' )">
+            <i class="icm icm-lftBnnrArrow"></i>
+          </button>
+        </div>
+        <div class="sliderHallCont">
+          <div class="slider-testimonial">
+            <div class="sliderItem-testimonial" *ngFor="let t of testimonialItems">
+              <div class="contentItemTEstimonial">
+                <div class="top">
+                  <div class="avatar">
+                    <img src="assets/img/testimonial/{{t.photo}}" alt="">
+                  </div>
+                  <div class="info">
+                    <div class="name">{{t.name}}</div>
+                    <div class="pos">{{t.position}}</div>
+                  </div>
+                </div>
+                <div class="bottom">
+                  <p>{{t.text}}</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="nextArrow">
+          <button mat-button (click)="chngSlider( 'prev' )">
+            <i class="icm icm-rgtBnnrArrow"></i>
+          </button>
+        </div>
+      </div>
+
+      <div class="sliderPager">
+        <div *ngFor="let p of slider_pager; let i = index" (click)="pagerBtn(i)" class="pagerBtn_testi pagerBtn_testi-{{i}}">{{i}}</div>
+      </div>
+    </div>
+  
+  </div>

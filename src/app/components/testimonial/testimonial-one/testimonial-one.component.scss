@@ -1,0 +1,207 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.testimonialWrapper {
+     width: 100vw;
+     height: calc( 100vh + 180px ) ;
+     padding: 150px 0;
+
+     background: #772583;
+     background: -moz-linear-gradient(-45deg, #772583 0%, #005587 100%);
+     background: -webkit-linear-gradient(-45deg, #772583 0%,#005587 100%);
+     background: linear-gradient(135deg, #772583 0%,#005587 100%);
+
+     .topTtl {
+          display: flex;
+          align-items: center;
+          padding: 0  100px;
+
+          .ttl {
+               width: 50vw;
+
+               border-right-width: 1px;
+               border-right-style:  solid;
+               
+               border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255,255,255,1), rgba(255, 255, 255, 0)) 1 100%;
+    
+               h1 {
+                    color: $light;
+                    @include mainfont-th();
+                    font-size: 75px;
+                    width: 560px;
+
+                    b {
+                         @include mainfont-bd();
+                    }
+               }
+          }
+
+          .text {
+               color: $light;
+               padding: 0 0 0 60px;
+
+               .txt {
+                    @include mainfont-rg();
+                    line-height: 1.4;
+                    
+                    b {
+                         @include mainfont-bd();
+                         display: block;
+                    }
+               }
+
+               button {
+                    margin: 20px 0 0 0;
+
+                    &.matBtn {
+                         padding: 0 25px;
+                    }
+
+                    .mat-button-wrapper {
+                         display: flex;
+                         align-items: center;
+                    }
+
+                    i {
+                         margin: 0 0 0 10px;
+                         font-size: 22px;
+                    }
+
+                    &.fill {
+                         background: $mainColor;
+                         border: thin solid white;
+                         color: white;
+                         text-transform: uppercase;
+                    }
+               }
+
+          }
+     }
+
+     .sliderHallWrapper {
+
+          overflow: hidden;
+
+          .ttl {
+               margin: 130px 0 40px 0;
+
+               h3 {
+                    color: $light;
+                    text-align: center;
+                    text-transform: uppercase;
+                    font-size: 20px;
+               }
+          }
+
+          .sliderHall {
+               display: flex;
+               align-items: center;
+               flex-wrap: wrap;
+               margin: 0 0 70px 0;
+
+               .prevArrow, .nextArrow {
+                    flex-basis: 15%;
+                    display: flex;
+                    justify-content: center;
+
+                    button {
+                         color: $light;
+                         font-size: 30px;
+                         width: 60px;
+                         height: 60px;
+                    }
+               }
+
+               .sliderHallCont {
+                    flex-basis: 70%;
+
+                    /deep/ .bx-wrapper {
+                         max-width: 100% !important;
+
+                         .bx-viewport {
+                              overflow: visible !important;
+                         }
+                    }
+
+                    .slider-testimonial {
+                         .sliderItem-testimonial {
+                              margin: 15px;
+                              background: white;
+                              padding: 30px 40px;
+
+                              height: 290px;
+                              display: flex;
+                              align-items: flex-start;
+
+                              .contentItemTEstimonial {
+                                   .top {
+                                        display: flex;
+                                        align-items: center;
+                                        margin: 0 0 30px 0;
+
+                                        .avatar {
+                                             width: 80px;
+                                             height: 80px;
+                                             border-radius: 50%;
+                                             overflow: hidden;
+                                        }
+
+                                        .info {
+                                             padding: 0 0 0 20px;
+
+                                             .name {
+                                                  color: $dark;
+                                                  @include mainfont-bd();
+                                                  margin: 0 0 5px 0;
+                                             }
+                                             .pos {
+                                                  color: $mainColor;
+                                                  @include mainfont-rg();
+                                                  font-size: 15px;
+                                             }
+                                        }
+                                   }
+
+                                   .bottom {
+                                        color: $grey;
+                                        line-height: 1.4;
+                                   }
+                              }
+                         }
+                    }
+               }
+               
+          }
+
+          .sliderPager {
+               display: flex;
+               align-items: center;
+               justify-content: center;
+
+               .pagerBtn_testi {
+                    font-size: 0;
+                    width: 12px;
+                    height: 12px;
+                    border-radius: 10px;
+                    border: 2px solid white;
+                    margin: 0 7px 0 7px;
+                    cursor: pointer;
+                    
+                    @include transitionAll( 0.3s );
+                    
+                    &.active {
+                         background: white;
+                         border: 2px solid white;
+                    }
+               }
+          }
+     }
+}

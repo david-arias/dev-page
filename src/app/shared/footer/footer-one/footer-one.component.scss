@@ -1,0 +1,38 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.footerWrapper {
+     background: white;
+
+
+     .footMenuWrap {
+          background: $mainColor;
+
+          .footLinksWrap {
+               display: flex;
+               justify-content: center;
+               padding: 80px 0px;
+
+               .mainLink {
+                    text-transform: uppercase;
+                    margin: 0 0 10px 0;
+
+                    a {
+                         color: white;
+
+                         &:hover {
+                              text-decoration: none;
+                         }
+                    }
+               }
+          }
+     }
+}

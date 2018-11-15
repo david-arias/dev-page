@@ -43,7 +43,6 @@ $prefixes: "webkit", "moz", "ms", "o", "none";
 
 
 // TRANSITION ALL MIXIN 
-$prefixes: "webkit", "moz", "ms", "o", "none";
 @mixin transitionAll ( $secs, $delay:0s ) {
      -webkit-transition: all $secs ease-in-out $delay;
      -moz-transition: all $secs ease-in-out $delay;

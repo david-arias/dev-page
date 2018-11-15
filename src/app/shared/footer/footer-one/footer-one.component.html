@@ -1,0 +1,32 @@
+
+<div class="footerWrapper">
+
+  <div class="formWrap">
+    formWrap
+  </div>
+
+  <div class="footMenuWrap">
+    <div class="footLinksWrap">
+      <div class="container">
+        <div class="row">
+          <div class="col-3" *ngFor="let footLink of footerLinks">
+            <div class="mainLink">
+              <a href="{{footLink.link}}">
+                {{footLink.label}}
+              </a>
+            </div>
+            <div class="subLink">
+              <ul>
+                <li *ngFor="let subLink of footLink.children">
+                    <a href="{{subLink.link}}">
+                      {{subLink.label}}
+                    </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

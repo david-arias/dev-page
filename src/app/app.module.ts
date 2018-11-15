@@ -7,10 +7,8 @@ import { AppComponent } from './app.component';
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 
 
-
 // Pages
 import { HomeComponent } from './pages/home/home.component';
-
 
 
 // components
@@ -24,8 +22,14 @@ import { StatsHomeOneComponent } from './components/statsHome/stats-home-one/sta
 
 import { NewsHomeOneComponent } from './components/newsHome/news-home-one/news-home-one.component';
 
-
 import { MapHomeOneComponent } from './components/mapHome/map-home-one/map-home-one.component';
+
+import { RegularBannerOneComponent } from './components/regularBanner/regular-banner-one/regular-banner-one.component';
+
+import { SocialFeedOneComponent } from './components/socialFeed/social-feed-one/social-feed-one.component';
+
+import { TestimonialOneComponent } from './components/testimonial/testimonial-one/testimonial-one.component';
+
 
 // material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -36,9 +40,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
 
 // leaflet
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { RegularBannerOneComponent } from './components/regularBanner/regular-banner-one/regular-banner-one.component';
-import { SocialFeedOneComponent } from './components/socialFeed/social-feed-one/social-feed-one.component';
-import { WallFameOneComponent } from './components/wallFame/wall-fame-one/wall-fame-one.component';
+import { AlliancesOneComponent } from './components/alliances/alliances-one/alliances-one.component';
+import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.component';
+import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
 
 @NgModule({
   declarations: [
@@ -52,7 +56,10 @@ import { WallFameOneComponent } from './components/wallFame/wall-fame-one/wall-f
     MapHomeOneComponent,
     RegularBannerOneComponent,
     SocialFeedOneComponent,
-    WallFameOneComponent
+    TestimonialOneComponent,
+    AlliancesOneComponent,
+    TopNavOneComponent,
+    FooterOneComponent
   ],
   imports: [
     BrowserModule,
