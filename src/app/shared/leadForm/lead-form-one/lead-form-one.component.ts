@@ -18,7 +18,7 @@ export class LeadFormOneComponent implements OnInit {
   
   
   ngOnInit() {
-    console.log( this.formTheme );
+    // console.log( this.formTheme );
   }
 
 }

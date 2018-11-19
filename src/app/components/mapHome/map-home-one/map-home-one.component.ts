@@ -24,7 +24,7 @@ export class MapHomeOneComponent implements OnInit {
   zoom:number = 10;
   
   latCenter:number = this.lat; 
-  lngCenter:number = this.lng - 0.4;
+  lngCenter:number = this.lng - 1.3;
 
   mapOptions = {
     layers: [

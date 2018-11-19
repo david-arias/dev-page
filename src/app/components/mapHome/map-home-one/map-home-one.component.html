@@ -1,13 +1,24 @@
 
 <div class="mapWrapper">
   <div class="mapContent">
-    <div id="mapWrap"
+    <!-- leaflet -->
+    <!-- <div id="mapWrap"
       leaflet
       [leafletOptions]="mapOptions"
       [(leafletCenter)]="mapCenter"
       [(leafletZoom)]="mapZoom"
       [leafletLayers]="mapLayers">
-    </div>
+    </div> -->
+
+    <!-- google maps -->
+    <agm-map [latitude]="latCenter" [longitude]="lngCenter" [scrollwheel]="false">
+      <agm-marker
+        [latitude]="lat"
+        [longitude]="lng"
+        [iconUrl]="assets/img/map/mapCenter.png">
+      </agm-marker>
+
+    </agm-map>
   </div>
 
   <div class="mapBoxWrap">

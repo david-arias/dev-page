@@ -171,7 +171,7 @@
                          animation-delay: 0s;
                     }
                     .ttl {
-                         @include mainfont-bd();
+                         @include mainfont-bk();
                          color: white;
                          font-size: 100px;
                          margin: 10px 0 20px;
@@ -251,10 +251,11 @@
                               color: $blue2;
                          }
                          .ttl {
-                              @include prefix( text-shadow, (0px 0px 20px rgba(0,0,0,1)) );
+                              @include prefix( text-shadow, (0px 0px 20px rgba(2,54,74,1)) );
                          }
                          .body {
-                              @include prefix( text-shadow, (0px 0px 20px rgba(0,0,0,1), 0px 0px 20px rgba(0,0,0,1)));
+                              @include prefix( text-shadow, (0px 0px 10px rgba(2,54,74,1), 0px 0px 30px rgba(2,54,74,0.75) , 0px 0px 40px rgba(2,54,74,0.5) ));
+                              // @include prefix( text-shadow, (0px 0px 20px rgba(2,54,74,1), 0px 0px 20px rgba(0,0,0,1)));
                          }
                     }
                }

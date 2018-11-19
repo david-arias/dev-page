@@ -30,6 +30,13 @@ import { SocialFeedOneComponent } from './components/socialFeed/social-feed-one/
 
 import { TestimonialOneComponent } from './components/testimonial/testimonial-one/testimonial-one.component';
 
+import { AlliancesOneComponent } from './components/alliances/alliances-one/alliances-one.component';
+
+// shared
+import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.component';
+import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
+import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-one.component';
+
 
 // material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -40,10 +47,9 @@ import { NgxMasonryModule } from 'ngx-masonry';
 
 // leaflet
 import { LeafletModule } from '@asymmetrik/ngx-leaflet';
-import { AlliancesOneComponent } from './components/alliances/alliances-one/alliances-one.component';
-import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.component';
-import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
-import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-one.component';
+
+// angular maps
+import { AgmCoreModule } from '@agm/core';
 
 @NgModule({
   declarations: [
@@ -75,7 +81,12 @@ import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-
     MatButtonModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatAutocompleteModule, MatFormFieldModule,
 
     NgxMasonryModule,
-    LeafletModule.forRoot()
+
+    LeafletModule.forRoot(),
+
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyAwk55I036JjTDglOx-u7nh6aU9CziPwxU'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

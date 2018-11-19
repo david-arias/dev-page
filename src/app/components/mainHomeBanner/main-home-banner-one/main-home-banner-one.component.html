@@ -4,7 +4,7 @@
 
   <!-- /* image slider Wrap */ -->
   <div class="sliderWrap" (mousedown)="sliderChangeMouseDown()" (window:scroll)="bnnrScroll($event)">
-    <div id="mainBnnrSlider" class="mainBnnrSlider carousel slide" data-interval="10000" data-ride="carousel">
+    <div id="mainBnnrSlider" class="mainBnnrSlider carousel slide" data-interval="15000" data-ride="carousel">
       <div class="carousel-inner">
         <div *ngFor="let bnnrItm of sliderContent; let i = index" class="carousel-item carItm{{i}}">
           <!-- mouseParallax -->

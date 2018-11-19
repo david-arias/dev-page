@@ -1,0 +1,579 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.mainTopBar {
+     position: fixed;
+     top: 0;
+     z-index: 100;
+
+     $navHeight: 75px;
+
+     .topbar {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          width: 100vw;
+          height: $navHeight;
+          padding: 0 15px;
+          background: transparent;
+
+          @include transitionAll( 0.5s );
+
+          .lft {
+               display: flex;
+               align-items: center;
+
+               .menuBtn {
+                    margin: 0 20px 0 0;
+                    display: none;
+
+                    button {
+                         border: thin solid white;
+                         padding: 0;
+                         width: 40px;
+                         min-width: 40px;
+                         height: 40px;
+                         display: flex;
+                         align-items: center;
+                         justify-content: center;
+
+                         span {
+                              font-size: 0;
+                              width: 25px;
+                              height: 3px;
+                              background: white;
+                              display: block;
+                              position: relative;
+                              
+                              &:before {
+                                   content: "";
+                                   width: 25px;
+                                   height: 3px;
+                                   background: white;
+                                   display: block;
+                                   position: absolute;
+                                   top: -7px;
+                              }
+                              &:after {
+                                   content: "";
+                                   width: 25px;
+                                   height: 3px;
+                                   background: white;
+                                   display: block;
+                                   position: absolute;
+                                   top: 7px;
+                              }
+                         }
+                    }
+               }
+
+               .mainLogo {
+                    .logoWht {
+                         display: block;
+                    }
+                    .logoColor {
+                         display: none;
+                    }
+               }
+
+               .menuItems {
+                    margin: 0 0 0 20px;
+
+                    ul {
+                         display: flex;
+                         align-items: center;
+
+                         li {
+                              margin: 0 20px;
+                              
+                              a.mainLink {
+                                   display: flex;
+                                   height: $navHeight;
+                                   align-items: center;
+
+                                   text-decoration: none;
+                                   color: white;
+                                   text-transform: uppercase;
+                                   position: relative;
+                                   z-index: 100;
+
+                                   &:after {
+                                        content: "";
+                                        position: absolute;
+                                        width: 0;
+                                        height: 0;
+                                        border-top: 10px solid transparent;
+                                        border-left: 10px solid transparent;
+                                        border-right: 10px solid transparent;
+                                        border-bottom: 10px solid white;
+                                        bottom: 0px;
+                                        left: 50%;
+                                        transform: translate(-50%,0);
+                                        opacity: 0;
+                                        pointer-events: none;
+
+                                        @include transitionAll( 0.5s );
+                                   }
+                              }
+
+                              .menuLayer {
+
+                                   .layer {
+                                        position: fixed;
+                                        width: 100vw;
+                                        height: 0;
+                                        background: white;
+                                        // top: -100%;
+                                        top: calc( 0% + #{$navHeight});
+                                        opacity: 0;
+                                        left: 0;
+                                        z-index: 50;
+                                        overflow: hidden;
+
+                                        @include prefix( transition, all 0.5s cubic-bezier(0.835, -0.005, 0.06, 1) ) ;
+
+                                        .layerContent {
+                                             display: flex;
+                                             justify-content: center;
+                                             padding: 80px;
+
+                                             %menuItmsStyle {
+                                                  ul {
+                                                       display: block;
+
+                                                       li {
+                                                            display: block;
+                                                            margin: 0;
+                                                            
+                                                            a {
+                                                                 color: $grey;
+                                                                 margin: 0 0 20px 0;
+                                                                 display: block;
+                                                                 font-size: 15px;
+                                                                 padding: 0 15px 0 0;
+                                                                 line-height: 1.4;
+                                                                 text-decoration: none;
+
+                                                                 &.main {
+                                                                      text-transform: uppercase;
+                                                                      color: $mainColor;
+                                                                      @include mainfont-bd();
+                                                                 }
+
+                                                                 &:hover {
+                                                                      color: $mainColor;
+                                                                 }
+
+                                                            }
+                                                       }
+                                                  }
+                                             }
+
+                                             .topLinks {
+                                                  margin: 0 0 50px 0;
+                                                  @extend %menuItmsStyle;
+                                             }
+                                             .midItems {
+                                                  @extend %menuItmsStyle;
+                                             }
+
+                                             .menuFormWrap {
+                                                  border: thin solid #ccc;
+                                                  padding: 15px 15px 35px 15px;
+
+                                                  .formTop {
+                                                       p {
+                                                            color: $purple;
+                                                            @include mainfont-bd();
+                                                            text-align: center;
+                                                            text-transform: uppercase;
+
+                                                            font-size: 14px;
+                                                            margin: 0 0 10px 0;
+                                                            letter-spacing: 8px;
+                                                       }
+                                                  }
+                                                  .formMid {
+                                                       text-align: center;
+
+                                                       .number {
+                                                            display: flex;
+                                                            align-items: center;
+                                                            justify-content: center;
+
+                                                            .num {
+                                                                 color: $blue2;
+                                                                 @include mainfont-bd();
+                                                                 font-size: 40px;
+                                                                 font-size: 70px;
+                                                                 margin: 0 10px 0 0;
+                                                                 line-height: 0.8;
+                                                            }
+                                                            
+                                                            .mon {
+                                                                 color: $blue2;
+                                                                 font-size: 18px;
+                                                                 @include mainfont-bd();
+                                                                 text-transform: uppercase;
+                                                            }
+                                                       }
+                                                       .ttl {
+                                                            color: $blue2;
+                                                            text-transform: uppercase;
+                                                            font-size: 26px;
+                                                       }
+                                                       .txt {
+                                                            color: $grey;
+                                                            margin: 15px 0 10px 0;
+                                                       }
+                                                  }
+                                             }
+
+                                             .arrowClose {
+                                                  position: absolute;
+                                                  bottom: 40px;
+                                                  transform: rotate(-90deg);
+
+                                                  i {
+                                                       font-size: 20px;
+                                                       color: $mainColor;
+                                                  }
+                                             }
+
+                                        }
+
+                                        &.closing {
+                                             height: 0;
+                                             pointer-events: none;
+                                        }
+
+                                   }
+                              }
+
+                              &:hover {
+                                   a.mainLink {
+                                        color: $mainColor;
+
+                                        &:after {
+                                             opacity: 1;
+                                        }
+                                   }
+
+                                   .menuLayer {
+                                        .layer {
+                                             // top: calc( 0% + #{$navHeight});
+                                             height: calc(100vh - #{$navHeight});
+                                             opacity: 1;
+                                        }
+                                   }
+                              }
+
+                         }
+                    }
+               }
+          }
+          .rgt {
+               display: flex;
+               align-items: center;
+               
+               .sideBtns {
+                    margin: 0 30px 0 0;
+                    ul {
+                         display: flex;
+                         align-items: center;
+
+                         li {
+                              &.searchIcon {
+                                   display: flex;
+                                   align-items: center;
+
+                                   .searchBtn {
+                                        font-size: 20px;
+
+                                        @include transitionAll( 0.3s );
+                                   }
+
+                                   .closeSearch {
+                                        display: none;
+                                        align-items: center;
+                                        justify-content: center;
+                                        height: 40px;
+
+                                        @include transitionAll( 0.3s );
+
+                                        span {
+                                             font-size: 0;
+                                             position: relative;
+                                             width: 2px;
+                                             height: 2px;
+                                             display: block;
+
+                                             &:before, &:after {
+                                                  content: "";
+                                                  font-size: 0;
+                                                  display: block;
+                                                  width: 25px;
+                                                  height: 3px;
+                                                  background: white;
+                                                  position: absolute;
+                                                  top: 0;
+                                                  left: -10px;
+                                             }
+                                             &:before {
+                                                  transform: rotate(-45deg);
+                                             }
+                                             &:after {
+                                                  transform: rotate(45deg);
+                                             }
+                                        }
+                                   }
+
+                                   .searchInput {
+                                        width: 0px;
+                                        position: relative;
+
+                                        @include transitionAll( 0.3s );
+
+                                        /deep/ mat-form-field {
+                                             width: 100%;
+
+                                             .mat-form-field-underline {
+                                                  display: none;
+                                             }
+
+                                             .mat-form-field-infix {
+                                                  margin: 10px 0 0 0;
+
+                                                  .mat-input-element {
+                                                       color: black;
+                                                       background: #f2f2f2;
+                                                       border: thin solid #ccc;
+                                                       padding: 0px;
+                                                       opacity: 0;
+                                                       border-radius: 10px;
+                                                  }
+
+                                                  span.mat-form-field-label-wrapper {
+                                                       top: -3px;
+                                                       left: 10px;
+                                                       opacity: 0;
+                                                  }
+                                             }
+
+                                             &.mat-form-field-should-float {
+                                                  .mat-form-field-infix {
+                                                       span.mat-form-field-label-wrapper {
+                                                            opacity: 0;
+                                                       }
+                                                  }
+                                             }
+                                        }
+
+                                        .searchList {
+                                             position: absolute;
+                                             background: white;
+                                             padding: 15px 30px;
+                                             display: block;
+                                             width: 100%;
+                                             top: 70px;
+                                             border-radius: 10px;
+
+                                             max-height: 350px;
+                                             overflow: scroll;
+                                             display: none;
+
+                                             .list {
+                                                  ul {
+                                                       display: block;
+
+                                                       li {
+                                                            color: $mainColorDark;
+                                                            margin: 20px 0 35px 0;
+                                                            
+                                                            ul {
+                                                                 li {
+                                                                      margin: 20px 0;
+                                                                      padding: 0 15px;
+                                                                      
+                                                                      a {
+                                                                           color: $grey;
+                                                                      }
+                                                                 }
+                                                            }
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+
+                              button {
+                                   font-size: 28px;
+                                   color: white;
+                                   min-width: 50px !important;
+                                   padding: 0 5px;
+                              }
+                         }
+                    }
+               }
+
+               .campusBtn {
+                    button {
+                         color: white;
+                         text-transform: uppercase;
+                         width: 90px;
+                         line-height: 1.4;
+                         border: thin solid white;
+                         padding: 5px 0;
+                         font-size: 12px;
+                    }
+               }
+          }
+
+          // &:hover,
+          &.scrolled {
+               background: white;
+
+               .lft {
+                    .menuBtn {
+                         margin: 0 20px 0 0;
+                         display: none;
+     
+                         button {
+                              border: thin solid $mainColorDark;
+     
+                              span {
+                                   background: $mainColorDark;
+                                   
+                                   &:before {
+                                        background: $mainColorDark;
+                                   }
+                                   &:after {
+                                        background: $mainColorDark;
+                                   }
+                              }
+                         }
+                    }
+
+                    .mainLogo {
+                         .logoWht {
+                              display: none;
+                         }
+                         .logoColor {
+                              display: block;
+                         }
+                    }
+
+                    .menuItems {
+     
+                         ul {
+     
+                              li {
+                                   
+                                   a {
+                                        color: $grey;
+                                   }
+                              }
+                         }
+                    }
+               }
+
+               .rgt {
+                    
+                    .sideBtns {
+                         ul {
+     
+                              li {
+                                   button {
+                                        color: $grey;
+                                   }
+
+                                   &.searchIcon {
+                                        .searchBtn {
+                                             margin: 0 0 0 -50px;
+                                             color: black;
+                                        }
+     
+                                        .closeSearch {
+                                             span {
+                                                  &:before, &:after {
+                                                       background: $grey;
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         }
+                    }
+     
+                    .campusBtn {
+                         button {
+                              color: $mainColorDark;
+                              border: thin solid $mainColorDark;
+                         }
+                    }
+               }
+          }
+
+          // search show
+          &.searchShow.scrolled,
+          &.searchShow {
+
+               .rgt {
+                    .sideBtns {
+                         ul {
+                              li {
+                                   &.searchIcon {
+                                        .searchBtn {
+                                             margin: 0 0 0 -50px;
+                                             color: black;
+                                        }
+     
+                                        .closeSearch {
+                                             display: flex;
+                                        }
+     
+                                        .searchInput {
+                                             width: 680px;
+     
+                                             /deep/ mat-form-field {
+     
+                                                  .mat-form-field-infix {
+
+                                                       .mat-input-element {
+                                                            padding: 8px 10px;
+                                                            opacity: 1;
+                                                       }
+
+                                                       span.mat-form-field-label-wrapper {
+                                                            opacity: 1;
+                                                       }
+                                                  }
+
+                                                  &.mat-form-field-should-float {
+                                                       .mat-form-field-infix {
+                                                            span.mat-form-field-label-wrapper {
+                                                                 opacity: 0;
+                                                            }
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         }
+                    }
+               }
+          }
+     }
+
+     
+ }

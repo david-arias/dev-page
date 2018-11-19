@@ -1,3 +1,174 @@
-<p>
-  top-nav-one works!
-</p>
+
+<div class="mainTopBar">
+  <div class="topbar" (window:scroll)="winScroll($event)">
+
+    <div class="lft">
+
+      <div class="menuBtn">
+        <button mat-button>
+          <span>menu</span>
+        </button>
+      </div>
+  
+      <div class="mainLogo">
+        <a href="#">
+          <img class="logoWht" src="assets/img/logo_white.png" alt="main logo">
+          <img class="logoColor" src="assets/img/logo_color.png" alt="main logo">
+        </a>
+      </div>
+  
+      <div class="menuItems">
+        <ul>
+          <li *ngFor="let itms of menuItems">
+            <a href="{{itms.link}}" class="mainLink">
+              {{itms.label}}
+            </a>
+
+            <div class="menuLayer">
+              <div class="layer">
+
+                <div class="layerContent">
+                  <div class="container-fluid">
+                    <div class="row">
+                      <div class="col-9">
+                        <div class="row">
+                          <div class="col-12" *ngIf="itms.topLinks">
+                            <div class="topLinks" *ngFor="let topItms of itms.topLinks">
+                              <ul>
+                                <li>
+                                  <a href="{{topItms.link}}" class="main">{{topItms.label}}</a>
+                                </li>
+                                <li *ngFor="let subTopItem of topItms.children">
+                                  <a href="{{subTopItem.link}}" >{{subTopItem.label}}</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                          <div class="col-4" *ngFor="let midItems of itms.childen">
+                            <div class="midItems">
+                              <ul>
+                                <li>
+                                  <a href="{{midItems.link}}" class="main">{{midItems.label}}</a>
+                                </li>
+                                <li *ngFor="let midSubItems of midItems.children">
+                                  <a href="{{midSubItems.link}}" >{{midSubItems.label}}</a>
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-3">
+                        <div class="menuFormWrap">
+                          <div class="formTop">
+                            <p>Ingreso 2019</p>
+                          </div>
+                          <div class="formMid">
+                            <div class="number">
+                              <div class="num">26</div>
+                              <div class="mon">Noviembre</div>
+                            </div>
+                            <div class="ttl">Cierre de cupo</div>
+                            <div class="txt">Iniciá tu proceso de inscripción</div>
+                          </div>
+                          <div class="bottomForm">
+                              <app-lead-form-one  [styleForm]="'vertical'"></app-lead-form-one>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                  <div class="arrowClose" (click)="closeMenu()">
+                    <i class="icm icm-rgtBnnrArrow"></i>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+
+          </li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="rgt">
+      <div class="sideBtns">
+        <ul>
+          <li class="searchIcon">
+            <div class="searchInput">
+              <mat-form-field>
+                <input matInput placeholder="Buscar..." value="" id="searchInput" [formControl]="searchInput" (keyup)="searchQuery($event)">
+              </mat-form-field>
+
+              <div class="searchList">
+                <div class="list">
+                  <ul>
+                    <li *ngFor="let category of searchResults">
+                      {{category.cat}}
+
+                      <ul>
+                        <li *ngFor="let items of category.items">
+                          <a href="{{items.link}}">
+                            {{items.label | titlecase}}
+                          </a>
+                        </li>
+                      </ul>
+                    </li>
+                  </ul>
+                  <!-- <ul>
+                    <li *ngFor="let item of searchResults;let i = index;">
+                      {{item[i].category}}
+
+                      <ul>
+                        <li *ngFor="let itm of item[i]">
+                          {{itm.label}}
+                        </li>
+                      </ul>
+
+                      <ul>
+                        <li *ngFor="let item of searchResults">
+                          {{item.label}}
+                        </li>
+                      </ul>
+                    </li>
+                  </ul> -->
+                </div>
+              </div>
+
+            </div>
+
+            <button mat-button class="searchBtn" (click)="mainSearch()">
+              <i class="icm icm-search"></i>
+            </button>
+            
+            <button mat-button class="closeSearch" (click)="closeMainSearch()">
+              <span>close</span>
+            </button>
+          </li>
+          <li>
+            <button mat-button>
+              <i class="icm icm-book"></i>
+            </button>
+          </li>
+          <li>
+            <button mat-button>
+              <i class="icm icm-map"></i>
+            </button>
+          </li>
+          <li>
+            <button mat-button>
+              <i class="icm icm-phone"></i>
+            </button>
+          </li>
+        </ul>
+      </div>
+      <div class="campusBtn">
+        <button mat-button>Ingresar<wbr> a campus</button>
+      </div>
+    </div>
+
+  </div>
+
+</div>
