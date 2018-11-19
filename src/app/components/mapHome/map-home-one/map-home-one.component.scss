@@ -48,11 +48,6 @@
      height: calc( 100vh - 75px );
      position: relative;
 
-     agm-map {
-          width: 100%;
-          height: 100%;
-     }
-
      .mapContent {
           position: absolute;
           width: 100%;
@@ -61,19 +56,9 @@
           left: 0;
           z-index: 0;
 
-          #mapWrap {
+          agm-map {
+               width: 100%;
                height: 100%;
-
-               /deep/ .leaflet-popup {
-                    margin: 0 0 90px 0;
-               }
-
-               /deep/ .leaflet-popup-content-wrapper {
-                    .autoCont {
-                         padding: 0 10px;
-                         @extend %autoCompleteContent;
-                    }
-               }
           }
      }
 
@@ -84,156 +69,152 @@
           width: 490px;
           height: auto;
           top: 50%;
-          left: 5%;
+          left: 0%;
           transform: translate(0, -50%);
 
+          @include transitionAll ( 0.3s );
+
           box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
-          
-          .ttl {
-               padding: 20px;
 
-               h3 {
-                    padding: 0 30px;
-                    color: $titlesColor;
-                    font-size: 27px;
-                    @include mainfont-rg();
-                    text-align: center;
-                    line-height: 1.3;
+          $topBoxH: 318px;
 
-                    b {
-                         @include mainfont-bd();
+          .topBoxInfo {
+               height: $topBoxH;
+
+               .ttl {
+                    padding: 20px 20px 10px 20px;
+     
+                    h3 {
+                         padding: 0 30px;
+                         color: $titlesColor;
+                         font-size: 27px;
+                         @include mainfont-rg();
+                         text-align: center;
+                         line-height: 1.3;
+     
+                         b {
+                              @include mainfont-bd();
+                         }
                     }
+     
                }
-
-          }
-
-          .searchBox {
-               display: flex;
-               justify-content: space-between;
-               align-items: center;
-               width: 100%;
-               padding: 0 20px;
-               margin: 20px 0;
-
-               .inputWrap {
-                    width: calc( 100% - 50px );
-                    position: relative;
-
-                    border: thin solid $mainColor;
-                    border-radius: 10px;
-                    padding: 7px 10px;
-
-                    .input {
-                         /deep/ mat-form-field {
-                              width: 100%;
-
-                              label#mat-form-field-label-13 {
-                                   opacity: 1;
-                              }
-                              &.mat-form-field-should-float {
-                                   label#mat-form-field-label-13 {
-                                        opacity: 0;
+     
+               .searchBox {
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    width: 100%;
+                    padding: 15px 20px;
+     
+                    .inputWrap {
+                         width: calc( 100% - 50px );
+                         position: relative;
+     
+                         border: thin solid $mainColor;
+                         border-radius: 10px;
+                         padding: 7px 10px;
+     
+                         .input {
+                              /deep/ mat-form-field {
+                                   width: 100%;
+     
+                                   &.mat-form-field-should-float {
+                                        .mat-form-field-infix {
+                                             span.mat-form-field-label-wrapper {
+                                                  opacity: 0;
+                                             }
+                                        }
+                                   }
+          
+                                   .mat-form-field-underline {
+                                        display: none;
+                                   }
+     
+                                   .mat-form-field-wrapper {
+                                        padding: 0;
+                                   }
+                                   .mat-form-field-infix {
+                                        border: none;
+                                   }
+                                   .mat-input-element {
+                                        height: 21px;
+                                        color: $dark;
                                    }
                               }
-     
-                              .mat-form-field-underline {
-                                   display: none;
-                              }
-
-                              .mat-form-field-wrapper {
-                                   padding: 0;
-                              }
-                              .mat-form-field-infix {
-                                   border: none;
-                              }
-                              .mat-input-element {
-                                   height: 21px;
-                                   color: $dark;
-                              }
-
-                              input#mat-input-3 {
-                                   width: 90% !important;
-                                   overflow: hidden !important;
-                                   -o-text-overflow: ellipsis;
-                                   -ms-text-overflow: ellipsis;
-                                   text-overflow: ellipsis !important;
-                                   white-space: nowrap !important;
-                              }
                          }
+     
+                         button {
+                              position: absolute;
+                              top: 50%;
+                              right: 0;
+                              padding: 0;
+                              width: 38px;
+                              min-width: 38px;
+                              transform: translate(0,-50%);
+                              font-size: 20px;
+                         }
+     
                     }
-
-                    button {
-                         position: absolute;
-                         top: 50%;
-                         right: 0;
-                         padding: 0;
-                         width: 38px;
-                         min-width: 38px;
-                         transform: translate(0,-50%);
-                         font-size: 20px;
-                    }
-
-               }
-
-               .centerBtn {
-                    width: 50px;
-                    height: 50px;
-
-                    button {
-                         font-size: 24px;
+     
+                    .centerBtn {
                          width: 50px;
-                         min-width: 50px;
                          height: 50px;
-                         padding: 0;
-                         color: $red;
+     
+                         button {
+                              font-size: 24px;
+                              width: 50px;
+                              min-width: 50px;
+                              height: 50px;
+                              padding: 0;
+                              color: $red;
+                         }
+                    }
+               }
+     
+               .markersBtns {
+                    display: flex;
+                    justify-content: space-between;
+                    padding:10px 0 0;
+     
+                    .btn {
+                         width: 33.333%;
+     
+                         button.mat-button {
+                              width: 100%;
+                              color: $grey;
+                              padding:10px 0;
+     
+                              &.active {
+                                   color: $mainColor;
+                              }
+     
+                              .icm {
+                                   font-size: 50px;
+                                   display: block;
+                              }
+                              .btnText {
+                                   @include mainfont-lg();
+                              }
+                         }
                     }
                }
           }
+          
 
-          .markersBtns {
-               display: flex;
-               justify-content: space-between;
-               padding:10px 0 0;
+          .autoCompleteWrap {
+               border-top: thin solid #ccc;
+               max-height: calc( calc( 100vh - 75px ) - #{$topBoxH} );
+               overflow: scroll;
 
-               .btn {
-                    width: 33.333%;
+               .autoCont {
+                    padding: 15px;
+                    cursor: pointer;
 
-                    button.mat-button {
-                         width: 100%;
-                         color: $grey;
-                         padding:10px 0;
-
-                         &.active {
-                              color: $mainColor;
-                         }
-
-                         .icm {
-                              font-size: 50px;
-                              display: block;
-                         }
-                         .btnText {
-                              @include mainfont-lg();
-                         }
-                    }
+                    @extend %autoCompleteContent;
                }
           }
      }
 }
-
-/deep/ .mat-autocomplete-panel {
-     padding: 10px 0;
-     
-     .mat-option {
-          height: 130px !important;
-          border: thin solid #ccc;
-          margin: 0 10px;
-     
-          .autoCont {
-               @extend %autoCompleteContent;
-          }
-     }
-}
-
      
 
 

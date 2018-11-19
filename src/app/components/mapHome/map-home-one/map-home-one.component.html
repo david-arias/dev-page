@@ -1,89 +1,106 @@
 
 <div class="mapWrapper">
   <div class="mapContent">
-    <!-- leaflet -->
-    <div id="mapWrap"
-      leaflet
-      [leafletOptions]="mapOptions"
-      [(leafletCenter)]="mapCenter"
-      [(leafletZoom)]="mapZoom"
-      [leafletLayers]="mapLayers">
-    </div>
 
+    <!-- google maps -->
+    <agm-map [latitude]="latCenter" [longitude]="lngCenter" [zoom]="zoomCenter" [scrollwheel]="false">
+      <agm-marker
+        [latitude]="lat"
+        [longitude]="lng"
+        [iconUrl]="'assets/img/map/mapCenter.png'">
+      </agm-marker>
 
+      <agm-marker *ngFor="let mark of selMarkers; let i = index"
+        [latitude]="mark.lat"
+        [longitude]="mark.lng"
+        [iconUrl]="'assets/img/map/map_' + mark.type + '.png'"
+        (markerClick)="clickedMarker(infoWindow)">
+
+        <agm-info-window [maxWidth]="200" #infoWindow> 
+          <div class="infoCont" (click)="hideSpot = i;">
+              <h6>{{mark.name}}</h6>
+              <p>{{mark.dir}}</p>
+              <i class="si si-backArrow si-flip-y"></i>
+          </div>
+        </agm-info-window>
+
+      </agm-marker>
+
+    </agm-map>
   </div>
 
   <div class="mapBoxWrap">
-    <div class="ttl">
-      <h3>
-        Encontrá tu <b>Sede</b> o <b>Centro Siglo 21</b> más cercano
-      </h3>
-    </div>
-
-    <div class="searchBox">
-      <div class="inputWrap">
-
-        <div class="input">
-          <form action="">
-            <mat-form-field>
-              <input placeholder="Ingresá la ciudad o sector donde deseas buscar" matInput [formControl]="locatInput" [matAutocomplete]="autoComplete">
-              <mat-autocomplete #autoComplete="matAutocomplete">
-                <mat-option *ngFor="let item of filteredOptions | async; let i = index" [value]="item.name">
-                  <div class="autoCont">
-                    <div class="icon">
-                        <i *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
-                        <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
-                    </div>
-                    <div class="text">
-                      <div class="name">{{item.name | titlecase}}</div>
-                      <div class="type">
-                        <span *ngIf="item.type == 'sede'">Sede Principal</span>
-                        <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
-                      </div>
-                      <div class="dis">{{item.dir | titlecase}}</div>
-                      <div class="tel">{{item.tel }}</div>
-                    </div>
-                  </div>
-                </mat-option>
-              </mat-autocomplete>
-            </mat-form-field>
-          </form>
+    <div class="topBoxInfo">
+      <div class="ttl">
+        <h3>
+          Encontrá tu <b>Sede</b> o <b>Centro Siglo 21</b> más cercano
+        </h3>
+      </div>
+  
+      <div class="searchBox">
+        <div class="inputWrap">
+  
+          <div class="input">
+            <form action="">
+              <mat-form-field>
+                <input placeholder="Ingresá la ciudad o sector donde deseas buscar" matInput [(value)]="mapSearchInp" (keyup)="searchQuery($event)">
+              </mat-form-field>
+            </form>
+          </div>
+  
+  
+          <button mat-button (click)="searchLocation()">
+            <i class="icm icm-search"></i>
+          </button>
+  
         </div>
-
-
-        <button mat-button (click)="searchLocation()">
-          <i class="icm icm-search"></i>
-        </button>
-
+  
+        <div class="centerBtn">
+          <button mat-button (click)="centerMap()">
+            <i class="icm icm-mapCenter"></i>
+          </button> 
+        </div>
+  
       </div>
-
-      <div class="centerBtn">
-        <button mat-button (click)="centerMap()">
-          <i class="icm icm-mapCenter"></i>
-        </button> 
+  
+      <div class="markersBtns">
+        <div class="btn">
+          <button mat-button class="mapBtn mapBtn-all active" (click)="changePins('all')">
+            <i class="icm icm-allPin"></i>
+            <span class="btnText">Todos</span>
+          </button>
+        </div>
+        <div class="btn">
+          <button mat-button class="mapBtn mapBtn-sedes " (click)="changePins('sedes')">
+            <i class="icm icm-sedePin"></i>
+            <span class="btnText">Sedes</span>
+          </button>
+        </div>
+        <div class="btn">
+          <button mat-button class="mapBtn mapBtn-centros " (click)="changePins('centros')">
+            <i class="icm icm-centrosPin"></i>
+            <span class="btnText">Centros</span>
+          </button>
+        </div>
       </div>
-
     </div>
 
-    <div class="markersBtns">
-      <div class="btn">
-        <button mat-button class="mapBtn mapBtn-all active" (click)="changePins('all')">
-          <i class="icm icm-allPin"></i>
-          <span class="btnText">Todos</span>
-        </button>
-      </div>
-      <div class="btn">
-        <button mat-button class="mapBtn mapBtn-sedes " (click)="changePins('sedes')">
-          <i class="icm icm-sedePin"></i>
-          <span class="btnText">Sedes</span>
-        </button>
-      </div>
-      <div class="btn">
-        <button mat-button class="mapBtn mapBtn-centros " (click)="changePins('centros')">
-          <i class="icm icm-centrosPin"></i>
-          <span class="btnText">Centros</span>
-        </button>
-      </div>
+    <div class="autoCompleteWrap">
+        <div class="autoCont" *ngFor="let item of mapResults" (click)="goToPin( item )">
+          <div class="icon">
+              <i  *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
+              <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
+          </div>
+          <div class="text">
+            <div class="name">{{item.name | titlecase}}</div>
+            <div class="type">
+              <span *ngIf="item.type == 'sede'" >Sede Principal</span>
+              <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
+            </div>
+            <div class="dis">{{item.dir | titlecase}}</div>
+            <div class="tel">{{item.tel }}</div>
+          </div>
+        </div>
     </div>
   </div>
 </div>
