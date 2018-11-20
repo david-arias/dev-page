@@ -18,9 +18,23 @@
 
         <agm-info-window [maxWidth]="200" #infoWindow> 
           <div class="infoCont" (click)="hideSpot = i;">
-              <h6>{{mark.name}}</h6>
-              <p>{{mark.dir}}</p>
-              <i class="si si-backArrow si-flip-y"></i>
+
+              <div class="autoCont">
+                <div class="icon">
+                    <i  *ngIf="mark.type == 'sede'" class="icm icm-sedePin"></i>
+                    <i *ngIf="mark.type == 'centro'" class="icm icm-centrosPin"></i>
+                </div>
+                <div class="text">
+                  <div class="name">{{mark.name | titlecase}}</div>
+                  <div class="type">
+                    <span *ngIf="mark.type == 'sede'" >Sede Principal</span>
+                    <span *ngIf="mark.type == 'centro'">CSU - Centro de Servicio Universitario</span>
+                  </div>
+                  <div class="dis">{{mark.dir | titlecase}}</div>
+                  <div class="tel">{{mark.tel }}</div>
+                </div>
+              </div>
+
           </div>
         </agm-info-window>
 
