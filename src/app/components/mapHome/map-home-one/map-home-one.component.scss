@@ -273,8 +273,12 @@
 
           .autoCompleteWrap {
                border-top: thin solid #ccc;
-               max-height: calc( calc( 100vh - 75px ) - #{$topBoxH} );
                overflow: scroll;
+               height: 0;
+
+               &.activeSearch {
+                    height: calc( calc( 85vh - 75px ) - #{$topBoxH} );
+               }
 
                .autoCont {
                     padding: 15px;

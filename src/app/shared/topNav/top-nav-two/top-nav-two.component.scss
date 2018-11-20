@@ -418,6 +418,11 @@
                                                   }
                                              }
                                         }
+
+                                        &.closing {
+                                             height: 0;
+                                             pointer-events: none;
+                                        }
                                    }
                               }
 

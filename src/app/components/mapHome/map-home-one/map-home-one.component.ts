@@ -168,9 +168,14 @@ export class MapHomeOneComponent implements OnInit {
       }
     }
 
-    if ( val == "") {
+    if ( val.length <= 0) {
       this.mapResults = [];
-    }    
+      $(".autoCompleteWrap").removeClass('activeSearch');
+    } else {
+      $(".autoCompleteWrap").addClass('activeSearch');
+
+    }   
+
   }
 
   goToPin( pin:any ) {
