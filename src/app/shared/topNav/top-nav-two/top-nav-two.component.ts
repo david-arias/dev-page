@@ -1,17 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 import {FormControl} from '@angular/forms';
 import { TOPMENU } from '../top-nav.data';
 
 declare var $:any;
 
 @Component({
-  selector: 'app-top-nav-one',
-  templateUrl: './top-nav-one.component.html',
-  styleUrls: ['./top-nav-one.component.scss']
+  selector: 'app-top-nav-two',
+  templateUrl: './top-nav-two.component.html',
+  styleUrls: ['./top-nav-two.component.scss']
 })
-export class TopNavOneComponent implements OnInit {
+export class TopNavTwoComponent implements OnInit, AfterViewInit {
 
   menuItems:any = TOPMENU;
+  menuSubCol:any = [];
+  menuSubSecCol:any = [];
   
   searchInput = new FormControl();
   searchList:any = [
@@ -55,10 +57,45 @@ export class TopNavOneComponent implements OnInit {
   ];
   searchResults:any = [];
 
-  constructor() {
-  }
+
+  constructor() { }
 
   ngOnInit() {
+
+  }
+  ngAfterViewInit() {
+    // this.mainItemHover( 0 )
+  }
+  
+  // hover events
+  mainItemHover( idx:number ) {
+    $(".midItems").removeClass('active');
+    $(".midItems-0").addClass('active');
+    $(".midSecItems").removeClass('active');
+    $(".midSecItems-0").addClass('active');
+    
+    this.menuSubCol = [];
+    this.menuSubCol = this.menuItems[idx].children[0];
+    this.menuSubSecCol = [];
+    this.menuSubSecCol = this.menuSubCol.children[0].children;
+
+    $(`.layer`).hide();
+    $(`.layer-${idx}`).show();
+
+    // console.log( idx, this.menuSubCol );
+  }
+  subItemHover( idx:number, idxSec:number ) {
+    $(".midItems").removeClass('active');
+    $(`.midItems-${idxSec}`).addClass('active');
+    this.menuSubSecCol = [];
+    this.menuSubCol = this.menuItems[idx].children[idxSec];
+    // console.log( idx, idxSec, this.menuSubCol );
+  }
+  subSecItemHover( idx:number ) {
+    $(".midSecItems").removeClass('active');
+    $(`.midSecItems-${idx}`).addClass('active');
+    this.menuSubSecCol = this.menuSubCol.children[idx].children;
+    // console.log( idx, this.menuSubSecCol );
   }
 
   // window scroll
@@ -71,16 +108,6 @@ export class TopNavOneComponent implements OnInit {
       $(".topbar").removeClass("scrolled");
     }
   }
-
-  // close menu arrow
-  closeMenu() {
-    $(".menuLayer .layer").addClass("closing");
-    
-    setTimeout(() => {
-      $(".menuLayer .layer").removeClass("closing");
-    }, 400);
-  };
-
 
   // search Main bar
   mainSearch() {
@@ -139,9 +166,13 @@ export class TopNavOneComponent implements OnInit {
     }
   }
 
-  mainItemHover( idx:number ) {
-    $(`.layer`).hide();
-    $(`.layer-${idx}`).show();
-  }
+  // close menu arrow
+  closeMenu() {
+    $(".menuLayer .layer").addClass("closing");
+    
+    setTimeout(() => {
+      $(".menuLayer .layer").removeClass("closing");
+    }, 400);
+  };
 
 }

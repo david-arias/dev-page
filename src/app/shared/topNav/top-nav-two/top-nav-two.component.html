@@ -1,22 +1,22 @@
 
+
 <div class="mainTopBar">
   <div class="topbar" (window:scroll)="winScroll($event)">
 
     <div class="lft">
-
       <div class="menuBtn">
         <button mat-button>
           <span>menu</span>
         </button>
       </div>
-  
+
       <div class="mainLogo">
         <a href="#">
           <img class="logoWht" src="assets/img/logo_white.png" alt="main logo">
           <img class="logoColor" src="assets/img/logo_color.png" alt="main logo">
         </a>
       </div>
-  
+
       <div class="menuItems">
         <ul>
           <li *ngFor="let itms of menuItems; let m = index">
@@ -26,13 +26,13 @@
 
             <div class="menuLayer">
               <div class="layer layer-{{m}}">
-
                 <div class="layerContent">
                   <div class="container-fluid">
                     <div class="row">
-                      <div class="col-9">
-                        <div class="row">
-                          <div class="col-12" *ngIf="itms.topLinks">
+                      <div class="col-3">
+                        <div class="frstCol">
+
+                          <div class="top">
                             <div class="topLinks" *ngFor="let topItms of itms.topLinks">
                               <ul>
                                 <li>
@@ -44,49 +44,100 @@
                               </ul>
                             </div>
                           </div>
-                          <div class="col-4" *ngFor="let midItems of itms.children">
-                            <div class="midItems">
+
+                          <div class="mid">
+                            <div class="midItms" *ngFor="let midItems of itms.children; let s = index">
+                              <div class="midItems">
+                                <ul>
+                                  <li>
+                                    <a href="{{midItems.link}}" class="main midItems midItems-{{s}}" (mouseenter)="subItemHover(m, s)">{{midItems.label}}
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
+
+                            </div>
+                          </div>
+
+                        </div>
+                      </div>
+                      <div class="col-3">
+
+                        <div class="scndCol">
+                          <div class="scndColItms">
+                            <div class="top">
+                              <a href="{{menuSubCol.link}}">
+                                {{menuSubCol.label}}
+                              </a>
+                            </div>
+                            <div class="mid">
                               <ul>
-                                <li>
-                                  <a href="{{midItems.link}}" class="main">{{midItems.label}}</a>
-                                </li>
-                                <li *ngFor="let midSubItems of midItems.children">
-                                  <a href="{{midSubItems.link}}" >{{midSubItems.label}}</a>
+                                <li *ngFor="let scnd of menuSubCol.children; let j = index">
+                                  <a href="{{scnd.link}}" (mouseenter)="subSecItemHover(j)" class="midSecItems midSecItems-{{j}}">
+                                    {{scnd.label}}
+                                    <i *ngIf="scnd.children.length > 0" class="icm icm-rgtBnnrArrow"></i>
+                                  </a>
                                 </li>
                               </ul>
                             </div>
                           </div>
                         </div>
+
                       </div>
                       <div class="col-3">
-                        <div class="menuFormWrap">
-                          <div class="formTop">
-                            <p>Ingreso 2019</p>
-                          </div>
-                          <div class="formMid">
-                            <div class="number">
-                              <div class="num">26</div>
-                              <div class="mon">Noviembre</div>
-                            </div>
-                            <div class="ttl">Cierre de cupo</div>
-                            <div class="txt">Iniciá tu proceso de inscripción</div>
-                          </div>
-                          <div class="bottomForm">
-                              <app-lead-form-one  [styleForm]="'vertical'"></app-lead-form-one>
+
+                        <div class="thrdCol">
+                          <div class="thrdColItms">
+                              <div class="top"  *ngIf="menuSubSecCol.length > 0">
+                                <h6>{{menuSubSecCol.length}} Programas</h6>
+                              </div>
+                              <div class="mid">
+                                <ul>
+                                  <li *ngFor="let thrd of menuSubSecCol; let k = index">
+                                    <a href="{{thrd.link}}">
+                                      {{thrd.label | titlecase }}
+                                    </a>
+                                  </li>
+                                </ul>
+                              </div>
                           </div>
                         </div>
+
+                      </div>
+                      <div class="col-3">
+
+                          <div class="menuFormWrap">
+                            <div class="formTop">
+                              <p>Ingreso 2019</p>
+                            </div>
+                            <div class="formMid">
+                              <div class="number">
+                                <div class="num">26</div>
+                                <div class="mon">Noviembre</div>
+                              </div>
+                              <div class="ttl">Cierre de cupo</div>
+                              <div class="txt">Iniciá tu proceso de inscripción</div>
+                            </div>
+
+                            <div class="bottomFormBtn">
+                              <div class="formBottom">
+                                <div class="sendButton">
+                                  <button mat-button type="submit" class="matBtn">Inscribñirme online</button>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+
                       </div>
                     </div>
                   </div>
-
                   <div class="arrowClose" (click)="closeMenu()">
                     <i class="icm icm-rgtBnnrArrow"></i>
                   </div>
-                </div>
 
+                </div>
               </div>
             </div>
-
           </li>
         </ul>
       </div>
@@ -97,11 +148,9 @@
       <div class="sideBtns">
         <ul>
           <li class="searchIcon">
-
             <div class="searchLabel">
               <span>Buscar: </span>
             </div>
-
             <div class="searchInput">
               <mat-form-field>
                 <input matInput value="" id="searchInput" [formControl]="searchInput" (keyup)="searchQuery($event)">
@@ -158,5 +207,4 @@
     </div>
 
   </div>
-
 </div>

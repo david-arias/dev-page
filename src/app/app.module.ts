@@ -50,6 +50,8 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 // angular maps
 import { AgmCoreModule } from '@agm/core';
+import { TopNavTwoComponent } from './shared/topNav/top-nav-two/top-nav-two.component';
+import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.component';
 
 @NgModule({
   declarations: [
@@ -67,7 +69,9 @@ import { AgmCoreModule } from '@agm/core';
     AlliancesOneComponent,
     TopNavOneComponent,
     FooterOneComponent,
-    LeadFormOneComponent
+    LeadFormOneComponent,
+    TopNavTwoComponent,
+    LoaderOneComponent
   ],
   imports: [
     BrowserModule,

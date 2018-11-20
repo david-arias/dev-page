@@ -92,6 +92,8 @@
                          align-items: center;
 
                          li {
+                              // margin: 0 20px;
+                              
                               a.mainLink {
                                    padding: 0 20px;
                                    display: flex;
@@ -135,59 +137,201 @@
                                         left: 0;
                                         z-index: 50;
                                         overflow: hidden;
-                                        
                                         @include prefix( transition, all 0.5s cubic-bezier(0.835, -0.005, 0.06, 1) ) ;
                                         
                                         // top: -100%;
+                                        // height: calc(100vh - #{$navHeight});
+                                        // opacity: 1;
 
                                         .layerContent {
                                              display: flex;
                                              justify-content: center;
                                              padding: 80px 60px;
 
-                                             %menuItmsStyle {
-                                                  ul {
-                                                       display: block;
+                                             %menuAnchor {
+                                                  display: block;
+                                                  color: $grey;
+                                                  line-height: 1.4;
+                                                  text-decoration: none;
+                                                  position: relative;
+                                                  @include transitionAll(0.3s);
+                                                  padding: 10px 0 10px 20px;
+                                             }
 
-                                                       li {
-                                                            display: block;
-                                                            margin: 0;
-                                                            
-                                                            a {
-                                                                 color: $grey;
-                                                                 margin: 0 0 20px 0;
+                                             // cols
+                                             .frstCol {
+                                                  .top {
+                                                       .topLinks {
+                                                            ul {
                                                                  display: block;
-                                                                 font-size: 15px;
-                                                                 padding: 0 15px 0 0;
-                                                                 line-height: 1.4;
-                                                                 text-decoration: none;
+          
+                                                                 li {
+                                                                      display: block;
+                                                                      margin: 0;
+                                                                      
+                                                                      a {
 
-                                                                 &.main {
-                                                                      text-transform: uppercase;
-                                                                      color: $mainColor;
-                                                                      @include mainfont-bd();
+                                                                           color: $grey;
+                                                                           margin: 0 0 5px 0;
+                                                                           display: block;
+                                                                           font-size: 15px;
+                                                                           padding: 0 15px 0 20px;
+                                                                           line-height: 1.4;
+                                                                           text-decoration: none;
+          
+                                                                           &.main {
+                                                                                text-transform: uppercase;
+                                                                                @include mainfont-bd();
+                                                                           }
+          
+                                                                           &:hover {
+                                                                                color: $mainColor;
+                                                                           }
+          
+                                                                      }
                                                                  }
+                                                            }
+                                                       }
+                                                  }
 
-                                                                 &:hover {
-                                                                      color: $mainColor;
+                                                  .mid {
+                                                       margin: 50px 0 0 0;
+                                                       overflow: scroll;
+                                                       max-height: 65vh;
+
+                                                       .midItems {
+                                                            ul {
+                                                                 display: block;
+
+                                                                 li {
+                                                                      display: block;
+                                                                      margin: 0 0 10px 0;
+                                                                      
+                                                                      a {
+                                                                           @extend %menuAnchor;
+
+                                                                           &:before {
+                                                                                content: "";
+                                                                                position: absolute;
+                                                                                top:0;
+                                                                                left: 0px;
+                                                                                width: 3px;
+                                                                                height: 100%;
+                                                                                background: $mainColor;
+                                                                                opacity: 0;
+
+                                                                                @include transitionAll(0.3s);
+                                                                           }
+                                                                           
+                                                                           &:hover, &.active {
+                                                                                color: $mainColor;
+                                                                                
+                                                                                &:before {
+                                                                                     opacity: 1;
+                                                                                }
+                                                                           }
+                                                                      }
                                                                  }
+                                                            }
+                                                       }
+                                                  }
 
+                                             }
+                                             
+                                             .scndCol {
+                                                  padding: 0 20px 0 10px;
+
+                                                  .top {
+                                                       margin: 0 0 30px 0;
+
+                                                       a {
+                                                            text-decoration: none;
+                                                            color: $grey;
+                                                            font-size: 24px;
+                                                            @include mainfont-bd();
+                                                            padding: 0 0 0 20px;
+                                                       }
+                                                  }
+
+                                                  .mid {
+                                                       overflow: scroll;
+                                                       max-height: 65vh;
+                                                       
+                                                       ul {
+                                                            display: block;
+     
+                                                            li {
+                                                                 display: block;
+                                                                 // margin: 0 0 20px 0;
+                                                                 
+                                                                 a {
+                                                                      @extend %menuAnchor;
+          
+                                                                      i.icm {
+                                                                           position: absolute;
+                                                                           top: 50%;
+                                                                           right: 20px;
+                                                                           font-size: 18px;
+                                                                           transform: translate(0,-50%);
+                                                                      }
+                                                                      
+                                                                      &:hover, &.active {
+                                                                           color: $mainColor;
+                                                                           
+                                                                           &:before {
+                                                                                opacity: 1;
+                                                                           }
+                                                                      }
+                                                                 }
+                                                            }
+                                                       }
+                                                  }
+                                             }
+                                             
+                                             .thrdCol {
+                                                  padding: 0 20px 0 10px;
+
+                                                  .top {
+                                                       margin: 0 0 30px 0;
+                                                       h6 {
+                                                            color: $purple;
+                                                            text-transform: uppercase;
+                                                            font-size: 15px !important;
+                                                            padding: 0 0 0 20px;
+                                                       }
+                                                  }
+
+                                                  .mid {
+                                                       overflow: scroll;
+                                                       max-height: 65vh;
+
+                                                       ul {
+                                                            display: block;
+     
+                                                            li {
+                                                                 display: block;
+                                                                 // margin: 0 0 20px 0;
+                                                                 
+                                                                 a {
+                                                                      @extend %menuAnchor;
+
+                                                                      &:hover, &.active {
+                                                                           color: $mainColor;
+                                                                           
+                                                                           &:before {
+                                                                                opacity: 1;
+                                                                           }
+                                                                      }
+                                                                 }
                                                             }
                                                        }
                                                   }
                                              }
 
-                                             .topLinks {
-                                                  margin: 0 0 50px 0;
-                                                  @extend %menuItmsStyle;
-                                             }
-                                             .midItems {
-                                                  @extend %menuItmsStyle;
-                                             }
-
+                                             // last column
                                              .menuFormWrap {
                                                   border: thin solid #ccc;
-                                                  padding: 15px 15px 35px 15px;
+                                                  padding: 20px;
 
                                                   .formTop {
                                                        p {
@@ -235,8 +379,31 @@
                                                             margin: 15px 0 10px 0;
                                                        }
                                                   }
+
+                                                  .bottomFormBtn {
+                                                       width: 100%;
+                                                       margin: 5px 0;
+                                                       padding: 0;
+                                                       display: block;
+
+                                                       .sendButton {
+                                                            button {
+                                                                 background: $mainColor;
+                                                                 border: thin solid white;
+                                                                 color: white;
+                                                                 text-transform: uppercase;
+
+                                                                 margin: 10px 0 0 0;
+
+                                                                 position: relative;
+                                                                 left: 50%;
+                                                                 transform: translate(-50%, 0);
+                                                            }
+                                                       }
+                                                  }
                                              }
 
+                                             // close arrow
                                              .arrowClose {
                                                   position: absolute;
                                                   bottom: 40px;
@@ -250,14 +417,7 @@
                                                        color: $mainColor;
                                                   }
                                              }
-
                                         }
-
-                                        &.closing {
-                                             height: 0;
-                                             pointer-events: none;
-                                        }
-
                                    }
                               }
 
@@ -279,7 +439,6 @@
                               li {
                                    .menuLayer {
                                         .layer {
-                                             // top: calc( 0% + #{$navHeight});
                                              height: calc(100vh - #{$navHeight});
                                              opacity: 1;
                                         }
@@ -289,7 +448,6 @@
                     }
                }
           }
-
           .rgt {
                display: flex;
                align-items: center;
@@ -493,7 +651,7 @@
                          ul {
      
                               li {
-
+                                   
                                    a {
                                         color: $grey;
 
@@ -527,6 +685,7 @@
                                              margin: 0 0 0 -50px;
                                              color: black;
                                         }
+
                                         .searchLabel {
                                              color: black;
                                         }
