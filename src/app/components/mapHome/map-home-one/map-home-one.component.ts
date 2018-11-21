@@ -11,9 +11,9 @@ export class MapHomeOneComponent implements OnInit {
 
   lat:number = -31.428519; 
   lng:number = -64.184759;
-  zoom:number = 5;
+  zoom:number = 9;
 
-  mapOffset:number = 7;
+  mapOffset:number = 0.6;
   
   latCenter:number = this.lat; 
   lngCenter:number = this.lng - this.mapOffset;
@@ -107,6 +107,7 @@ export class MapHomeOneComponent implements OnInit {
 
   ngOnInit() {
     this.changePins('all');
+    this.mapResults = this.markers;
   }
 
   changePins( type:string ) {
@@ -161,7 +162,7 @@ export class MapHomeOneComponent implements OnInit {
   searchQuery( evnt:any ) {
     let val = evnt.target.value;
     this.mapResults = [];
-
+    
     for (let i = 0; i < this.selMarkers.length; i++) {
       if( this.selMarkers[i].name.toLowerCase().includes(val)  ) {
         this.mapResults.push( this.selMarkers[i] );
@@ -173,7 +174,6 @@ export class MapHomeOneComponent implements OnInit {
       $(".autoCompleteWrap").removeClass('activeSearch');
     } else {
       $(".autoCompleteWrap").addClass('activeSearch');
-
     }   
 
   }

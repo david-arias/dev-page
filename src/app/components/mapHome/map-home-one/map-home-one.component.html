@@ -57,7 +57,7 @@
           <div class="input">
             <form action="">
               <mat-form-field>
-                <input placeholder="Ingresá la ciudad o sector donde deseas buscar" matInput [(value)]="mapSearchInp" (keyup)="searchQuery($event)">
+                <input placeholder="Ingresá la ciudad o sector donde deseas buscar" matInput [(value)]="mapSearchInp" (keyup)="searchQuery($event)" autocomplete="off">
               </mat-form-field>
             </form>
           </div>
@@ -99,22 +99,45 @@
       </div>
     </div>
 
-    <div class="autoCompleteWrap">
-        <div class="autoCont" *ngFor="let item of mapResults" (click)="goToPin( item )">
-          <div class="icon">
-              <i  *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
-              <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
+    <!-- <div class="autoCompleteWrap">
+      <div class="autoCont animated fadeIn" *ngFor="let item of mapResults" (click)="goToPin( item )">
+        <div class="icon">
+            <i  *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
+            <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
+        </div>
+        <div class="text">
+          <div class="name">{{item.name | titlecase}}</div>
+          <div class="type">
+            <span *ngIf="item.type == 'sede'" >Sede Principal</span>
+            <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
           </div>
-          <div class="text">
-            <div class="name">{{item.name | titlecase}}</div>
-            <div class="type">
-              <span *ngIf="item.type == 'sede'" >Sede Principal</span>
-              <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
+          <div class="dis">{{item.dir | titlecase}}</div>
+          <div class="tel">{{item.tel }}</div>
+        </div>
+      </div>
+    </div> -->
+    
+    <div class="autoCompleteWrap">
+      <cdk-virtual-scroll-viewport itemSize="115" class="autoCompViewport">
+        <div *cdkVirtualFor="let item of mapResults; let i = index" class="autoCompItem">
+          <div class="autoCont animated fadeIn" (click)="goToPin( item )">
+            <div class="icon">
+                <i  *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
+                <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
             </div>
-            <div class="dis">{{item.dir | titlecase}}</div>
-            <div class="tel">{{item.tel }}</div>
+            <div class="text">
+              <div class="name">{{item.name | titlecase}}</div>
+              <div class="type">
+                <span *ngIf="item.type == 'sede'" >Sede Principal</span>
+                <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
+              </div>
+              <div class="dis">{{item.dir | titlecase}}</div>
+              <div class="tel">{{item.tel }}</div>
+            </div>
           </div>
         </div>
+      </cdk-virtual-scroll-viewport>
     </div>
+
   </div>
 </div>

@@ -37,7 +37,6 @@ import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.comp
 import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
 import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-one.component';
 
-
 // material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
@@ -52,6 +51,9 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 import { AgmCoreModule } from '@agm/core';
 import { TopNavTwoComponent } from './shared/topNav/top-nav-two/top-nav-two.component';
 import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.component';
+
+// vistual scroll
+import { ScrollingModule } from "@angular/cdk/scrolling";
 
 @NgModule({
   declarations: [
@@ -79,6 +81,7 @@ import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.compon
 
     FormsModule,
     ReactiveFormsModule,
+    ScrollingModule,
 
     BrowserAnimationsModule,
 

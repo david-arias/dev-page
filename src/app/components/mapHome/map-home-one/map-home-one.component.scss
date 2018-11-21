@@ -20,28 +20,39 @@
           color: $blue2;
      }
 
-     .name, .type, .dis, .tel {
-          // height: 22px;
-          line-height: 1.3;
-          display: flex;
-          align-items: center;
-          @include mainfont-rg();
+     .text {
+          width: 380px;
+
+          .name, .type, .dis, .tel {
+               // height: 22px;
+               line-height: 1.3;
+               display: flex;
+               align-items: center;
+               @include mainfont-rg();
+          }
+          .name {
+               color: $mainColor;
+               @include mainfont-bd();
+     
+               overflow: hidden;
+               white-space: nowrap;
+               text-overflow: ellipsis;
+               width: 100%;
+     
+          }
+          .type {
+               color: $blue2;
+               margin: 3px 0;
+          }
+          .dis, .tel {
+               color: $grey;
+               font-size: 13px;
+          }
+          .tel {
+               margin: 3px 0 0 0;
+          }
      }
-     .name {
-          color: $mainColor;
-          @include mainfont-bd();
-     }
-     .type {
-          color: $blue2;
-          margin: 3px 0;
-     }
-     .dis, .tel {
-          color: $grey;
-          font-size: 13px;
-     }
-     .tel {
-          margin: 3px 0 0 0;
-     }
+
 }
 
 .mapWrapper {
@@ -139,7 +150,7 @@
           width: 490px;
           height: auto;
           top: 50%;
-          left: 0%;
+          left: 2.5%;
           transform: translate(0, -50%);
 
           @include transitionAll ( 0.3s );
@@ -205,6 +216,13 @@
                                    }
                                    .mat-form-field-infix {
                                         border: none;
+
+                                        input {
+                                             padding: 0 40px 0 0;
+                                             overflow: hidden;
+                                             white-space: nowrap;
+                                             text-overflow: ellipsis;
+                                        }
                                    }
                                    .mat-input-element {
                                         height: 21px;
@@ -273,19 +291,32 @@
 
           .autoCompleteWrap {
                border-top: thin solid #ccc;
-               overflow: scroll;
+               overflow: hidden;
                height: 0;
+               // height: calc( calc( 85vh - 75px ) - #{$topBoxH} );
+
+               @include transitionAll( 0.3s);
 
                &.activeSearch {
-                    height: calc( calc( 85vh - 75px ) - #{$topBoxH} );
+                    height: 330px;
                }
-
+               
                .autoCont {
                     padding: 15px;
                     cursor: pointer;
 
                     @extend %autoCompleteContent;
                }
+
+               .autoCompViewport {
+                    height: 330px;
+                    
+                    .autoCompItem {
+                         height: 115px;
+                         
+                    }
+               }
+
           }
      }
 }
