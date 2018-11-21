@@ -19,6 +19,17 @@
   </div>
 
   <div class="vidBtnWrap">
-    <button mat-button>Asi se ve La Siglo <i class="icm icm-playCirc"></i></button>
+    <button mat-button class="openVidBtn" (click)="openVideo()">Asi se ve La Siglo <i class="icm icm-playCirc"></i></button>
+
+    <div class="vidWrap">
+      <button class="close" (click)="closeVid()">
+        <span>close</span>
+      </button>
+
+      <div class="vidWrapCont">
+        <div id="player"></div>
+      </div>
+
+    </div>
   </div>
 </div>

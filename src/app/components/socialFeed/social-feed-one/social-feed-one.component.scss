@@ -38,4 +38,14 @@
                transform: translate(0, 0px)
           }
      }
+
+     .feedWrap {
+          padding: 0 20px;
+          
+          /deep/ ul {
+               h1.referral {
+                    display: none;
+               }
+          }
+     }
 }

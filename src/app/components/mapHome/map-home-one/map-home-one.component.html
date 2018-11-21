@@ -98,24 +98,6 @@
         </div>
       </div>
     </div>
-
-    <!-- <div class="autoCompleteWrap">
-      <div class="autoCont animated fadeIn" *ngFor="let item of mapResults" (click)="goToPin( item )">
-        <div class="icon">
-            <i  *ngIf="item.type == 'sede'" class="icm icm-sedePin"></i>
-            <i *ngIf="item.type == 'centro'" class="icm icm-centrosPin"></i>
-        </div>
-        <div class="text">
-          <div class="name">{{item.name | titlecase}}</div>
-          <div class="type">
-            <span *ngIf="item.type == 'sede'" >Sede Principal</span>
-            <span *ngIf="item.type == 'centro'">CSU - Centro de Servicio Universitario</span>
-          </div>
-          <div class="dis">{{item.dir | titlecase}}</div>
-          <div class="tel">{{item.tel }}</div>
-        </div>
-      </div>
-    </div> -->
     
     <div class="autoCompleteWrap">
       <cdk-virtual-scroll-viewport itemSize="115" class="autoCompViewport">

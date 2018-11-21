@@ -34,9 +34,15 @@ import { AlliancesOneComponent } from './components/alliances/alliances-one/alli
 
 // shared
 import { TopNavOneComponent } from './shared/topNav/top-nav-one/top-nav-one.component';
+import { TopNavTwoComponent } from './shared/topNav/top-nav-two/top-nav-two.component';
+
 import { FooterOneComponent } from './shared/footer/footer-one/footer-one.component';
+
 import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-one.component';
 
+import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.component';
+
+import { TopAlertOneComponent } from './shared/topAlert/top-alert-one/top-alert-one.component';
 // material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
@@ -49,8 +55,6 @@ import { LeafletModule } from '@asymmetrik/ngx-leaflet';
 
 // angular maps
 import { AgmCoreModule } from '@agm/core';
-import { TopNavTwoComponent } from './shared/topNav/top-nav-two/top-nav-two.component';
-import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.component';
 
 // vistual scroll
 import { ScrollingModule } from "@angular/cdk/scrolling";
@@ -73,7 +77,8 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     FooterOneComponent,
     LeadFormOneComponent,
     TopNavTwoComponent,
-    LoaderOneComponent
+    LoaderOneComponent,
+    TopAlertOneComponent
   ],
   imports: [
     BrowserModule,

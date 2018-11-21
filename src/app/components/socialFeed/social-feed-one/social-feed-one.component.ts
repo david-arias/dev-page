@@ -10,6 +10,8 @@ declare var emergence:any;
 })
 export class SocialFeedOneComponent implements OnInit {
 
+  totalPost:number = 11;
+
   constructor() { }
 
   ngOnInit() {

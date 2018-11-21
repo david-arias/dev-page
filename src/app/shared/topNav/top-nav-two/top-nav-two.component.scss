@@ -10,11 +10,13 @@
 //-------------------------------------------
 
 .mainTopBar {
-     position: fixed;
+     $navHeight: 75px;
+
+     position: sticky;
      top: 0;
      z-index: 100;
+     margin: 0 0 -#{$navHeight} 0;
 
-     $navHeight: 75px;
 
      .topbar {
           display: flex;
@@ -109,12 +111,9 @@
                                    &:after {
                                         content: "";
                                         position: absolute;
-                                        width: 0;
-                                        height: 0;
-                                        border-top: 10px solid transparent;
-                                        border-left: 10px solid transparent;
-                                        border-right: 10px solid transparent;
-                                        border-bottom: 10px solid white;
+                                        width: 100%;
+                                        height: 3px;
+                                        background: white;
                                         bottom: 0px;
                                         left: 50%;
                                         transform: translate(-50%,0);
@@ -128,7 +127,7 @@
                               .menuLayer {
 
                                    .layer {
-                                        position: fixed;
+                                        position: absolute;
                                         width: 100vw;
                                         height: 0;
                                         background: white;
@@ -406,7 +405,7 @@
                                              // close arrow
                                              .arrowClose {
                                                   position: absolute;
-                                                  bottom: 40px;
+                                                  bottom: 20px;
                                                   @include prefix( transform,  rotate(-90deg) );
 
                                                   padding: 15px;
@@ -444,7 +443,7 @@
                               li {
                                    .menuLayer {
                                         .layer {
-                                             height: calc(100vh - #{$navHeight});
+                                             height: calc(100vh - #{$navHeight + 35px});
                                              opacity: 1;
                                         }
                                    }
@@ -617,7 +616,7 @@
                }
           }
 
-          // &:hover,
+          &:hover,
           &.scrolled {
                background: white;
 
@@ -661,13 +660,7 @@
                                         color: $grey;
 
                                         &:after {
-                                             border-bottom: 10px solid $mainColor;
-                                        }
-                                   }
-
-                                   .menuLayer {
-                                        .layer {
-                                             border-top: thin solid $mainColor;
+                                             background: $mainColor;
                                         }
                                    }
                               }

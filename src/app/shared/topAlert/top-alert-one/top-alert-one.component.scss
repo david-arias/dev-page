@@ -1,0 +1,125 @@
+
+//-------------------------------------------
+//     IMPORTS
+//-------------------------------------------
+@import "../../../../../src/assets/scss/imports";
+
+
+//-------------------------------------------
+//     COMPONENT STYLES
+//-------------------------------------------
+
+.topAlertWrap {
+     background: $lighterGrey;
+     display: flex;
+     align-items: center;
+     justify-content: center;
+     padding: 15px 10px;
+     position: relative;
+     overflow: hidden;
+
+     p {
+          color: $grey;
+
+          b {
+               @include mainfont-bd();
+          }
+     }
+
+     .close {
+          align-items: center;
+          justify-content: center;
+          height: 40px;
+          width: 40px;
+          top: 50%;
+          right: 0;
+          position: absolute;
+          transform: translate(0, -50%);
+          opacity: 1;
+
+          span {
+               font-size: 0;
+               position: relative;
+               width: 2px;
+               height: 2px;
+               display: block;
+
+               &:before, &:after {
+                    content: "";
+                    font-size: 0;
+                    display: block;
+                    width: 20px;
+                    height: 2px;
+                    background: $grey;
+                    position: absolute;
+                    top: 0;
+                    left: -10px;
+               }
+               &:before {
+                    transform: rotate(-45deg);
+               }
+               &:after {
+                    transform: rotate(45deg);
+               }
+          }
+     }
+
+     &.success {
+          background: $success;
+
+          p {
+               color: $light;
+          }
+          .close {
+               span {
+                    &:before, &:after {
+                         background: $light;
+                    }
+               }
+          }
+
+     }
+     &.info {
+          background: $info;
+
+          p {
+               color: $light;
+          }
+          .close {
+               span {
+                    &:before, &:after {
+                         background: $light;
+                    }
+               }
+          }
+     }
+     &.warning {
+          background: $warning;
+
+          p {
+               color: $grey;
+          }
+          .close {
+               span {
+                    &:before, &:after {
+                         background: $grey;
+                    }
+               }
+          }
+     }
+     &.danger {
+          background: $danger;
+
+          p {
+               color: $light;
+          }
+          .close {
+               span {
+                    &:before, &:after {
+                         background: $light;
+                    }
+               }
+          }
+     }
+}
+
