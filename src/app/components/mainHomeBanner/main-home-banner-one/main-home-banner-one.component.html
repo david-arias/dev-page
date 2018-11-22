@@ -11,21 +11,33 @@
           <div class="bnnr" *ngIf="bnnrItm.type == 'mouseParallax' ">
             <div class="bgParallax" id="bannrSlider{{i}}">
               <div class="parallaxLayer" *ngFor="let imgs of bnnrItm.bgImgs" [attr.data-depth]="imgs.depth">
-                <img src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="{{ imgs.sm.src }}">
+                  <source media="(max-width: 1023px)" srcset="{{ imgs.md.src }}">
+                  <img src="{{ imgs.lg.src }}" alt="{{bnnrItm.bnnrText.title}}">
+                </picture>
               </div>
             </div>
           </div>
           <!-- basic -->
           <div class="bnnr"  *ngIf="bnnrItm.type == 'basic' ">
             <div class="basicBg">
-              <img *ngFor="let imgs of bnnrItm.bgImgs" src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+              <picture *ngFor="let imgs of bnnrItm.bgImgs">
+                <source media="(max-width: 767px)" srcset="{{ imgs.sm.src }}">
+                <source media="(max-width: 1023px)" srcset="{{ imgs.md.src }}">
+                <img src="{{ imgs.lg.src }}" alt="{{bnnrItm.bnnrText.title}}">
+              </picture>
             </div>
           </div>
           <!-- scrollParallax -->
           <div class="bnnr"  *ngIf="bnnrItm.type == 'scrollParallax' ">
             <div class="scrollParallaxBg" *ngFor="let imgs of bnnrItm.bgImgs; let i = index">
               <div class="scllParLyr scllParLyr{{i}}">
-                <img src="{{ imgs.src }}" alt="{{bnnrItm.bnnrText.title}}">
+                <picture>
+                  <source media="(max-width: 767px)" srcset="{{ imgs.sm.src }}">
+                  <source media="(max-width: 1023px)" srcset="{{ imgs.md.src }}">
+                  <img src="{{ imgs.lg.src }}" alt="{{bnnrItm.bnnrText.title}}">
+                </picture>
               </div>
             </div>
           </div>
@@ -53,7 +65,7 @@
         </button>
       </div>
       <div class="allWrap">
-        <p>Ver todos<br> los programas</p>
+        <p>Ver todos<wbr> los programas</p>
       </div>
     </div>
 
@@ -75,6 +87,19 @@
       <div *ngFor="let pager of sliderContent; let i = index" class="pagerItm pagerItm-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
     </div>
 
+    <!-- BOTTOM SEARC SMALL -->
+    <div class="bttmSmallSearch">
+      <div class="inputWrap">
+        <mat-form-field class="example-full-width">
+          <input matInput placeholder="¿Que querés estudiar?" value="">
+        </mat-form-field>
+      </div>
+      <button mat-button class="inputByn">
+        <i class="icm icm-search"></i>
+      </button>
+    </div>
+    
   </div>
+
 
 </div>

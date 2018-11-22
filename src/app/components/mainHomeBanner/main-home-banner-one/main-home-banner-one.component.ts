@@ -19,11 +19,27 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
       class: "dark",
       bgImgs: [
         {
-          src: "assets/img/mainBanner/bg_mainBnnr_1.jpg",
           depth: "0",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnr_1.jpg",
+          },
+          md:{
+            src: "assets/img/mainBanner/bg_mainBnnr_1-md.jpg",
+          },
+          sm:{
+            src: "assets/img/mainBanner/bg_mainBnnr_1-sm.jpg",
+          }
         }, {
-          src: "assets/img/mainBanner/bg_mainBnnrTop_1.png",
           depth: "0.3",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnrTop_1.png",
+          },
+          md:{
+            src: "assets/img/mainBanner/bg_mainBnnrTop_1-md.png",
+          },
+          sm:{
+            src: "assets/img/mainBanner/bg_mainBnnrTop_1-sm.png",
+          }
         }
       ],
       bnnrText: [
@@ -50,8 +66,16 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
       class: "dark",
       bgImgs: [
         {
-          src: "assets/img/mainBanner/bg_mainBnnr_2.jpg",
           depth: "0",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnr_2.jpg",
+          },
+          md: {
+            src: "assets/img/mainBanner/bg_mainBnnr_2-md.jpg",
+          },
+          sm: {
+            src: "assets/img/mainBanner/bg_mainBnnr_2-sm.jpg",
+          }
         }
       ],
       bnnrText: [
@@ -74,14 +98,38 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
       class: "light",
       bgImgs: [
         {
-          src: "assets/img/mainBanner/bg_mainBnnr_3.jpg",
           depth: "0",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnr_3.jpg",
+          },
+          md: {
+            src: "assets/img/mainBanner/bg_mainBnnr_3-md.jpg",
+          },
+          sm: {
+            src: "assets/img/mainBanner/bg_mainBnnr_3-sm.jpg",
+          }
         },{
-          src: "assets/img/mainBanner/bg_mainBnnrMid_3.png",
           depth: "0.3",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnrMid_3.png",
+          },
+          md: {
+            src: "assets/img/mainBanner/bg_mainBnnrMid_3-md.png",
+          },
+          sm: {
+            src: "assets/img/mainBanner/bg_mainBnnrMid_3-sm.png",
+          }
         },{
-          src: "assets/img/mainBanner/bg_mainBnnrTop_3.png",
           depth: "0.6",
+          lg:{
+            src: "assets/img/mainBanner/bg_mainBnnrTop_3.png",
+          },
+          md: {
+            src: "assets/img/mainBanner/bg_mainBnnrTop_3-md.png",
+          },
+          sm: {
+            src: "assets/img/mainBanner/bg_mainBnnrTop_3-sm.png",
+          }
         }
       ],
       bnnrText: [
@@ -116,7 +164,8 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
   // search select
   levelsSel:string = "all";
 
-  constructor() { }
+  constructor() {
+  }
 
   ngOnInit() {
   }
