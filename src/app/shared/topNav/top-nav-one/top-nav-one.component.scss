@@ -33,9 +33,22 @@
                display: flex;
                align-items: center;
 
+               @include mq-tblt {
+                    width: 100%;
+                    flex-wrap: wrap;
+               }
+
                .menuBtn {
                     margin: 0 20px 0 0;
                     display: none;
+                    
+                    @include mq-tblt {
+                         display: block;
+                         flex-basis: calc( 50% - 20px );
+                    }
+                    @include mq-phn {
+                         margin: 0 10px 0 0;
+                    }
 
                     button {
                          border: thin solid white;
@@ -78,6 +91,16 @@
                }
 
                .mainLogo {
+                    @include mq-tblt {
+                         flex-basis: 50%;
+                    }
+
+                    img {
+                         @include mq-phn {
+                              width: 115px;
+                         }
+                    }
+
                     .logoWht {
                          display: block;
                     }
@@ -88,6 +111,10 @@
 
                .menuItems {
                     margin: 0 0 0 20px;
+
+                    @include mq-tblt {
+                         display: none;
+                    }
 
                     ul {
                          display: flex;
@@ -105,6 +132,11 @@
                                    text-transform: uppercase;
                                    position: relative;
                                    z-index: 100;
+
+                                   @include mq-dsktpSmall {
+                                        font-size: 15px;
+                                        padding: 0 15px;
+                                   }
 
                                    &:after {
                                         content: "";
@@ -295,23 +327,51 @@
                
                .sideBtns {
                     margin: 0 30px 0 0;
+                    
+                    @include mq-tbltSmall {
+                         margin: 0 10px 0 0;
+                    }
+                    @include mq-phn {
+                         margin: 0 0px 0 0;
+                    }
+
                     ul {
                          display: flex;
                          align-items: center;
 
                          li {
+                              button {
+                                   font-size: 28px;
+                                   color: white;
+                                   min-width: 50px !important;
+                                   padding: 0 5px;
+
+                                   @include mq-tbltSmall {
+                                        display: none;
+                                   }
+                              }
+
                               &.searchIcon {
                                    display: flex;
                                    align-items: center;
-
+                                   
                                    .searchLabel {
                                         color: white;
                                         padding: 0 20px 0 0;
                                         display: none;
+
+                                        @include mq-phn {
+                                             font-size: 16px;
+                                             padding: 0 13px 0px 13px;
+                                        }
                                    }
 
                                    .searchBtn {
                                         font-size: 20px;
+                                        
+                                        @include mq-tbltSmall {
+                                             display: block;
+                                        }
 
                                         @include transitionAll( 0.3s );
                                    }
@@ -405,6 +465,28 @@
                                              overflow: scroll;
                                              display: none;
 
+                                             @include mq-dsktpSmall {
+                                                  padding: 15px 20px;
+                                             }
+
+                                             @include mq-tblt {
+                                                  width: 70vw;
+                                                  left: 50%;
+                                                  top: 86px;
+                                                  transform: translate(-50%,0);
+                                             }
+                                             @include mq-tbltSmall {
+                                                  position: absolute;
+                                                  width: 100vw;
+                                                  top: 85px;
+                                                  left: 0;
+                                                  transform: translate(-44.72%,0);
+                                             }
+                                             @include mq-phn {
+                                                  top: 81px;
+                                                  transform: translate(-79px, 0);
+                                             }
+
                                              .list {
                                                   ul {
                                                        display: block;
@@ -418,8 +500,17 @@
                                                                       margin: 20px 0;
                                                                       padding: 0 15px;
                                                                       
+                                                                      @include mq-dsktpSmall {
+                                                                           padding: 0 10px;
+                                                                      }
+                                                                      
                                                                       a {
                                                                            color: $grey;
+
+                                                                           @include mq-dsktpSmall {
+                                                                                font-size: 15px;
+                                                                                line-height: 1.4;
+                                                                           }
                                                                       }
                                                                  }
                                                             }
@@ -427,14 +518,8 @@
                                                   }
                                              }
                                         }
+                                        
                                    }
-                              }
-
-                              button {
-                                   font-size: 28px;
-                                   color: white;
-                                   min-width: 50px !important;
-                                   padding: 0 5px;
                               }
                          }
                     }
@@ -449,6 +534,10 @@
                          border: thin solid white;
                          padding: 5px 0;
                          font-size: 12px;
+
+                         @include mq-phn {
+                              width: 80px;
+                         }
                     }
                }
           }
@@ -459,8 +548,6 @@
 
                .lft {
                     .menuBtn {
-                         margin: 0 20px 0 0;
-                         display: none;
      
                          button {
                               border: thin solid $mainColorDark;
@@ -517,7 +604,7 @@
 
                                    &.searchIcon {
                                         .searchBtn {
-                                             margin: 0 0 0 -50px;
+                                             margin: 0;
                                              color: black;
                                         }
                                         .searchLabel {
@@ -549,11 +636,39 @@
           &.searchShow.scrolled,
           &.searchShow {
 
+               .lft {
+                    @include mq-tblt {
+                         flex-wrap: initial;
+                         width: auto;
+                    }
+                    @include mq-phn {
+                         flex-wrap: wrap;
+                         width: 100%;
+                    }
+
+                    .menuItems {
+                         display: none;
+                    }
+               }
+
                .rgt {
                     .sideBtns {
                          ul {
                               li {
                                    &.searchIcon {
+
+                                        @include mq-phn {
+                                             position: absolute;
+                                             width: 100%;
+                                             left: 0;
+                                             background: white;
+                                             top: 75px;
+                                             display: flex;
+                                             justify-content: flex-start;
+                                             padding: 0;
+                                             height: 66px;
+                                        }
+
                                         .searchBtn {
                                              margin: 0 0 0 -50px;
                                              color: black;
@@ -565,6 +680,16 @@
      
                                         .searchInput {
                                              width: 680px;
+                                             
+                                             @include mq-dsktpSmall {
+                                                  width: 550px;
+                                             }
+                                             @include mq-tblt {
+                                                  width: 330px;
+                                             }
+                                             @include mq-tbltSmall {
+                                                  width: 260px;
+                                             }
      
                                              /deep/ mat-form-field {
      

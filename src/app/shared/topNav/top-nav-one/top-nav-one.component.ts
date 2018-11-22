@@ -84,7 +84,6 @@ export class TopNavOneComponent implements OnInit {
 
   // search Main bar
   mainSearch() {
-    $(".lft .menuItems").hide();
     $(".searchLabel").fadeIn();
     $(".topbar").addClass('searchShow');
     $('#searchInput').focus();
@@ -92,9 +91,7 @@ export class TopNavOneComponent implements OnInit {
   closeMainSearch() {
     $('.searchList').hide();
     $(".searchLabel").hide();
-    setTimeout(() => {
-      $(".lft .menuItems").fadeIn();
-    }, 200);
+
     $(".topbar").removeClass('searchShow');
   }
 

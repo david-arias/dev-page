@@ -102,7 +102,7 @@ export class StatsHomeOneComponent implements OnInit {
           'onStateChange': this.onPlayerStateChange.bind(this),
           'onError': this.onPlayerError.bind(this),
           'onReady': (e) => {
-            console.log( 'vid on Ready' );
+            // console.log( 'vid on Ready' );
           }
         }
       });

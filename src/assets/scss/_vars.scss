@@ -49,7 +49,6 @@ $prefixes: "webkit", "moz", "ms", "o", "none";
      }
 }
 
-
 // TRANSITION ALL MIXIN 
 @mixin transitionAll ( $secs, $delay:0s ) {
      -webkit-transition: all $secs ease-in-out $delay;
@@ -57,5 +56,39 @@ $prefixes: "webkit", "moz", "ms", "o", "none";
      -o-transition: all $secs ease-in-out $delay;
      transition: all $secs ease-in-out $delay;
 }
+
+// MEDIA QUERIES MIXINS
+$xl-width: 1440px;
+$lg-width: 1280px;
+$md-width: 1024px;
+$sm-width: 768px;
+$xs-width: 480px;
+
+@mixin mq-dsktp {
+     @media screen and (max-width: #{$xl-width + 1px}) {
+          @content;
+     }
+}
+@mixin mq-dsktpSmall {
+     @media screen and (max-width: #{$lg-width + 1px}) {
+          @content;
+     }
+}
+@mixin mq-tblt {
+     @media screen and (max-width: #{$md-width + 1px}) {
+          @content;
+     }
+}
+@mixin mq-tbltSmall {
+     @media screen and (max-width: #{$sm-width + 1px}) {
+          @content;
+     }
+}
+@mixin mq-phn {
+     @media screen and (max-width: #{$xs-width + 1px}) {
+          @content;
+     }
+}
+
 
 

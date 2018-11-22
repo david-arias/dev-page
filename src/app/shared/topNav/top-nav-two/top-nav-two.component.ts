@@ -111,7 +111,6 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
 
   // search Main bar
   mainSearch() {
-    $(".lft .menuItems").hide();
     $(".searchLabel").fadeIn();
     $(".topbar").addClass('searchShow');
     $('#searchInput').focus();
@@ -119,9 +118,6 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
   closeMainSearch() {
     $('.searchList').hide();
     $(".searchLabel").hide();
-    setTimeout(() => {
-      $(".lft .menuItems").fadeIn();
-    }, 200);
     $(".topbar").removeClass('searchShow');
   }
 
