@@ -10,7 +10,7 @@
           <!-- mouseParallax -->
           <div class="bnnr" *ngIf="bnnrItm.type == 'mouseParallax' ">
             <div class="bgParallax" id="bannrSlider{{i}}">
-              <div class="parallaxLayer" *ngFor="let imgs of bnnrItm.bgImgs" [attr.data-depth]="imgs.depth">
+              <div *ngFor="let imgs of bnnrItm.bgImgs; let i = index" class="parallaxLayer parallaxLayer{{i}}" [attr.data-depth]="imgs.depth">
                 <picture>
                   <source media="(max-width: 767px)" srcset="{{ imgs.sm.src }}">
                   <source media="(max-width: 1023px)" srcset="{{ imgs.md.src }}">
@@ -87,19 +87,19 @@
       <div *ngFor="let pager of sliderContent; let i = index" class="pagerItm pagerItm-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
     </div>
 
-    <!-- BOTTOM SEARC SMALL -->
-    <div class="bttmSmallSearch">
-      <div class="inputWrap">
-        <mat-form-field class="example-full-width">
-          <input matInput placeholder="¿Que querés estudiar?" value="">
-        </mat-form-field>
-      </div>
-      <button mat-button class="inputByn">
-        <i class="icm icm-search"></i>
-      </button>
-    </div>
     
   </div>
-
+  
+  <!-- BOTTOM SEARC SMALL -->
+  <div class="bttmSmallSearch {{bttmSearchClass}}">
+    <div class="inputWrap">
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="¿Que querés estudiar?" value="">
+      </mat-form-field>
+    </div>
+    <button mat-button class="inputByn">
+      <i class="icm icm-search"></i>
+    </button>
+  </div>
 
 </div>

@@ -149,6 +149,14 @@
                                    font-size: 24px;
                                    margin: 0 10px 0;
                               }
+                              
+                              span {
+                                   @include mq-tblt {
+                                        width: 140px;
+                                        line-height: 1.4;
+                                        display: block;
+                                   }
+                              }
                          }
 
                          @include mq-tbltSmall {
@@ -173,7 +181,7 @@
                          text-transform: uppercase;
 
                          .label {
-                              @include mq-tbltSmall {
+                              @include mq-tblt {
                                    display: none;
                               }
                          }

@@ -160,6 +160,7 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
     body: this.sliderContent[0].bnnrText[0].body,
     bnnrBtn: this.sliderContent[0].bnnrText[0].bnnrBtn,
   };
+  bttmSearchClass:string = "";
 
   // search select
   levelsSel:string = "all";
@@ -232,6 +233,8 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
         bnnrBtn: this.sliderContent[curr].bnnrText[0].bnnrBtn,
       } 
       this.bnnrInfoActive = true;
+
+      this.bttmSearchClass = this.bnnrInfo.class;
     });
 
   }

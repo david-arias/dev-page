@@ -15,11 +15,14 @@
      height: 100vh;
 
      @include mq-phn {
-          height: auto; //115vh;
+          height: calc( 100vh + 90px );
      }
-     
-
-
+     @include mq-phnSmall {
+          height: calc( 100vh + 110px );
+     }
+     @include mqH-phn {
+          height: calc( 100vh + 110px );
+     }
 
      .sliderWrap {
           .carousel-inner {
@@ -28,26 +31,31 @@
                height: 100vh;
 
                @include mq-phn {
-                    height: auto; //115vh;
+                    height: calc( 100vh + 90px );
                }
-               
-               .bnnr {
-                    @include mq-phn {
-                         height: 100vh;
-                    }
+
+               @include mq-phnSmall {
+                    height: calc( 100vh + 110px );
                }
-               
+               @include mqH-phn {
+                    height: calc( 100vh + 110px );
+               }
      
                picture {
                     display: block;
-                    // width: 100vw;
                     width: 100%;
                     height: 100vh;
 
                     @include mq-phn {
-                         height: 100%; //115vh;
+                         height: calc( 100vh + 90px );
                     }
                     
+                    @include mq-phnSmall {
+                         height: calc( 100vh + 110px );
+                    }
+                    @include mqH-phn {
+                         height: calc( 100vh + 110px );
+                    }
 
                     img {
                          width: 100%;
@@ -55,7 +63,10 @@
                          object-fit: cover;
 
                          @include mq-phn {
-                              height: 100%; //115vh;
+                              height: 100%;
+                         }
+                         @include mqH-phn {
+                              height: 100%;
                          }
                          
                     }
@@ -86,6 +97,21 @@
                          left: 0;
                     }
                }
+
+               @include mqH-phn {
+                    .parallaxLayer {
+                         display: none !important;
+                         &.parallaxLayer0 {
+                              display:block !important;
+                         }
+                    }
+                    .scllParLyr {
+                         display: none !important;
+                         &.scllParLyr0 {
+                              display:block !important;
+                         }
+                    }
+               }
      
           }
      }
@@ -106,7 +132,22 @@
           @include mq-phn {
                width: 90vw;
                height: 380px;
-               @include prefix( transform,  translate(-50%, -50% ) );
+               transform: translate(-50%, 0);
+               position: absolute;
+               top: 230px;
+               left: 50%;
+          }
+          @include mq-phnSmall {
+               top: 180px;
+          }
+
+          @include mqH-phn {
+               width: 90vw;
+               height: 380px;
+               transform: translate(-50%, 0);
+               position: absolute;
+               top: 30px;
+               left: 50%;
           }
 
           // search box
@@ -244,6 +285,15 @@
                     height: 380px;
                     padding: 0px 0 0px;
                }
+               
+               @include mqH-phn {
+                    height: 295px;
+                    padding: 80px 0 0px;
+               }
+               @include mqH-phnSmall {
+                    height: 290px;
+                    padding: 80px 0 0px;
+               }
 
                .textInfo {
                     .subttl {
@@ -272,9 +322,21 @@
                          @include mq-tblt {
                               font-size: 80px;
                          }
+                         
+                         @include mqH-phn {
+                              font-size: 60px;
+                         }
+                         @include mqH-phnSmall {
+                              font-size: 50px;
+                         }
+
                          @include mq-phn {
                               font-size: 45px;
                               margin: 10px 0 120px;
+                         }
+                         
+                         @include mqH-phnSmallest {
+                              margin: 10px 0 20px;
                          }
                     }
                     .body {
@@ -346,6 +408,13 @@
                     margin: 10px 0 0 0;
                }
 
+               @include mqH-phn {
+                    margin: 20px 0 0 0;
+               }
+               @include mqH-phnSmall {
+                    margin: 10px 0 0 0;
+               }
+
                .pagerItm {
                     font-size: 0;
                     width: 12px;
@@ -362,60 +431,6 @@
                     }
                }
           }
-
-          // Bottom search Input
-          .bttmSmallSearch {
-
-               display: none;
-               width: 100vw;
-               left: 50%;
-               position: relative;
-               transform: translate( -50%, 0);
-               
-               position: absolute;
-               bottom: -27vh;
-
-               @include mq-tbltSmallest {
-                    display: block;
-               }
-
-               .inputWrap {
-                    padding: 15px;
-
-                    /deep/ mat-form-field {
-                         width: calc( 100% - 30px );
-
-                         .mat-form-field-infix {
-                              color: white;
-                         }
-                         .mat-form-field-underline {
-                              background: white;
-                         }
-
-                         span.mat-form-field-label-wrapper {
-                              color: white;
-                              
-                              label {
-                                   color: white;
-                              }
-                         }
-                    }
-               }
-
-               button {
-                    position: absolute;
-                    right: 5px;
-                    font-size: 20px;
-                    padding: 0;
-                    width: 39px;
-                    max-width: 40px;
-                    min-width: 40px;
-                    top: 50%;
-                    transform: translate(0px, -23px);
-                    color: white;
-               }
-          }
-
 
           // changing clases
           &.light {
@@ -444,35 +459,89 @@
                     }
                }
 
-               .bttmSmallSearch {
-     
-                    .inputWrap {
-     
-                         /deep/ mat-form-field {
-     
-                              .mat-form-field-infix {
-                                   color: $dark;
-                              }
-                              .mat-form-field-underline {
-                                   background: $dark;
-                              }
-     
-                              span.mat-form-field-label-wrapper {
-                                   color: $dark;
-                                   
-                                   label {
-                                        color: $dark;
-                                   }
-                              }
-                         }
-                    }
-     
-                    button {
-                         color: $dark;
-                    }
-               }
+               
 
           }
 
+     }
+
+     // Bottom search Input
+     .bttmSmallSearch {
+
+          display: none;
+          width: 100vw;
+          left: 50%;
+          transform: translate( -50%, 0);
+          
+          position: absolute;
+          bottom: 0;
+
+          @include mq-tbltSmallest {
+               display: block;
+          }
+
+          .inputWrap {
+               padding: 15px;
+
+               /deep/ mat-form-field {
+                    width: calc( 100% - 30px );
+
+                    .mat-form-field-infix {
+                         color: white;
+                    }
+                    .mat-form-field-underline {
+                         background: white;
+                    }
+
+                    span.mat-form-field-label-wrapper {
+                         color: white;
+                         
+                         label {
+                              color: white;
+                         }
+                    }
+               }
+          }
+
+          button {
+               position: absolute;
+               right: 5px;
+               font-size: 20px;
+               padding: 0;
+               width: 39px;
+               max-width: 40px;
+               min-width: 40px;
+               top: 50%;
+               transform: translate(0px, -23px);
+               color: white;
+          }
+
+          &.light {
+     
+               .inputWrap {
+
+                    /deep/ mat-form-field {
+
+                         .mat-form-field-infix {
+                              color: $dark;
+                         }
+                         .mat-form-field-underline {
+                              background: $dark;
+                         }
+
+                         span.mat-form-field-label-wrapper {
+                              color: $dark;
+                              
+                              label {
+                                   color: $dark;
+                              }
+                         }
+                    }
+               }
+
+               button {
+                    color: $dark;
+               }
+          }
      }
 }

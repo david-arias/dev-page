@@ -63,6 +63,7 @@ $lg-width: 1280px;
 $md-width: 1024px;
 $sm-width: 768px;
 $xs-width: 640px;
+$xxs-width: 380px;
 
 @mixin mq-dsktp {
      @media screen and (max-width: #{$xl-width + 1px}) {
@@ -94,9 +95,24 @@ $xs-width: 640px;
           @content;
      }
 }
+@mixin mq-phnSmall {
+     @media screen and (max-width: #{$xxs-width + 1px}) {
+          @content;
+     }
+}
 // height queries
 @mixin mqH-phn {
-     @media screen and (max-width: #{$sm-width - 1px}) and (max-height: #{$xs-width - 1px}) {
+     @media screen and (max-width: #{$sm-width }) and (orientation: landscape) {
+          @content;
+     }
+}
+@mixin mqH-phnSmall {
+     @media screen and (max-width: #{$sm-width }) and (orientation: landscape) {
+          @content;
+     }
+}
+@mixin mqH-phnSmallest {
+     @media screen and (max-width: #{$xs-width }) and (orientation: landscape) {
           @content;
      }
 }
