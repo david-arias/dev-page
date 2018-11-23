@@ -15,8 +15,9 @@
      height: 100vh;
 
      @include mq-phn {
-          height: 115vh ;
+          height: auto; //115vh;
      }
+     
 
 
 
@@ -27,8 +28,15 @@
                height: 100vh;
 
                @include mq-phn {
-                    height: 115vh ;
+                    height: auto; //115vh;
                }
+               
+               .bnnr {
+                    @include mq-phn {
+                         height: 100vh;
+                    }
+               }
+               
      
                picture {
                     display: block;
@@ -37,8 +45,9 @@
                     height: 100vh;
 
                     @include mq-phn {
-                         height: 115vh ;
+                         height: 100%; //115vh;
                     }
+                    
 
                     img {
                          width: 100%;
@@ -46,8 +55,9 @@
                          object-fit: cover;
 
                          @include mq-phn {
-                              height: 115vh ;
+                              height: 100%; //115vh;
                          }
+                         
                     }
                }
      
@@ -110,7 +120,7 @@
                @include mq-tbltSmall {
                     display: block;
                }
-               @include mq-phn {
+               @include mq-tbltSmallest {
                     display: none;
                }
 
@@ -353,6 +363,7 @@
                }
           }
 
+          // Bottom search Input
           .bttmSmallSearch {
 
                display: none;
@@ -364,7 +375,7 @@
                position: absolute;
                bottom: -27vh;
 
-               @include mq-phn {
+               @include mq-tbltSmallest {
                     display: block;
                }
 

@@ -100,12 +100,21 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
 
   // window scroll
   winScroll( evnt:any ) {
-    let scrolled = $(window).scrollTop(); 
-    
-    if ( scrolled >= 200 ) {
-      $(".topbar").addClass("scrolled");
+    let scrolled = $(window).scrollTop();
+    let w = window.innerWidth;
+
+    if ( w >= 640 ) {
+      if ( scrolled >= 200 ) {
+        $(".topbar").addClass("scrolled");
+      } else {
+        $(".topbar").removeClass("scrolled");
+      }
     } else {
-      $(".topbar").removeClass("scrolled");
+      if ( scrolled >= 100 ) {
+        $(".topbar").addClass("scrolled");
+      } else {
+        $(".topbar").removeClass("scrolled");
+      }
     }
   }
 

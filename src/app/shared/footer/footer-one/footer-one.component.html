@@ -14,14 +14,13 @@
       </div>
 
     </div>
-
   </div>
 
   <div class="footMenuWrap">
     <div class="footLinksWrap">
       <div class="container">
         <div class="row">
-          <div class="col-3" *ngFor="let footLink of footerLinks">
+          <div class="col-md-12 col-lg-3" *ngFor="let footLink of footerLinks">
             <div class="mainLink">
               <a href="{{footLink.link}}">
                 {{footLink.label}}
@@ -72,7 +71,7 @@
   
   <div class="footBttm">
     <p>
-        &copy; Copyright 2019 - Universidad Siglo 21. Todos los derechos reservados.  Consulte la política de privacidad y términos y condiciones de uso
+        &copy; <span>Copyright</span> 2019 | <span>Universidad Siglo 21.</span> Todos los derechos reservados. <span>Consulte la política de privacidad y términos y condiciones de uso</span>
     </p>
   </div>
 

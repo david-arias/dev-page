@@ -16,6 +16,11 @@
           position: relative;
           height: 200px;
 
+          @include mq-tbltSmall {
+               display: none;
+          }
+          
+
           .leadFormCont {
                position: absolute;
                width: 90vw;
@@ -42,11 +47,25 @@
      .footMenuWrap {
           background: $mainColorDark;
           padding: 220px 0 30px 0;
+          
+          @include mq-tbltSmall {
+               padding: 60px 0 30px 0;
+               display: flex;
+               flex-wrap: wrap;
+          }
 
           .footLinksWrap {
                display: flex;
                justify-content: center;
                padding: 80px 0px;
+
+               @include mq-tbltSmall {
+                    order: 2;
+                    
+                    margin: 0 auto;
+                    text-align: center;
+                    padding: 40px 0 0 0;
+               }
 
                .mainLink {
                     text-transform: uppercase;
@@ -62,6 +81,10 @@
                }
 
                .subLink {
+                    @include mq-tbltSmall {
+                         display: none;
+                    }
+
                     ul {
                          li {
                               margin: 0 0 10px 0;
@@ -82,15 +105,37 @@
                display: flex;
                justify-content: space-between;
                align-items: center;
-
                padding: 0 30px;
+
+               @include mq-tbltSmall {
+                    order: 1;
+                    flex-wrap: wrap;
+                    justify-content: center;
+                    width: 100%;
+               }
+
 
                .lft {
                     display: flex;
                     align-items: center;
 
+
                     .logo {
                          margin: 0 30px 0 0;
+
+                         @include mq-tbltSmall {
+                              margin: 0;
+                              
+                              img {
+                                   width: 260px;
+                                   height: auto;
+                              }
+                         }
+                         @include mq-phn {
+                              img {
+                                   width: 230px;
+                              }
+                         }
                     }
 
                     .tel {
@@ -105,11 +150,21 @@
                                    margin: 0 10px 0;
                               }
                          }
+
+                         @include mq-tbltSmall {
+                              display: none;
+                         }
                     }
 
                }
 
                .rgt {
+
+                    @include mq-tbltSmall {
+                         flex-basis: 100%;
+                         display: flex;
+                         justify-content: center;
+                    }
 
                     .socailLinks {
                          display: flex;
@@ -117,14 +172,29 @@
                          color: white;
                          text-transform: uppercase;
 
+                         .label {
+                              @include mq-tbltSmall {
+                                   display: none;
+                              }
+                         }
+                         
                          .items {
                               display: flex;
                               align-items: center;
+                              
+                              @include mq-tbltSmall {
+                                   margin: 20px 0 0 0;
+                              }
+
 
                               a {
                                    color: white;
                                    font-size: 35px;
                                    margin: 0 10px;
+                                   
+                                   @include mq-tbltSmall {
+                                        font-size: 25px;
+                                   }
                               }
                          }
                     }
@@ -142,6 +212,14 @@
                color: #999;
                @include mainfont-lg();
                font-size: 12;
+
+               span {
+                    @include mq-tbltSmall {
+                         display: none;
+                    }
+
+               }
+
           }
      }
 }

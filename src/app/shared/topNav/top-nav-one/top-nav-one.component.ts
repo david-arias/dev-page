@@ -64,11 +64,20 @@ export class TopNavOneComponent implements OnInit {
   // window scroll
   winScroll( evnt:any ) {
     let scrolled = $(window).scrollTop(); 
-    
-    if ( scrolled >= 200 ) {
-      $(".topbar").addClass("scrolled");
+    let w = window.innerWidth;
+
+    if ( w >= 640 ) {
+      if ( scrolled >= 200 ) {
+        $(".topbar").addClass("scrolled");
+      } else {
+        $(".topbar").removeClass("scrolled");
+      }
     } else {
-      $(".topbar").removeClass("scrolled");
+      if ( scrolled >= 100 ) {
+        $(".topbar").addClass("scrolled");
+      } else {
+        $(".topbar").removeClass("scrolled");
+      }
     }
   }
 
