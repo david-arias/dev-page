@@ -5,9 +5,14 @@ declare var $:any;
 @Component({
   selector: 'app-map-home-one',
   templateUrl: './map-home-one.component.html',
-  styleUrls: ['./map-home-one.component.scss']
+  styleUrls: ['./map-home-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class MapHomeOneComponent implements OnInit {
+
+  w:any;
 
   lat:number = -31.428519; 
   lng:number = -64.184759;
@@ -106,8 +111,27 @@ export class MapHomeOneComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.w = window.innerWidth;
+    if ( this.w <= 769 ) { 
+      this.mapOffset = 0;
+      this.lngCenter = this.lng - this.mapOffset;
+    }
+
+    /* */
     this.changePins('all');
     this.mapResults = this.markers;
+  }
+
+  onResize(event) {
+    this.w = event.target.innerWidth;
+
+    if ( this.w <= 769 ) { 
+      this.mapOffset = 0;
+      this.lngCenter = this.lng - this.mapOffset;
+    } else { 
+      this.mapOffset = 0.6;
+      this.lngCenter = this.lng - this.mapOffset;
+    }
   }
 
   changePins( type:string ) {

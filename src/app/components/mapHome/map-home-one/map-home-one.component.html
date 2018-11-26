@@ -1,48 +1,6 @@
 
 <div class="mapWrapper">
-  <div class="mapContent">
-
-    <!-- google maps -->
-    <agm-map [latitude]="latCenter" [longitude]="lngCenter" [zoom]="zoomCenter" [scrollwheel]="false">
-      <agm-marker
-        [latitude]="lat"
-        [longitude]="lng"
-        [iconUrl]="'assets/img/map/mapCenter.png'">
-      </agm-marker>
-
-      <agm-marker *ngFor="let mark of selMarkers; let i = index"
-        [latitude]="mark.lat"
-        [longitude]="mark.lng"
-        [iconUrl]="'assets/img/map/map_' + mark.type + '.png'"
-        (markerClick)="clickedMarker(infoWindow)">
-
-        <agm-info-window [maxWidth]="200" #infoWindow> 
-          <div class="infoCont" (click)="hideSpot = i;">
-
-              <div class="autoCont">
-                <div class="icon">
-                    <i  *ngIf="mark.type == 'sede'" class="icm icm-sedePin"></i>
-                    <i *ngIf="mark.type == 'centro'" class="icm icm-centrosPin"></i>
-                </div>
-                <div class="text">
-                  <div class="name">{{mark.name | titlecase}}</div>
-                  <div class="type">
-                    <span *ngIf="mark.type == 'sede'" >Sede Principal</span>
-                    <span *ngIf="mark.type == 'centro'">CSU - Centro de Servicio Universitario</span>
-                  </div>
-                  <div class="dis">{{mark.dir | titlecase}}</div>
-                  <div class="tel">{{mark.tel }}</div>
-                </div>
-              </div>
-
-          </div>
-        </agm-info-window>
-
-      </agm-marker>
-
-    </agm-map>
-  </div>
-
+  
   <div class="mapBoxWrap">
     <div class="topBoxInfo">
       <div class="ttl">
@@ -122,4 +80,49 @@
     </div>
 
   </div>
+  
+  <div class="mapContent">
+
+    <!-- google maps -->
+    <agm-map [latitude]="latCenter" [longitude]="lngCenter" [zoom]="zoomCenter" [scrollwheel]="false">
+      <agm-marker
+        [latitude]="lat"
+        [longitude]="lng"
+        [iconUrl]="'assets/img/map/mapCenter.png'">
+      </agm-marker>
+
+      <agm-marker *ngFor="let mark of selMarkers; let i = index"
+        [latitude]="mark.lat"
+        [longitude]="mark.lng"
+        [iconUrl]="'assets/img/map/map_' + mark.type + '.png'"
+        (markerClick)="clickedMarker(infoWindow)">
+
+        <agm-info-window [maxWidth]="200" #infoWindow> 
+          <div class="infoCont" (click)="hideSpot = i;">
+
+              <div class="autoCont">
+                <div class="icon">
+                    <i  *ngIf="mark.type == 'sede'" class="icm icm-sedePin"></i>
+                    <i *ngIf="mark.type == 'centro'" class="icm icm-centrosPin"></i>
+                </div>
+                <div class="text">
+                  <div class="name">{{mark.name | titlecase}}</div>
+                  <div class="type">
+                    <span *ngIf="mark.type == 'sede'" >Sede Principal</span>
+                    <span *ngIf="mark.type == 'centro'">CSU - Centro de Servicio Universitario</span>
+                  </div>
+                  <div class="dis">{{mark.dir | titlecase}}</div>
+                  <div class="tel">{{mark.tel }}</div>
+                </div>
+              </div>
+
+          </div>
+        </agm-info-window>
+
+      </agm-marker>
+
+    </agm-map>
+  </div>
+
+  
 </div>
