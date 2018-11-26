@@ -208,6 +208,25 @@
                     }
                }
           }
+
+          .bottomBtn {
+               display: none;
+               justify-content: center;
+               width: 100%;
+               margin: 10px 0 0;
+               
+               button {
+                    background: white;
+                    color: $mainColorDark;
+                    text-transform: uppercase;
+                    font-weight: 300;
+               }
+               
+               @include mq-tbltSmall {
+                    order: 3;
+                    display: flex;
+               }
+          }
      }
 
      .footBttm {

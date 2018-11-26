@@ -21,8 +21,23 @@
                text-align: center;
                font-size: 45px;
                color: $titlesColor;
-
+               
                @include mainfont-lg();
+
+               @include mq-tblt {
+                    font-size: 38px;
+                    padding: 0 20px;
+                    line-height: 1.4;
+               }
+               @include mq-tbltSmall {
+                    font-size: 30px;
+               }
+               @include mq-phn {
+                    font-size: 25px;
+               }
+               @include mq-phnSmall {
+                    font-size: 20px;
+               }
                
                b {
                     @include mainfont-bd();
@@ -44,6 +59,10 @@
           display: flex;
           justify-content: center;
 
+          @include mq-tbltSmall {
+               flex-wrap: wrap;
+          }
+
           @include transitionAll(0.3s, 0.15s);
           &[data-emergence=hidden] {
                opacity: 0;
@@ -56,11 +75,29 @@
 
           .btnTabItem {
                border-bottom: 1px solid $lightGrey;
+
+               @include mq-tbltSmall {
+                    border: thin solid $lightGrey;
+                    border-radius: 6px;
+                    margin: 5px;
+               }
                
                button.mat-button {
                     color: $dark; 
                     font-size: 18px;
                     padding: 0 30px;
+                    
+                    @include mq-tbltSmall {
+                         font-size: 11px;
+                         padding: 4px 10px;
+                         text-transform: uppercase;
+                         width: 85px;
+                         white-space: normal;
+                         line-height: 1.4;
+                         display: flex;
+                         align-items: center;
+                         height: 100%;
+                    }
                     
                     /deep/ span {
                          @include mainfont-lg();
@@ -81,6 +118,10 @@
                
                &.active {
                     border-bottom: 2px solid $mainColor;
+
+                    @include mq-tbltSmall {
+                         border: thin solid $mainColor;
+                    }
                     
                     button.mat-button {
                          color: $mainColor;
@@ -94,6 +135,10 @@
 
           /deep/ .bx-wrapper {
                margin: 0 auto;
+
+               @include mq-tbltSmall {
+                    display: none;
+               }
           }
 
           @include transitionAll(0.3s, 0.15s);
@@ -113,20 +158,16 @@
                     .topImg {
                          overflow: hidden;
                          position: relative;
-                         width: 320px;
-                         height: 220px;
+                         width: 100%;
+                         height: auto;
                          border-radius: 0px;
                          border: thin solid #ccc;
 
                          @include transitionAll( 0.3s );
-                         img {
-                              position: absolute;
-                              top: 50%;
-                              left: 50%;
-                              transform: translate(-50%, -50%) scale(1);
-                              width: 100%;
-                              height: auto;
 
+                         img {
+                              transform: scale(1);
+                         
                               @include transitionAll( 0.3s );
                          }
                     }
@@ -138,6 +179,7 @@
                     
                     .info {
                          font-size: 14px;
+                         line-height: 1.4;
                          @include mainfont-rg();
                          color: $grey;
                     }
@@ -147,7 +189,8 @@
                               border-radius: 10px;
 
                               img {
-                                   transform: translate(-50%, -50%) scale(1.1);
+                                   // transform: translate(-50%, -50%) scale(1.1);
+                                   transform: scale(1.1);
                               }
                          }
                     }
@@ -158,6 +201,10 @@
                display: flex;
                justify-content: center;
                margin: 40px 0 20px;
+
+               @include mq-tbltSmall {
+                    display: none;
+               }
 
                .pagerItem {
                     margin: 0 7px;
@@ -175,6 +222,48 @@
                          background: $darkBlue;;
                     }
                }
+          }
+
+          .mobileCareerList {
+               display: none;
+
+               ul {
+                    width: 50vw;
+                    position: relative;
+                    left: 50%;
+                    transform: translate(-50%, 0);
+                    
+                    @include mq-phn {
+                         width: 85vw;
+                    }
+
+                    li {
+                        position: relative;
+                        text-indent: 15px;
+                        margin: 0 0 20px 0;
+                        
+                         &:before {
+                              content: "";
+                              width: 8px;
+                              height: 8px;
+                              background: $mainColor;
+                              position: absolute;
+                              top: 4px;
+                              left: 0px;
+                              border-radius: 50%;
+                         }
+
+                         a {
+                              color: $grey;
+                              line-height: 1.4;
+                         }
+                    }
+                }
+
+               @include mq-tbltSmall {
+                    display: block;
+               }
+               
           }
      }
 

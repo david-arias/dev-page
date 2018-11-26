@@ -75,9 +75,7 @@ export class NewsHomeOneComponent implements OnInit {
       duration: "",
       mainTtl: "",
       bodyTxt: "La necesidad de asumir los cambios"
-    },
-
-    {
+    }, {
       type: "news",
       img: "ciencia21.jpg",
       topTtl: "Noticia",
@@ -132,10 +130,16 @@ export class NewsHomeOneComponent implements OnInit {
     // columnWidth: 350
     percentPosition: true,
     columnWidth: '.colItem',
+    horizontalOrder: true,
+    originLeft: false,
   }
+
+  viewNews:number = 7;
+  maxNews:number;
 
   constructor() {
     this.changeNewsTab( 'all' );
+    this.maxNews = this.viewNews;
   }
   
   ngOnInit() {
@@ -192,6 +196,7 @@ export class NewsHomeOneComponent implements OnInit {
       }
 
     }
+    
   }
 
 }

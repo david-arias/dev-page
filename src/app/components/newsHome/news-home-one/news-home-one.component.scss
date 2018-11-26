@@ -23,6 +23,21 @@
                color: $titlesColor;
 
                @include mainfont-lg();
+
+               @include mq-tblt {
+                    font-size: 38px;
+                    padding: 0 20px;
+                    line-height: 1.4;
+               }
+               @include mq-tbltSmall {
+                    font-size: 30px;
+               }
+               @include mq-phn {
+                    font-size: 25px;
+               }
+               @include mq-phnSmall {
+                    font-size: 20px;
+               }
                
                b {
                     @include mainfont-bd();
@@ -44,13 +59,25 @@
      .btnWrapper {
           display: flex;
           justify-content: center;
-          
+
+          @include mq-tbltSmall {
+               justify-content: flex-start;
+               padding: 0 15px;
+          }
+          @include mq-tbltSmallest {
+               justify-content: center;
+          }
+
           .btnWrap {
                display: flex;
                justify-content: center;
                border: 1px solid $lightGrey;
                padding: 2px;
                border-radius: 4px;
+               
+               @include mq-tbltSmallest {
+                    border: none;
+               }
      
                .btnItem {
                     
@@ -58,6 +85,23 @@
                          color: $dark; 
                          font-size: 16px;
                          padding: 0 50px;
+                         
+                         @include mq-tbltSmall {
+                              padding: 0 25px;
+                         }
+                         @include mq-tbltSmallest {
+                              padding: 0 auto;
+                              border: 1px solid $lightGrey;
+                              margin: 10px 5px;
+                              font-size: 14px;
+                              text-transform: uppercase;
+                              padding: 0 10px;
+                         }
+                         @include mq-phnSmall {
+                              margin: 10px 5px;
+                              font-size: 12px;
+                              padding: 0 8px;
+                         }
                          
                          span {
                               @include mainfont-lg();
@@ -91,6 +135,26 @@
      // radio btn
      .radioBtnWrap {
           position: relative;
+
+          @include mq-tbltSmallest {
+               display: none;
+          }
+          
+          &.radioBtnWrapBttm {
+               display: none;
+               
+               @include mq-tbltSmallest {
+                    display: flex;
+                    justify-content: center;
+               }
+
+               .radioBtn {
+                    position: relative;
+                    top: 0;
+                    margin: 20px 0 0 0;
+                    right: 0;
+               }
+          }
 
           .radioBtn {
                position: absolute;
@@ -157,8 +221,18 @@
           
           .colItem {
                width: calc( 25% - 30px );
-            //    width: 320px;
+               //    width: 320px;
                margin: 15px;
+
+               @include mq-tblt {
+                    width: calc( 33% - 30px );
+               }
+               @include mq-tbltSmall {
+                    width: calc( 50% - 30px );
+               }
+               @include mq-phn {
+                    width: calc( 100% - 30px );
+               }
 
                $mainPadding: 20px;
 

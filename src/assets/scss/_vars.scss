@@ -64,6 +64,9 @@ $md-width: 1024px;
 $sm-width: 768px;
 $xs-width: 640px;
 $xxs-width: 380px;
+$xxxs-width: 340px;
+
+$xxs-width-iPhone5Land: 480px;
 
 @mixin mq-dsktp {
      @media screen and (max-width: #{$xl-width + 1px}) {
@@ -100,19 +103,30 @@ $xxs-width: 380px;
           @content;
      }
 }
+@mixin mq-phnSmallest {
+     @media screen and (max-width: #{$xxxs-width + 1px}) {
+          @content;
+     }
+}
+
 // height queries
 @mixin mqH-phn {
-     @media screen and (max-width: #{$sm-width }) and (orientation: landscape) {
+     @media screen and (max-width: #{$sm-width + 1 }) and (orientation: landscape) {
           @content;
      }
 }
 @mixin mqH-phnSmall {
-     @media screen and (max-width: #{$sm-width }) and (orientation: landscape) {
+     @media screen and (max-width: #{$sm-width + 1 }) and (orientation: landscape) {
           @content;
      }
 }
 @mixin mqH-phnSmallest {
-     @media screen and (max-width: #{$xs-width }) and (orientation: landscape) {
+     @media screen and (max-width: #{$xs-width + 1 }) and (orientation: landscape) {
+          @content;
+     }
+}
+@mixin mqH-phnMini {
+     @media screen and (max-width: #{$xxs-width-iPhone5Land + 1}) and (orientation: landscape) {
           @content;
      }
 }

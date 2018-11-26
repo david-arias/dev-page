@@ -231,6 +231,7 @@ export class CareersHomeOneComponent implements OnInit, AfterViewInit {
       minSlides: 1,
       maxSlides: 4,
       slideWidth: 340,
+      shrinkItems: true,
       useCss: false,
       pager: false,
       controls: false,
