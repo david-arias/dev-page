@@ -20,7 +20,7 @@
       </div>
   
       <div class="sliderHall">
-        <div class="prevArrow">
+        <div class="prevArrow" *ngIf="arrowsView">
           <button mat-button (click)="chngSlider( 'next' )">
             <i class="icm icm-lftBnnrArrow"></i>
           </button>
@@ -45,7 +45,7 @@
             </div>
           </div>
         </div>
-        <div class="nextArrow">
+        <div class="nextArrow" *ngIf="arrowsView">
           <button mat-button (click)="chngSlider( 'prev' )">
             <i class="icm icm-rgtBnnrArrow"></i>
           </button>

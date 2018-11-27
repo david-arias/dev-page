@@ -20,10 +20,22 @@
      background: -webkit-linear-gradient(-45deg, #772583 0%,#005587 100%);
      background: linear-gradient(135deg, #772583 0%,#005587 100%);
 
+     @include mq-tbltSmall {
+          height: 1050px;
+     }
+
      .topTtl {
           display: flex;
           align-items: center;
           padding: 0  100px;
+
+          @include mq-tbltSmall {
+               padding: 0  50px;
+          }
+          @include mq-tbltSmallest {
+               display: block;
+               padding: 0 30px;
+          }
 
           .ttl {
                width: 50vw;
@@ -32,12 +44,35 @@
                border-right-style:  solid;
                
                border-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255,255,255,1), rgba(255, 255, 255, 0)) 1 100%;
+
+               @include mq-tbltSmallest {
+                    width: 100%;
+                    border-right-width: 0px;
+               }
     
                h1 {
                     color: $light;
                     @include mainfont-th();
                     font-size: 75px;
                     width: 560px;
+                    
+                    @include mq-tblt {
+                         font-size: 60px;
+                         width: 440px;
+                    }
+                    @include mq-tbltSmall {
+                         font-size: 50px;
+                         width: 350px;
+                    }
+                    @include mq-tbltSmallest {
+                         font-size: 45px;
+                         width: 100%;
+                         text-align: center;
+                         margin: 0 0 20px 0;
+                    }
+                    @include mq-phnSmall {
+                         font-size: 35px;
+                    }
 
                     b {
                          @include mainfont-bd();
@@ -49,9 +84,21 @@
                color: $light;
                padding: 0 0 0 60px;
 
+               @include mq-tbltSmallest {
+                    padding: 0 0 0 0px;
+                    text-align: center;
+               }
+
                .txt {
                     @include mainfont-rg();
                     line-height: 1.4;
+
+                    @include mq-tbltSmallest {
+                         font-size: 18px;
+                    }
+                    @include mq-phnSmall {
+                         font-size: 16px;
+                    }
                     
                     b {
                          @include mainfont-bd();
@@ -113,6 +160,10 @@
                     display: flex;
                     justify-content: center;
 
+                    @include mq-tbltSmall {
+                         flex-basis: 10%;
+                    }
+
                     button {
                          color: $light;
                          font-size: 30px;
@@ -123,6 +174,10 @@
 
                .sliderHallCont {
                     flex-basis: 70%;
+
+                    @include mq-tbltSmall {
+                         flex-basis: 80%;
+                    }
 
                     /deep/ .bx-wrapper {
                          max-width: 100% !important;
@@ -144,15 +199,26 @@
 
                               .contentItemTEstimonial {
                                    .top {
-                                        display: flex;
                                         align-items: center;
                                         margin: 0 0 30px 0;
-
+                                        
+                                        @include mq-tblt {
+                                             display: block;
+                                             text-align: center;
+                                        }
+                                        
                                         .avatar {
                                              width: 80px;
                                              height: 80px;
                                              border-radius: 50%;
                                              overflow: hidden;
+                                             
+                                             @include mq-tblt {
+                                                  left: 50%;
+                                                  position: relative;
+                                                  transform: translate(-50%,0);
+                                                  margin: 0 0 30px 0;
+                                             }
                                         }
 
                                         .info {

@@ -5,9 +5,14 @@ declare var $:any;
 @Component({
   selector: 'app-testimonial-one',
   templateUrl: './testimonial-one.component.html',
-  styleUrls: ['./testimonial-one.component.scss']
+  styleUrls: ['./testimonial-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class TestimonialOneComponent implements OnInit, AfterViewInit {
+
+  w:any;
 
   testimonialItems:any = [
     {
@@ -45,15 +50,58 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
 
   slider:any;
   sliderMaxItems_count:number = 2;
+  sliderItem_width:number = 470;
   slider_pager:any = [];
+
+  arrowsView:boolean = true;
 
   constructor() { }
 
   ngOnInit() {
+    this.w = window.innerWidth;
+    this.reAsignVars( this.w );
   }
   ngAfterViewInit() {
     this.initSlider();
   }
+
+  /* * * */
+  reAsignVars( width:number ) {
+
+    if ( this.w <= 766 ) {
+
+      this.arrowsView = false;
+      this.sliderMaxItems_count = 1;
+      this.sliderItem_width = 300;
+      
+    } else if ( this.w <= 769 ) {
+
+      this.arrowsView = true;
+      this.sliderMaxItems_count = 2;
+      this.sliderItem_width = 320;
+      
+    } else if ( this.w <= 1028 ) {
+
+      this.arrowsView = true;
+      this.sliderMaxItems_count = 2;
+      this.sliderItem_width = 400;
+      
+    } else {
+
+      this.arrowsView = true;
+      this.sliderMaxItems_count = 2;
+      this.sliderItem_width = 470;
+
+    }
+
+  }
+  /* * * */
+  onResize(event) {
+    this.w = event.target.innerWidth;
+    this.reAsignVars( this.w );
+    this.slider.reloadSlider();
+  }
+  /* * * */
 
   initSlider() {
     this.slider =  $('.slider-testimonial').bxSlider({
@@ -62,7 +110,7 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
       infiniteLoop: false,
       minSlides: 1,
       maxSlides: this.sliderMaxItems_count,
-      slideWidth: 470,
+      slideWidth: this.sliderItem_width,
       onSliderLoad: () => {
         this.sliderChanges();
       },
