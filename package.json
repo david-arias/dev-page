@@ -38,6 +38,7 @@
     "ngx-masonry": "^1.1.2",
     "parallax-js": "^3.1.0",
     "rxjs": "~6.3.3",
+    "rxjs-compat": "^6.3.3",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

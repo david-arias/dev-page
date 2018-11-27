@@ -22,6 +22,18 @@
                color: $titlesColor;
 
                @include mainfont-lg();
+
+               @include mq-tblt {
+                    font-size: 38px;
+                    padding: 0 20px;
+                    line-height: 1.4;
+               }
+               @include mq-tbltSmall {
+                    font-size: 30px;
+               }
+               @include mq-phnSmall {
+                    font-size: 20px;
+               }
                
                b {
                     @include mainfont-bd();
@@ -39,13 +51,261 @@
           }
      }
 
+     .feedLoader {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 300px;
+
+          .lds-ellipsis {
+               display: inline-block;
+               position: relative;
+               width: 64px;
+               height: 64px;
+     
+               div {
+                    position: absolute;
+                    top: 27px;
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 50%;
+                    background: $mainColor;
+                    animation-timing-function: cubic-bezier(0, 1, 1, 0);
+     
+                    &:nth-child(1) {
+                         left: 6px;
+                         animation: lds-ellipsis1 0.6s infinite;
+                    }
+                    &:nth-child(2) {
+                         left: 6px;
+                         animation: lds-ellipsis2 0.6s infinite;
+                    }
+                    &:nth-child(3) {
+                         left: 26px;
+                         animation: lds-ellipsis2 0.6s infinite;
+                    }
+                    &:nth-child(4) {
+                         left: 45px;
+                         animation: lds-ellipsis3 0.6s infinite;
+                    }
+     
+     
+                    @keyframes lds-ellipsis1 {
+                         0% {
+                              transform: scale(0);
+                         }
+                         100% {
+                              transform: scale(1);
+                         }
+                    }
+                    @keyframes lds-ellipsis3 {
+                         0% {
+                              transform: scale(1);
+                         }
+                         100% {
+                              transform: scale(0);
+                         }
+                    }
+                    @keyframes lds-ellipsis2 {
+                         0% {
+                              transform: translate(0, 0);
+                         }
+                         100% {
+                              transform: translate(19px, 0);
+                         }
+                    }
+     
+               }
+          }
+
+     }
+
      .feedWrap {
           padding: 0 20px;
           
-          /deep/ ul {
-               h1.referral {
-                    display: none;
+          .topfilters {
+               margin: 0 0 50px 0;
+               display: flex;
+               align-items: center;
+               justify-content: center;
+
+               @include mq-tbltSmallest {
+                    flex-wrap: wrap;
                }
+
+               .label {
+                    text-transform: uppercase;
+                    font-size: 13px;
+                    color: $grey;
+                    margin: 0 10px 0 0;
+               }
+
+               .btn {
+                    margin: 0 10px;
+                    
+                    @include mq-tbltSmallest {
+                         margin: 10px;
+                    }
+
+                    button {
+
+                         &.matBtn {
+                              border: none;
+                              background: white;
+                              padding: 0 10px;
+                              height: 30px;
+
+                              span {
+                                   height: 14px;
+                                   line-height: 1;
+                              }
+                         }
+
+                         i.icm {
+                              font-size: 20px;
+                              margin: 0 5px 0 0;
+                         }
+
+                         &.btn-All { color: #f57a74; }
+
+                         &.btn-Facebook { color: #3B5998; }
+                         &.btn-Twitter { color: #55ACEE; }
+                         &.btn-Instagram { color: #3F729B; }
+                         &.btn-Pinterest { color: #CC181E; }
+                         &.btn-YouTube { color: #CC181E; }
+                         &.btn-LinkedIn { color: #007bb6; }
+                         &.btn-GooglePlus { color: #DD4B39; }
+                         
+                    }
+               }
+          }
+
+          .feedsItems {
+               width: calc(100vw - 40px);
+               column-width: 320px;
+               column-gap: 15px;
+
+               &[data-cols='4'] {
+                    .feed {
+                         column-break-inside: avoid;
+                         display: inline-block;
+                    }
+               }
+
+               .feed {
+                    border: thin solid #ccc;
+                    background: white;
+                    border-radius: 5px;
+                    margin: 0 0 15px 0;
+
+                    .top {
+                         padding: 10px 15px;
+                         display: flex;
+                         align-items: center;
+                         justify-content: space-between;
+
+                         .lft {
+                              display: flex;
+                              align-items: center;
+
+                              .avatar {
+                                   width: 30px;
+                                   height: 30px;
+                                   border-radius: 50%;
+                                   overflow: hidden;
+                                   margin: 0 10px 0 0;
+
+                                   img {
+                                        width: 100%;
+                                        height: auto;
+                                   }
+                              }
+                              .name {
+                                   color: $grey;
+                              }
+                         }
+                         .rgt {
+                              .date {
+                                   color: $grey;
+                                   font-size: 14px;
+                                   opacity: 0.7;
+                              }
+                         }
+                    }
+
+                    .midImg {
+                         img {
+                              width: 100%;
+                              height: auto;
+                         }
+                    }
+                    .midTxt {
+                         padding: 10px 15px;
+
+                         /deep/ .txt {
+                              p {
+                                   line-height: 1.6;
+                                   color: $grey;
+                                   font-size: 14px;
+                              }
+                         }
+                    }
+                    .bottom {
+                         padding: 10px 15px;
+                         display: flex;
+                         align-items: center;
+                         justify-content: space-between;
+                         opacity: 0.7;
+
+                         .lft {
+                              display: flex;
+                              align-items: center;
+
+                              .comments, .likes {
+                                   color: $grey;
+                                   display: flex;
+                                   align-items: center;
+                                   margin: 0 10px 0 0;
+
+                                   .icm {
+                                        margin: 0 5px 0 0;
+                                   }
+                                   span {
+                                        font-size: 14px;
+                                   }
+                              }
+                         }
+                         .rgt {
+                              .icm {
+                                   font-size: 30px;
+                                   color: $grey;
+                              }
+                         }
+                    }
+               }
+          }
+     }
+
+     .moreBtn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          margin: 20px 0 0 0;
+          
+          @include mq-phn {
+               margin: 0px 0 0 0;
+          }
+
+          button {
+               background: white;
+               border-radius: 40px;
+               padding: 4px 30px;
+               text-transform: uppercase;
+               font-size: 16px;
+               color: $mainColor;
+               border: thin solid $mainColor;
+
+               @include mainfont-lg();
           }
      }
 }

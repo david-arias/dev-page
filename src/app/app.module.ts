@@ -5,7 +5,10 @@ import { APP_ROUTING } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import {FormsModule, ReactiveFormsModule} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
+// services
+import { JuicerApiService } from './services/juicer-api.service';
 
 // Pages
 import { HomeComponent } from './pages/home/home.component';
@@ -43,6 +46,7 @@ import { LeadFormOneComponent } from './shared/leadForm/lead-form-one/lead-form-
 import { LoaderOneComponent } from './shared/loader/loader-one/loader-one.component';
 
 import { TopAlertOneComponent } from './shared/topAlert/top-alert-one/top-alert-one.component';
+
 // material
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatButtonModule, MatSelectModule, MatInputModule, MatCheckboxModule, MatAutocompleteModule, MatFormFieldModule } from '@angular/material';
@@ -58,6 +62,9 @@ import { AgmCoreModule } from '@agm/core';
 
 // vistual scroll
 import { ScrollingModule } from "@angular/cdk/scrolling";
+
+// pipes
+import { JuicerIconsPipe } from './pipes/juicer-icons-pipe.pipe';
 
 @NgModule({
   declarations: [
@@ -78,12 +85,14 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
     LeadFormOneComponent,
     TopNavTwoComponent,
     LoaderOneComponent,
-    TopAlertOneComponent
+    TopAlertOneComponent,
+    JuicerIconsPipe
   ],
   imports: [
     BrowserModule,
     APP_ROUTING,
 
+    HttpModule,
     FormsModule,
     ReactiveFormsModule,
     ScrollingModule,
@@ -100,7 +109,9 @@ import { ScrollingModule } from "@angular/cdk/scrolling";
       apiKey: 'AIzaSyAwk55I036JjTDglOx-u7nh6aU9CziPwxU'
     })
   ],
-  providers: [],
+  providers: [
+    JuicerApiService,
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
