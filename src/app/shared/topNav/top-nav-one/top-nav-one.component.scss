@@ -22,7 +22,7 @@
           display: flex;
           justify-content: space-between;
           align-items: center;
-          width: 100vw;
+          width: 100%;
           height: $navHeight;
           padding: 0 15px;
           background: transparent;
@@ -50,6 +50,10 @@
                          flex-basis: 50px;
                     }
 
+                    @include mq-phnSmall {
+                         flex-basis: 40px;
+                    }
+
                     button {
                          border: thin solid white;
                          padding: 0;
@@ -60,6 +64,12 @@
                          align-items: center;
                          justify-content: center;
 
+                         @include mq-phnSmall {
+                              width: 30px;
+                              min-width: 30px;
+                              height: 30px;
+                         }
+
                          span {
                               font-size: 0;
                               width: 25px;
@@ -67,6 +77,10 @@
                               background: white;
                               display: block;
                               position: relative;
+
+                              @include mq-phnSmall {
+                                   width: 20px;
+                              }
                               
                               &:before {
                                    content: "";
@@ -76,6 +90,10 @@
                                    display: block;
                                    position: absolute;
                                    top: -7px;
+
+                                   @include mq-phnSmall {
+                                        width: 20px;
+                                   }
                               }
                               &:after {
                                    content: "";
@@ -85,6 +103,10 @@
                                    display: block;
                                    position: absolute;
                                    top: 7px;
+
+                                   @include mq-phnSmall {
+                                        width: 20px;
+                                   }
                               }
                          }
                     }
@@ -97,12 +119,20 @@
                     @include mq-phn {
                          flex-basis: calc( 100% - 70px );
                     }
+                    @include mqH-phnSmallest {
+                         flex-basis: calc( 100% - 140px );
+                    }
 
                     img {
                          @include mq-phn {
                               width: 115px;
                               margin: 0 10px 0 0;
                               float: right;
+                         }
+
+                         @include mq-phnSmall {
+                              width: 100px;
+                              margin: 0;
                          }
                     }
 
@@ -354,6 +384,10 @@
                                    @include mq-tbltSmall {
                                         display: none;
                                    }
+
+                                   @include mq-phnSmall {
+                                        min-width: 40px !important;
+                                   }
                               }
 
                               &.searchIcon {
@@ -542,6 +576,11 @@
 
                          @include mq-phn {
                               width: 80px;
+                         }
+
+                         @include mq-phnSmall {
+                              width: 70px;
+                              font-size: 10px;
                          }
                     }
                }

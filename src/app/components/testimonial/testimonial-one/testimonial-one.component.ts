@@ -53,10 +53,13 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
   sliderItem_width:number = 470;
   slider_pager:any = [];
 
+  sliderOptions:any = {};
+
   arrowsView:boolean = true;
 
-  constructor() { }
-
+  constructor() {
+  }
+  
   ngOnInit() {
     this.w = window.innerWidth;
     this.reAsignVars( this.w );
@@ -72,13 +75,13 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
 
       this.arrowsView = false;
       this.sliderMaxItems_count = 1;
-      this.sliderItem_width = 300;
+      this.sliderItem_width = 0;
       
     } else if ( this.w <= 769 ) {
 
       this.arrowsView = true;
       this.sliderMaxItems_count = 2;
-      this.sliderItem_width = 320;
+      this.sliderItem_width = 300;
       
     } else if ( this.w <= 1028 ) {
 
@@ -94,17 +97,7 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
 
     }
 
-  }
-  /* * * */
-  onResize(event) {
-    this.w = event.target.innerWidth;
-    this.reAsignVars( this.w );
-    this.slider.reloadSlider();
-  }
-  /* * * */
-
-  initSlider() {
-    this.slider =  $('.slider-testimonial').bxSlider({
+    this.sliderOptions = {
       pager: false,
       controls: false,
       infiniteLoop: false,
@@ -116,13 +109,33 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
       },
       onSlideAfter: () => {
         this.sliderChanges();
+      }, 
+      onSliderResize: () => {
+        this.sliderReload();
       }
-    });
+    }
+
+  }
+  /* * * */
+  onResize(event) {
+    this.w = event.target.innerWidth;
+    this.reAsignVars( this.w );
+  }
+  /* * * */
+
+  initSlider() {
+    this.slider =  $('.slider-testimonial').bxSlider(
+      this.sliderOptions,
+    );
     
+    this.sliderPager()
+  }
+
+  sliderPager() {
+    this.slider_pager = [];
     for (let i = 0; i < this.testimonialItems.length / this.sliderMaxItems_count ; i++) {
       this.slider_pager.push( i )
     }
-
   }
 
   sliderChanges () {
@@ -142,6 +155,15 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
 
     $(".pagerBtn_testi").removeClass('active');
     $(`.pagerBtn_testi-${curr}`).addClass('active');
+  }
+
+  sliderReload() {
+    this.reAsignVars( this.w );
+    this.slider.reloadSlider(
+      this.sliderOptions,
+    );
+    this.sliderPager();
+    console.log("resized!!");
   }
 
   chngSlider( side:string ) {

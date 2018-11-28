@@ -23,6 +23,9 @@
      @include mq-tbltSmall {
           height: 1050px;
      }
+     @include mq-phn {
+          padding: 120px 0;
+     }
 
      .topTtl {
           display: flex;
@@ -197,14 +200,36 @@
                               display: flex;
                               align-items: flex-start;
 
+                              @include mq-tblt {
+                                   height: 330px;
+                              }
+                              @include mq-tbltSmall {
+                                   height: 390px;
+                                   margin: 0 10px;
+                              }
+                              @include mq-tbltSmallest {
+                                   width: 90vw !important;
+                              }
+                              
+                              @include mqH-phn {
+                                   height: 290px;
+                                   margin: 0 20px;
+                              }
+                              
+
                               .contentItemTEstimonial {
                                    .top {
                                         align-items: center;
                                         margin: 0 0 30px 0;
-                                        
+                                        display: flex;
+
                                         @include mq-tblt {
                                              display: block;
                                              text-align: center;
+                                        }
+                                        @include mqH-phn {
+                                             display: flex;
+                                             text-align: left;
                                         }
                                         
                                         .avatar {
@@ -218,6 +243,11 @@
                                                   position: relative;
                                                   transform: translate(-50%,0);
                                                   margin: 0 0 30px 0;
+                                             }
+                                             @include mqH-phn {
+                                                  left: 0;
+                                                  transform: translate(0,0);
+                                                  margin: 0;
                                              }
                                         }
 
