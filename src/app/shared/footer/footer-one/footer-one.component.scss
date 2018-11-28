@@ -38,6 +38,10 @@
                          color: $light;
                          
                          @include mainfont-lg();
+                         
+                         @include mq-tblt {
+                              font-size: 23px;
+                         }
                     }
                }
           }

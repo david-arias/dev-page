@@ -147,9 +147,6 @@
                .menuItems {
                     margin: 0 0 0 20px;
 
-                    @include mq-tblt {
-                         display: none;
-                    }
 
                     ul {
                          display: flex;
@@ -378,7 +375,7 @@
                               button {
                                    font-size: 28px;
                                    color: white;
-                                   min-width: 50px !important;
+                                   min-width: 50px;
                                    padding: 0 5px;
 
                                    @include mq-tbltSmall {
@@ -558,6 +555,145 @@
                                              }
                                         }
                                         
+                                   }
+                              }
+
+                              &.searchIconSmall {
+                                   .searchBtnSmall {
+                                        font-size: 20px;
+                                        
+                                        @include mq-tbltSmall {
+                                             display: block;
+                                        }
+                                   }
+
+                                   .searchSmContent {
+                                        position: fixed;
+                                        background: white;
+                                        top: $navHeight;
+                                        left: 0;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        width: 100%;
+                                        height: calc(50% - #{$navHeight});
+
+                                        @include mq-tbltSmallest {
+                                             width: 100%;
+                                             height: calc(100% - #{$navHeight});
+                                        }
+                                        
+                                        .closeSearchSm {
+                                             position: absolute;
+                                             top: 15px;
+                                             right: 5px;
+
+                                             button {
+                                                  align-items: center;
+                                                  justify-content: center;
+                                                  height: 30px;
+                                                  min-width: 30px;
+                                                  width: 30px;
+                                                  display: flex;
+
+                                                  @include transitionAll( 0.3s );
+
+                                                  span {
+                                                       font-size: 0;
+                                                       position: relative;
+                                                       width: 2px;
+                                                       height: 2px;
+                                                       display: block;
+                                                       left: -20px;
+
+                                                       &:before, &:after {
+                                                            content: "";
+                                                            font-size: 0;
+                                                            display: block;
+                                                            width: 20px;
+                                                            height: 3px;
+                                                            background: $blue;
+                                                            position: absolute;
+                                                            top: 0;
+                                                            left: 10px;
+                                                       }
+                                                       &:before {
+                                                            transform: rotate(-45deg);
+                                                       }
+                                                       &:after {
+                                                            transform: rotate(45deg);
+                                                       }
+                                                  }
+                                             }
+                                        }
+
+                                        .searchSmForm {
+                                             text-align: center;
+
+                                             .topIcon {
+                                                  font-size: 40px;
+                                                  margin: 0 0 20px 0;
+                                             }
+
+                                             /deep/ mat-form-field {
+                                                  margin: 10px 0 20px 0;
+                                                  
+                                                  .mat-form-field-infix {
+                                                       width: 250px;
+                                                       color: $blue;
+
+                                                       input {
+                                                            &::-webkit-input-placeholder { color: $blue;; }
+                                                            &::-moz-placeholder { color: $blue;; }
+                                                            &:-ms-input-placeholder { color: $blue;; }
+                                                            &:-moz-placeholder { color: $blue;; }
+                                                       }
+                                                  }
+
+                                                  .mat-select-value {
+                                                       color: $blue;
+                                                  }
+                                                  .mat-form-field-appearance-legacy .mat-form-field-label {
+                                                       color: $blue !important;
+                                                  }
+
+                                                  .mat-form-field-underline {
+                                                       background-color: $blue;
+                                                   }
+                                             }
+
+                                             .searchInput {
+                                                  position: relative;
+                                                  
+                                                  .searchBtnSend {
+                                                       position: absolute;
+                                                       top: 20px;
+                                                       right: 0;
+
+                                                       button {
+                                                            font-size: 20px;
+                                                            color: $blue;
+                                                            width: 35px;
+                                                            min-width: 35px;
+                                                            padding: 0;
+                                             
+                                                            @include mq-tbltSmall {
+                                                                 display: block;
+                                                            }
+                                                       }
+                                                  }
+                                             }
+
+                                             .bottom {
+                                                  margin: 20px 0 0 0;
+
+                                                  a {
+                                                       text-decoration: none;
+                                                       color: $blue;
+                                                  }
+                                             }
+
+                                         }
                                    }
                               }
                          }

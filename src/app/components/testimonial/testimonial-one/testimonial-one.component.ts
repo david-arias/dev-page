@@ -66,6 +66,10 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
   }
   ngAfterViewInit() {
     this.initSlider();
+
+    setTimeout(() => {
+      this.sliderPager();
+    }, 100);
   }
 
   /* * * */
@@ -127,12 +131,11 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
     this.slider =  $('.slider-testimonial').bxSlider(
       this.sliderOptions,
     );
-    
-    this.sliderPager()
   }
 
   sliderPager() {
     this.slider_pager = [];
+
     for (let i = 0; i < this.testimonialItems.length / this.sliderMaxItems_count ; i++) {
       this.slider_pager.push( i )
     }
@@ -163,7 +166,6 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
       this.sliderOptions,
     );
     this.sliderPager();
-    console.log("resized!!");
   }
 
   chngSlider( side:string ) {

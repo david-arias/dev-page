@@ -12,7 +12,7 @@
 .testimonialWrapper {
      // width: 100vw;
      width: 100%;
-     height: calc( 100vh + 180px ) ;
+     // height: calc( 100vh + 180px ) ;
      padding: 150px 0;
 
      background: #772583;
@@ -21,7 +21,7 @@
      background: linear-gradient(135deg, #772583 0%,#005587 100%);
 
      @include mq-tbltSmall {
-          height: 1050px;
+          // height: 1050px;
      }
      @include mq-phn {
           padding: 120px 0;

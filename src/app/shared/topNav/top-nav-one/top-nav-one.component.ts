@@ -7,9 +7,14 @@ declare var $:any;
 @Component({
   selector: 'app-top-nav-one',
   templateUrl: './top-nav-one.component.html',
-  styleUrls: ['./top-nav-one.component.scss']
+  styleUrls: ['./top-nav-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class TopNavOneComponent implements OnInit {
+
+  w:any;
 
   menuItems:any = TOPMENU;
   
@@ -55,11 +60,33 @@ export class TopNavOneComponent implements OnInit {
   ];
   searchResults:any = [];
 
+  searchSmall:boolean = false;
+  searchSmallModal:boolean = false;
+
+  levelsSel:string = 'all';
+
   constructor() {
   }
 
   ngOnInit() {
+    this.w = window.innerWidth;
+    this.isSmall( this.w );
   }
+
+  /* * * */
+  onResize(event) {
+    this.w = event.target.innerWidth;
+    this.isSmall( this.w );
+  }
+
+  isSmall( width:any ) {
+    if( width <= 768 ) {
+      this.searchSmall = true;
+    } else {
+      this.searchSmall = false;
+    }
+  }
+  /* * * */
 
   // window scroll
   winScroll( evnt:any ) {
@@ -145,6 +172,7 @@ export class TopNavOneComponent implements OnInit {
     }
   }
 
+  // main item hover
   mainItemHover( idx:number ) {
     $(`.layer`).hide();
     $(`.layer-${idx}`).show();

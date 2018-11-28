@@ -30,11 +30,19 @@
                               width: 100%;
                               font-size: 18px;
                               color: $dark;
+                              
+                              @include mq-tblt {
+                                    font-size: 14px;
+                               }
                         }
 
                         .mat-form-field-label {
                               font-size: 18px;
                               color: $mainColor;
+
+                              @include mq-tblt {
+                                    font-size: 14px;
+                               }
                         }
                   }
             
@@ -72,6 +80,12 @@
                         }
                         /deep/ .mat-checkbox-checked.mat-accent .mat-checkbox-background {
                               background-color: $mainColor;
+                        }
+
+                        /deep/ .mat-checkbox-layout .mat-checkbox-label {
+                              @include mq-tblt {
+                                    font-size: 14px;
+                              }
                         }
                   }
 
