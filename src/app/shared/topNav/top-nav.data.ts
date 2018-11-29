@@ -3,6 +3,7 @@ export const TOPMENU = [
      {
           label: "Programas y carreras",
           link: "#",
+          icon: "icm-search",
           topLinks: [
                {
                     label: "Encontrá",
@@ -215,6 +216,7 @@ export const TOPMENU = [
      }, {
           label: "Admisión",
           link: "#",
+          icon: "icm-search",
           topLinks: [],
           children: [
               {
@@ -276,6 +278,7 @@ export const TOPMENU = [
      }, {
           label: "Modalidades",
           link: "#",
+          icon: "icm-search",
           topLinks: [],
           children: [
                {
@@ -329,6 +332,7 @@ export const TOPMENU = [
      }, {
           label: "La universidad",
           link: "#",
+          icon: "icm-search",
           topLinks: [],
           children: [
               {

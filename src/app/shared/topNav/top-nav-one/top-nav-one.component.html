@@ -1,6 +1,6 @@
 
 <div class="mainTopBar">
-  <div class="topbar" (window:scroll)="winScroll($event)">
+  <div class="topbar" [ngClass]="{'scrolled': searchSmallModal}" (window:scroll)="winScroll($event)">
 
     <div class="lft">
 

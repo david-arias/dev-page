@@ -13,6 +13,10 @@
      background: #f2f4f7;
      padding: 100px 100px 50px 100px;
 
+     @include mq-tbltSmallest  {
+          padding: 100px 50px 50px 50px;
+     }
+
      .alliancesTtl {
           padding: 0 0 50px 0;
 
@@ -25,6 +29,10 @@
                
                b {
                     @include mainfont-bd();
+               }
+
+               @include mq-tblt  {
+                    font-size: 35px;
                }
           }
 
@@ -49,11 +57,29 @@
           display: flex;
           justify-content: center;
 
+          @include mq-tblt  {
+               flex-wrap: wrap;
+          }
+
           .alliancesItm {
                margin: 0 40px 0 0;
 
+               @include mq-tbltSmallest  {
+                    margin: 0 20px 0 0;
+               }
+               @include mq-phn  {
+                    margin: 0 0px 0 0;
+               }
+
                &:last-child {
                     margin: 0;
+               }
+
+               img {
+                    @include mq-phn  {
+                         width: 150px;
+                         height: auto;
+                    }
                }
           }
       }

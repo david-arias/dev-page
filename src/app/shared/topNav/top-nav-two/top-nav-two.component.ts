@@ -7,9 +7,14 @@ declare var $:any;
 @Component({
   selector: 'app-top-nav-two',
   templateUrl: './top-nav-two.component.html',
-  styleUrls: ['./top-nav-two.component.scss']
+  styleUrls: ['./top-nav-two.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class TopNavTwoComponent implements OnInit, AfterViewInit {
+
+  w:any;
 
   menuItems:any = TOPMENU;
   menuSubCol:any = [];
@@ -57,15 +62,52 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
   ];
   searchResults:any = [];
 
+  searchSmall:boolean = false;
+  searchSmallModal:boolean = false;
+
+  levelsSel:string = 'all';
+
 
   constructor() { }
 
   ngOnInit() {
-
+    this.w = window.innerWidth;
+    this.isSmall( this.w );
   }
   ngAfterViewInit() {
     // this.mainItemHover( 0 )
   }
+
+  /* * * */
+  onResize(event) {
+    this.w = event.target.innerWidth;
+    this.isSmall( this.w );
+
+    this.closeSmallMenu();
+  }
+
+  isSmall( width:any ) {
+    if( width <= 768 ) {
+      this.searchSmall = true;
+    } else {
+      this.searchSmall = false;
+    }
+  }
+
+  openSmallMenu() {
+    $(".mainPageWrapper").addClass("menuSmOpen");
+    $("body").addClass("noScroll");
+  }
+  closeSmallMenu() {
+    $(".mainPageWrapper").removeClass("menuSmOpen");
+    $("body").removeClass("noScroll");
+  }
+
+  openSubMenu( idxM, idx ) {    
+    $(`.subInnerBtn-${idxM}-${idx}`).toggleClass( "active" );
+    $(`.subInnerList-${idxM}-${idx}`).slideToggle();
+  }
+  /* * * */
   
   // hover events
   mainItemHover( idx:number ) {

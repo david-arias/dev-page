@@ -3,9 +3,14 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-alliances-one',
   templateUrl: './alliances-one.component.html',
-  styleUrls: ['./alliances-one.component.scss']
+  styleUrls: ['./alliances-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class AlliancesOneComponent implements OnInit {
+
+  w:any;
 
   alliancesItems:any = [
     {
@@ -30,9 +35,15 @@ export class AlliancesOneComponent implements OnInit {
   ]
   
 
-  constructor() { }
+  constructor() {
+    this.w = window.innerWidth;
+  }
 
   ngOnInit() {
+  }
+
+  onResize(event) {
+    this.w = event.target.innerWidth;
   }
 
 }

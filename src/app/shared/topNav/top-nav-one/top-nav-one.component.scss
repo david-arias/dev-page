@@ -113,14 +113,16 @@
                }
 
                .mainLogo {
+                    @include transitionAll(0.3);
+
                     @include mq-tblt {
                          flex-basis: 50%;
                     }
                     @include mq-phn {
-                         flex-basis: calc( 100% - 70px );
+                         flex-basis: calc( 100% - 120px );
                     }
                     @include mqH-phnSmallest {
-                         flex-basis: calc( 100% - 140px );
+                         flex-basis: calc( 100% - 220px );
                     }
 
                     img {
@@ -633,10 +635,18 @@
                                              .topIcon {
                                                   font-size: 40px;
                                                   margin: 0 0 20px 0;
+
+                                                  @include mqH-phnSmall {
+                                                       display: none;
+                                                  }
                                              }
 
                                              /deep/ mat-form-field {
                                                   margin: 10px 0 20px 0;
+
+                                                  @include mqH-phnSmall {
+                                                       margin: 10px 0 15px 0;
+                                                  }
                                                   
                                                   .mat-form-field-infix {
                                                        width: 250px;

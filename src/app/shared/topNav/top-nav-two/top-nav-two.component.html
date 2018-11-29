@@ -1,10 +1,10 @@
 
 
 <div class="mainTopBar">
-  <div class="topbar" (window:scroll)="winScroll($event)">
+  <div class="topbar" [ngClass]="{'scrolled': searchSmallModal}" (window:scroll)="winScroll($event)">
 
     <div class="lft">
-      <div class="menuBtn">
+      <div class="menuBtn"  *ngIf="w < 1025" (click)="openSmallMenu()">
         <button mat-button>
           <span>menu</span>
         </button>
@@ -17,7 +17,7 @@
         </a>
       </div>
 
-      <div class="menuItems">
+      <div class="menuItems" *ngIf="w > 1025">
         <ul>
           <li *ngFor="let itms of menuItems; let m = index">
             <a href="{{itms.link}}" class="mainLink" (mouseenter)="mainItemHover(m)">
@@ -147,7 +147,54 @@
     <div class="rgt">
       <div class="sideBtns">
         <ul>
-          <li class="searchIcon">
+          <li class="searchIconSmall" *ngIf="searchSmall">
+            <button mat-button class="searchBtnSmall" *ngIf="!searchSmallModal" (click)="searchSmallModal = true">
+              <i class="icm icm-search"></i>
+            </button>
+
+            <div class="searchSmContent animated fadeInDown" *ngIf="searchSmallModal">
+              <div class="closeSearchSm">
+                <button mat-button (click)="searchSmallModal = false">
+                  <span>Close</span>
+                </button>
+              </div>
+              <div class="searchSmForm">
+                <div class="topIcon">
+                  <i class="icm icm-search"></i>
+                </div>
+                <div class="form">
+                  <form action="">
+                    <div class="searchSel">
+                      <mat-form-field>
+                        <mat-select [(value)]="levelsSel">
+                          <mat-option value="all">Todos los niveles</mat-option>
+                          <mat-option value="opt1">Option 2</mat-option>
+                          <mat-option value="opt2">Option 3</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                    </div>
+                    <div class="searchInput">
+                      <mat-form-field class="">
+                        <input matInput placeholder="¿Qué querés estudiar?" value="">
+                      </mat-form-field>
+                      <div class="searchBtnSend">
+                        <button mat-button>
+                          <i class="icm icm-search"></i>
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div class="bottom">
+                  <a href="#">
+                    Ver todos los programas
+                  </a>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <li class="searchIcon" *ngIf="!searchSmall">
             <div class="searchLabel">
               <span>Buscar: </span>
             </div>
@@ -206,5 +253,58 @@
       </div>
     </div>
 
+  </div>
+
+
+</div>
+
+
+<div class="menuItemsSmall"  *ngIf="w < 1025">
+  <div class="top">
+    <div class="logo">
+      <img class="logoColor" src="assets/img/logo_color.png" alt="main logo">
+    </div>
+    <div class="close">
+      <button mat-button (click)="closeSmallMenu()">
+        <span>Close</span>
+      </button>
+    </div>
+  </div>
+  <div class="menuWrap">
+    <div class="mid">
+      <div class="listItms">
+        <ul>
+          <li *ngFor="let main of menuItems; let m = index">
+            <a href="{{main.link}}">
+              <i class="icm {{main.icon}}"></i>
+              <span>{{main.label}}</span>
+            </a>
+  
+            <ul class="subLinks">
+              <li *ngFor="let sub of main.children; let i = index">
+                <a href="{{sub.link}}" class="subInnerBtn subInnerBtn-{{m}}-{{i}}">
+                  <span>{{sub.label}}</span>
+                  
+                  <span class="plus" (click)="openSubMenu(m, i)"></span>
+                </a>
+  
+                <ul class="subInnrLinks subInnerList-{{m}}-{{i}}">
+                  <li *ngFor="let subInnr of sub.children">
+                    <a href="{{subInnr.link}}">
+                      <span>- {{subInnr.label}}</span>
+                    </a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom">
+      <button mat-button>
+        Recibir más información
+      </button>
+    </div>
   </div>
 </div>

@@ -40,10 +40,8 @@
 
                .menuBtn {
                     margin: 0 20px 0 0;
-                    display: none;
                     
                     @include mq-tblt {
-                         display: block;
                          flex-basis: calc( 50% - 20px );
                     }
                     @include mq-phn {
@@ -112,14 +110,16 @@
                }
 
                .mainLogo {
+                    @include transitionAll(0.3);
+
                     @include mq-tblt {
                          flex-basis: 50%;
                     }
                     @include mq-phn {
-                         flex-basis: calc( 100% - 70px );
+                         flex-basis: calc( 100% - 120px );
                     }
                     @include mqH-phnSmallest {
-                         flex-basis: calc( 100% - 150px );
+                         flex-basis: calc( 100% - 220px );
                     }
 
                     img {
@@ -145,10 +145,6 @@
 
                .menuItems {
                     margin: 0 0 0 20px;
-
-                    @include mq-tblt {
-                         display: none;
-                    }
 
                     ul {
                          display: flex;
@@ -262,7 +258,7 @@
                                                   .mid {
                                                        margin: 50px 0 0 0;
                                                        overflow: scroll;
-                                                       max-height: 65vh;
+                                                       max-height: 60vh;
 
                                                        .midItems {
                                                             ul {
@@ -320,7 +316,7 @@
 
                                                   .mid {
                                                        overflow: scroll;
-                                                       max-height: 65vh;
+                                                       max-height: 60vh;
                                                        
                                                        ul {
                                                             display: block;
@@ -368,7 +364,7 @@
 
                                                   .mid {
                                                        overflow: scroll;
-                                                       max-height: 65vh;
+                                                       max-height: 60vh;
 
                                                        ul {
                                                             display: block;
@@ -553,6 +549,7 @@
                                         min-width: 40px !important;
                                    }
                               }
+                              
                               &.searchIcon {
                                    display: flex;
                                    align-items: center;
@@ -720,6 +717,153 @@
                                                   }
                                              }
                                         }
+                                   }
+                              }
+
+                              &.searchIconSmall {
+                                   .searchBtnSmall {
+                                        font-size: 20px;
+                                        
+                                        @include mq-tbltSmall {
+                                             display: block;
+                                        }
+                                   }
+
+                                   .searchSmContent {
+                                        position: fixed;
+                                        background: white;
+                                        top: $navHeight;
+                                        left: 0;
+                                        display: flex;
+                                        align-items: center;
+                                        justify-content: center;
+                                        width: 100%;
+                                        height: calc(50% - #{$navHeight});
+
+                                        @include mq-tbltSmallest {
+                                             width: 100%;
+                                             height: calc(100% - #{$navHeight});
+                                        }
+                                        
+                                        .closeSearchSm {
+                                             position: absolute;
+                                             top: 15px;
+                                             right: 5px;
+
+                                             button {
+                                                  align-items: center;
+                                                  justify-content: center;
+                                                  height: 30px;
+                                                  min-width: 30px;
+                                                  width: 30px;
+                                                  display: flex;
+
+                                                  @include transitionAll( 0.3s );
+
+                                                  span {
+                                                       font-size: 0;
+                                                       position: relative;
+                                                       width: 2px;
+                                                       height: 2px;
+                                                       display: block;
+                                                       left: -20px;
+
+                                                       &:before, &:after {
+                                                            content: "";
+                                                            font-size: 0;
+                                                            display: block;
+                                                            width: 20px;
+                                                            height: 3px;
+                                                            background: $blue;
+                                                            position: absolute;
+                                                            top: 0;
+                                                            left: 10px;
+                                                       }
+                                                       &:before {
+                                                            transform: rotate(-45deg);
+                                                       }
+                                                       &:after {
+                                                            transform: rotate(45deg);
+                                                       }
+                                                  }
+                                             }
+                                        }
+
+                                        .searchSmForm {
+                                             text-align: center;
+
+                                             .topIcon {
+                                                  font-size: 40px;
+                                                  margin: 0 0 20px 0;
+
+                                                  @include mqH-phnSmall {
+                                                       display: none;
+                                                  }
+                                             }
+
+                                             /deep/ mat-form-field {
+                                                  margin: 10px 0 20px 0;
+
+                                                  @include mqH-phnSmall {
+                                                       margin: 10px 0 15px 0;
+                                                  }
+                                                  
+                                                  .mat-form-field-infix {
+                                                       width: 250px;
+                                                       color: $blue;
+
+                                                       input {
+                                                            &::-webkit-input-placeholder { color: $blue;; }
+                                                            &::-moz-placeholder { color: $blue;; }
+                                                            &:-ms-input-placeholder { color: $blue;; }
+                                                            &:-moz-placeholder { color: $blue;; }
+                                                       }
+                                                  }
+
+                                                  .mat-select-value {
+                                                       color: $blue;
+                                                  }
+                                                  .mat-form-field-appearance-legacy .mat-form-field-label {
+                                                       color: $blue !important;
+                                                  }
+
+                                                  .mat-form-field-underline {
+                                                       background-color: $blue;
+                                                   }
+                                             }
+
+                                             .searchInput {
+                                                  position: relative;
+                                                  
+                                                  .searchBtnSend {
+                                                       position: absolute;
+                                                       top: 20px;
+                                                       right: 0;
+
+                                                       button {
+                                                            font-size: 20px;
+                                                            color: $blue;
+                                                            width: 35px;
+                                                            min-width: 35px;
+                                                            padding: 0;
+                                             
+                                                            @include mq-tbltSmall {
+                                                                 display: block;
+                                                            }
+                                                       }
+                                                  }
+                                             }
+
+                                             .bottom {
+                                                  margin: 20px 0 0 0;
+
+                                                  a {
+                                                       text-decoration: none;
+                                                       color: $blue;
+                                                  }
+                                             }
+
+                                         }
                                    }
                               }
                          }
@@ -930,3 +1074,183 @@
 
      
  }
+
+
+.menuItemsSmall {
+     position: fixed;
+     top: 0;
+     background: white;
+
+     width: 100%;
+     left: -100%;
+
+     height: 100%;
+     padding: 20px;
+     z-index: 5000;
+     @include transitionAll(0.3s);
+     box-shadow: 0px 0px 0px rgba(0,0,0,0.5);
+
+     .top {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+
+          .close {
+               opacity: 1;
+
+               button {
+                    align-items: center;
+                    justify-content: center;
+                    height: 40px;
+                    min-width: 40px;
+                    opacity: 1;
+
+                    @include transitionAll( 0.3s );
+
+                    span {
+                         font-size: 0;
+                         position: relative;
+                         width: 2px;
+                         height: 2px;
+                         display: block;
+
+                         &:before, &:after {
+                              content: "";
+                              font-size: 0;
+                              display: block;
+                              width: 25px;
+                              height: 3px;
+                              background: $blue;
+                              position: absolute;
+                              top: 0;
+                              left: -10px;
+                         }
+                         &:before {
+                              transform: rotate(-45deg);
+                         }
+                         &:after {
+                              transform: rotate(45deg);
+                         }
+                    }
+               }
+          }
+     }
+
+     .menuWrap {
+          overflow: auto;
+          height: 90%;
+          padding: 0 0 40px 0;
+
+          .mid {
+               margin: 30px 0;
+     
+               .listItms {
+                    ul {
+                         li {
+                              a {
+                                   display: flex;
+                                   align-items: center;
+                                   justify-content: flex-start;
+                                   padding: 20px 0;
+                                   color: $titlesColor;
+                                   text-transform: uppercase;
+                                   text-decoration: none;
+     
+                                   @include mainfont-bd();
+     
+                                   i {
+                                        margin: 0 10px 0 0;
+                                        font-size: 20px;
+                                        color: $blue;
+                                   }
+                              }
+
+                              ul.subLinks {
+                                   padding: 0 0 10px 40px;
+                                   
+                                   li {
+                                        a {
+                                             @include mainfont-rg();
+                                             display: flex;
+                                             justify-content: space-between;
+                                             align-items: center;
+                                             text-transform: none;
+                                             padding: 10px 0;
+
+                                             .plus {
+                                                  margin: 0 20px 0 0;
+                                                  font-size: 18px;
+
+                                                  &:before {
+                                                       content: "+";
+                                                  }
+                                             }
+                                             
+                                             &.active {
+                                                  color: $mainColor;
+                                                  @include mainfont-bd();
+                                                  
+                                                  .plus {     
+                                                       font-size: 25px;
+                                                       &:before {
+                                                            content: "-";
+                                                       }
+                                                  }
+                                             }
+                                        }
+                                        
+                                        ul.subInnrLinks {
+                                             padding: 0 0 10px 20px;
+                                             display: none;
+
+                                             li {
+                                                  a {
+                                                       font-size: 14px;
+                                                  }
+                                             }
+                                        }
+                                   }
+                              }
+                         } 
+                    }
+               }
+          }
+     
+          .bottom {
+               justify-content: center;
+               display: flex;
+               width: 100%;
+               margin: 20px 0 0;
+               
+               button {
+                    background: $mainColorDark;
+                    color: white;
+                    text-transform: uppercase;
+                    font-weight: 300;
+               }
+               
+               @include mq-tbltSmall {
+                    order: 3;
+                    display: flex;
+               }
+          }
+
+     }
+
+}
+
+
+/deep/ .mainPageWrapper{
+    position: relative;
+    left: 0%;
+    @include transitionAll(0.3s);
+
+     &.menuSmOpen  {
+          left: 100%;
+
+          .menuItemsSmall {
+               left: 0%;
+               box-shadow: 5px 0px 10px rgba(0,0,0,0.5);
+          }
+     }
+}

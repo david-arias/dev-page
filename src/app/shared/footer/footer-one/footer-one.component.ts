@@ -1,11 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 
+declare var $:any;
+
 @Component({
   selector: 'app-footer-one',
   templateUrl: './footer-one.component.html',
-  styleUrls: ['./footer-one.component.scss']
+  styleUrls: ['./footer-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class FooterOneComponent implements OnInit {
+
+  w:any;
+
+  favOpen:boolean = false;
 
   footerLinks:any = [
     {
@@ -109,9 +118,21 @@ export class FooterOneComponent implements OnInit {
     }
   ]
 
-  constructor() { }
+  constructor() {
+    this.w = window.innerWidth;
+  }
 
   ngOnInit() {
+  }
+
+  onResize(event) {
+    this.w = event.target.innerWidth;
+  }
+
+  openFavBtn() {
+    $("body").toggleClass("noScroll");
+    
+    this.favOpen = !this.favOpen;
   }
 
 }

@@ -80,3 +80,40 @@
   </div>
 
 </div>
+
+<div class="favBtnSmall" [ngClass]="{'favOpened': favOpen}" *ngIf="w < 769">
+  <div class="favOverlay"></div>
+  <div class="favMenuTrgr">
+    <button mat-button (click)="openFavBtn()">
+      <span></span>
+    </button>
+  </div>
+
+  <div class="favItemsBg"></div>
+  <div class="favItems">
+    <div class="favItm favItm-1">
+      <button>
+        <i class="icm icm-map"></i>
+        <span>Sedes</span>
+      </button>
+    </div>
+    <div class="favItm favItm-2">
+      <button>
+        <i class="icm icm-map"></i>
+        <span>Contacto</span>
+      </button>
+    </div>
+    <div class="favItm favItm-3">
+      <button>
+        <i class="icm icm-map"></i>
+        <span>Incribité</span>
+      </button>
+    </div>
+    <div class="favItm favItm-4">
+      <button>
+        <i class="icm icm-map"></i>
+        <span>Programas</span>
+      </button>
+    </div>
+  </div>
+</div>
