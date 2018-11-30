@@ -111,6 +111,13 @@ export class TopNavOneComponent implements OnInit {
     this.searchSmallModal = false;
     $("body").removeClass( "srchSmOpen noScrollinclude" );
   }
+
+  openleadSm() {
+    $(".mainPageWrapper").removeClass("menuSmOpen");
+    setTimeout(() => {
+      $("body").addClass("leadSmOpen noScroll");
+    }, 150);
+  }
   /* * * */
 
   // window scroll

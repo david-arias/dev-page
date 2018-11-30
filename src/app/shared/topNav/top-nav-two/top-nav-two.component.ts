@@ -116,6 +116,13 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
     this.searchSmallModal = false;
     $("body").removeClass( "srchSmOpen noScrollinclude" );
   }
+
+  openleadSm() {
+    $(".mainPageWrapper").removeClass("menuSmOpen");
+    setTimeout(() => {
+      $("body").addClass("leadSmOpen noScroll");
+    }, 150);
+  }
   /* * * */
   
   // hover events

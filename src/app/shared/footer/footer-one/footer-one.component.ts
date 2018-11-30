@@ -140,7 +140,7 @@ export class FooterOneComponent implements OnInit {
     $("body").addClass("leadSmOpen");
   }
   closeleadSm() {
-    $("body").removeClass("leadSmOpen");
+    $("body").removeClass("leadSmOpen noScroll");
   }
 
 }
