@@ -10,7 +10,6 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class LeadFormOneComponent implements OnInit {
 
-  w:any;
 
   @Input('styleForm') formTheme: string = "light";
 
@@ -19,7 +18,6 @@ export class LeadFormOneComponent implements OnInit {
   modSel:string = "";
 
   constructor() {
-    this.w = window.innerWidth;
   }
   
   
@@ -28,7 +26,6 @@ export class LeadFormOneComponent implements OnInit {
   }
 
   onResize(event) {
-    this.w = event.target.innerWidth;
   }
 
 }

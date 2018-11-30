@@ -412,28 +412,142 @@
                          top: -150px;
                          left: 5px;
 
-                         @include transitionAll ( 0.15s, 0.1s );
+                         @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
                     }
                     &.favItm-2 {
                          top: -124px;
                          left: -57px;
 
-                         @include transitionAll ( 0.15s, 0.2s );
+                         @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
                     }
                     &.favItm-3 {
                          left: -120px;
                          top: -65px;
 
-                         @include transitionAll ( 0.15s, 0.3s );
+                         @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
                     }
                     &.favItm-4 {
                          left: -140px;
                          top: 5px;
 
-                         @include transitionAll ( 0.15s, 0.4s );
+                         @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
                     }
                }
           }
 
+     }
+}
+
+
+// lead form Small
+.leadFormModalSm {
+     position: fixed;
+     z-index: 5500;
+     top: 0;
+     left: 0;
+     width: 100%;
+     height: 100%;
+     background: white;
+     left: -100%;
+
+     @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
+
+     .closeleadFormSm {
+          position: absolute;
+          top: 15px;
+          right: 5px;
+
+          button {
+               align-items: center;
+               justify-content: center;
+               height: 30px;
+               min-width: 30px;
+               width: 30px;
+               display: flex;
+
+               @include transitionAll( 0.3s );
+
+               span {
+                    font-size: 0;
+                    position: relative;
+                    width: 2px;
+                    height: 2px;
+                    display: block;
+                    left: -20px;
+
+                    &:before, &:after {
+                         content: "";
+                         font-size: 0;
+                         display: block;
+                         width: 20px;
+                         height: 3px;
+                         background: $blue;
+                         position: absolute;
+                         top: 0;
+                         left: 10px;
+                    }
+                    &:before {
+                         transform: rotate(-45deg);
+                    }
+                    &:after {
+                         transform: rotate(45deg);
+                    }
+               }
+          }
+     }
+
+     .form {
+          display: flex;
+          flex-wrap: wrap;
+          width: 100%;
+          height: 100%;
+          align-items: center;
+          justify-content: center;
+
+          .formCont {
+               width: 100%;
+               padding: 0 30px;
+               max-width: 460px;
+
+               @include mq-phnSmallest {
+                    padding: 0 10px;
+               }
+               
+               .inputWrap {
+                    @include mq-phnSmallest {
+                         height: 390px;
+                         overflow: scroll;
+                    }
+                    @include mqH-phnSmall {
+                         height: 300px;
+                         overflow: scroll;
+                    }
+                    @include mqH-phnSmallest {
+                         height: 220px;
+                         overflow: scroll;
+                    }
+               }
+
+               .ttl {
+                    text-align: center;
+                    font-size: 30px;
+                    color: gray;
+                    padding: 0 30px 10px 30px;
+                    
+                    @include mq-phnSmall {
+                         font-size: 25px;
+                    }
+                    @include mqH-phnSmallest {
+                         font-size: 22px;
+                    }
+               }
+          }
+
+     }
+}
+
+/deep/ .leadSmOpen {
+     .leadFormModalSm {
+          left: 0;
      }
 }

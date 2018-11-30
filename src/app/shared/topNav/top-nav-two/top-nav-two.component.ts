@@ -107,6 +107,15 @@ export class TopNavTwoComponent implements OnInit, AfterViewInit {
     $(`.subInnerBtn-${idxM}-${idx}`).toggleClass( "active" );
     $(`.subInnerList-${idxM}-${idx}`).slideToggle();
   }
+
+  searchSmallEvnt() {
+    this.searchSmallModal = true;
+    $("body").addClass( "srchSmOpen noScrollinclude" );
+  }
+  closeSearchSmallEvnt() {
+    this.searchSmallModal = false;
+    $("body").removeClass( "srchSmOpen noScrollinclude" );
+  }
   /* * * */
   
   // hover events

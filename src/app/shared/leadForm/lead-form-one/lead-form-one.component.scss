@@ -9,6 +9,10 @@
 //     COMPONENT STYLES
 //-------------------------------------------
 
+/deep/ .cdk-overlay-container {
+      z-index: 6000;
+}
+
 .leadFormWrap {
 
       form {
@@ -22,6 +26,11 @@
                   width: calc(33% - 3%);
                   margin: 18px 0 0 0;
                   padding: 0 2%;
+                  
+                  @include mq-tbltSmall {
+                        margin: 0px 0 0 0;
+                        width: calc(100% - 3%);
+                  }
 
                   /deep/ .mat-form-field {
                         width: 100%;
@@ -63,6 +72,10 @@
                   justify-content: space-between;
                   align-items: center;
 
+                  @include mq-tbltSmall {
+                        flex-wrap: wrap;
+                    }
+
                   .legalcheck {
                         color: $dark;
 
@@ -82,15 +95,27 @@
                               background-color: $mainColor;
                         }
 
-                        /deep/ .mat-checkbox-layout .mat-checkbox-label {
-                              @include mq-tblt {
-                                    font-size: 14px;
+                        /deep/ .mat-checkbox-layout {
+                              @include mq-tbltSmall {
+                                    white-space: normal;
                               }
-                        }
+                              
+                              .mat-checkbox-label {
+                                    @include mq-tblt {
+                                          font-size: 14px;
+                                    }
+                              }
+                        } 
                   }
 
 
                   .sendButton {
+
+                        @include mq-tbltSmall {
+                              width: 100%;
+                              margin: 30px 0 0 0 ;
+                        }
+                        
                         button {
                               background: $mainColor;
                               border: thin solid white;
@@ -154,6 +179,7 @@
       
       
                         .sendButton {
+
                               button {
                                     background: $mainColor;
                                     border: none;

@@ -285,6 +285,9 @@
                     height: 380px;
                     padding: 0px 0 0px;
                }
+               @include mq-phnSmallest {
+                    height: 350px;
+               }
                
                @include mqH-phn {
                     height: 295px;
@@ -334,6 +337,9 @@
                               font-size: 45px;
                               margin: 10px 0 120px;
                          }
+                         @include mq-phnSmallest {
+                              margin: 10px 0 90px;
+                         }
                          
                          @include mqH-phnSmallest {
                               margin: 10px 0 20px;
@@ -367,6 +373,9 @@
                               
                               @include mq-phn {
                                    margin: 0 0 20px 0;
+                              }
+                              @include mq-phnSmallest {
+                                   font-size: 12px;
                               }
 
                               .mat-button-wrapper {

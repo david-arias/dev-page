@@ -77,6 +77,8 @@ export class TopNavOneComponent implements OnInit {
   onResize(event) {
     this.w = event.target.innerWidth;
     this.isSmall( this.w );
+
+    this.closeSmallMenu();
   }
 
   isSmall( width:any ) {
@@ -85,6 +87,29 @@ export class TopNavOneComponent implements OnInit {
     } else {
       this.searchSmall = false;
     }
+  }
+
+  openSmallMenu() {
+    $(".mainPageWrapper").addClass("menuSmOpen");
+    $("body").addClass("noScroll");
+  }
+  closeSmallMenu() {
+    $(".mainPageWrapper").removeClass("menuSmOpen");
+    $("body").removeClass("noScroll");
+  }
+
+  openSubMenu( idxM, idx ) {    
+    $(`.subInnerBtn-${idxM}-${idx}`).toggleClass( "active" );
+    $(`.subInnerList-${idxM}-${idx}`).slideToggle();
+  }
+
+  searchSmallEvnt() {
+    this.searchSmallModal = true;
+    $("body").addClass( "srchSmOpen noScrollinclude" );
+  }
+  closeSearchSmallEvnt() {
+    this.searchSmallModal = false;
+    $("body").removeClass( "srchSmOpen noScrollinclude" );
   }
   /* * * */
 

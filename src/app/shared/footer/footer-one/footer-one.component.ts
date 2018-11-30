@@ -134,5 +134,13 @@ export class FooterOneComponent implements OnInit {
     
     this.favOpen = !this.favOpen;
   }
+  
+  openleadSm() {
+    this.favOpen = false;
+    $("body").addClass("leadSmOpen");
+  }
+  closeleadSm() {
+    $("body").removeClass("leadSmOpen");
+  }
 
 }

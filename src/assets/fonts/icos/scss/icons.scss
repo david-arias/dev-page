@@ -5,34 +5,46 @@
   @return unquote("\"\\#{$str}\"");
 }
 
-$icm-allPin: unicode(ea01);
-$icm-book: unicode(ea02);
-$icm-career: unicode(ea03);
-$icm-centro: unicode(ea04);
-$icm-centrosPin: unicode(ea05);
-$icm-clock: unicode(ea06);
-$icm-comment: unicode(ea07);
-$icm-lftBnnrArrow: unicode(ea08);
-$icm-like: unicode(ea09);
-$icm-map: unicode(ea0a);
-$icm-mapCenter: unicode(ea0b);
-$icm-microPhone: unicode(ea0c);
-$icm-phone: unicode(ea0d);
-$icm-playCirc: unicode(ea0e);
-$icm-rgtArrow: unicode(ea0f);
-$icm-rgtBnnrArrow: unicode(ea10);
-$icm-search: unicode(ea11);
-$icm-sedePin: unicode(ea12);
-$icm-socialAll: unicode(ea13);
-$icm-socialFb: unicode(ea14);
-$icm-socialGp: unicode(ea15);
-$icm-socialIn: unicode(ea16);
-$icm-socialLi: unicode(ea17);
-$icm-socialPn: unicode(ea18);
-$icm-socialTw: unicode(ea19);
-$icm-socialYt: unicode(ea1a);
-$icm-student: unicode(ea1c);
-$icm-uni: unicode(ea1b);
+$icm-admin: unicode(ea01);
+$icm-allPin: unicode(ea02);
+$icm-book: unicode(ea03);
+$icm-books: unicode(ea04);
+$icm-career: unicode(ea05);
+$icm-centro: unicode(ea06);
+$icm-centrosPin: unicode(ea07);
+$icm-clock: unicode(ea08);
+$icm-comment: unicode(ea09);
+$icm-contact: unicode(ea0a);
+$icm-form: unicode(ea0b);
+$icm-lftBnnrArrow: unicode(ea0c);
+$icm-like: unicode(ea0d);
+$icm-map: unicode(ea0e);
+$icm-mapCenter: unicode(ea0f);
+$icm-microPhone: unicode(ea10);
+$icm-mouse: unicode(ea11);
+$icm-phone: unicode(ea12);
+$icm-playCirc: unicode(ea13);
+$icm-program: unicode(ea14);
+$icm-rgtArrow: unicode(ea15);
+$icm-rgtBnnrArrow: unicode(ea16);
+$icm-search: unicode(ea17);
+$icm-searchFame: unicode(ea18);
+$icm-sedePin: unicode(ea19);
+$icm-socialAll: unicode(ea1a);
+$icm-socialFb: unicode(ea1b);
+$icm-socialGp: unicode(ea1c);
+$icm-socialIn: unicode(ea1d);
+$icm-socialLi: unicode(ea1e);
+$icm-socialPn: unicode(ea1f);
+$icm-socialTw: unicode(ea20);
+$icm-socialYt: unicode(ea21);
+$icm-student: unicode(ea22);
+$icm-u: unicode(ea23);
+$icm-uni: unicode(ea24);
+
+.icm-admin::before {
+  content: $icm-admin;
+}
 
 .icm-allPin::before {
   content: $icm-allPin;
@@ -40,6 +52,10 @@ $icm-uni: unicode(ea1b);
 
 .icm-book::before {
   content: $icm-book;
+}
+
+.icm-books::before {
+  content: $icm-books;
 }
 
 .icm-career::before {
@@ -62,6 +78,14 @@ $icm-uni: unicode(ea1b);
   content: $icm-comment;
 }
 
+.icm-contact::before {
+  content: $icm-contact;
+}
+
+.icm-form::before {
+  content: $icm-form;
+}
+
 .icm-lftBnnrArrow::before {
   content: $icm-lftBnnrArrow;
 }
@@ -82,12 +106,20 @@ $icm-uni: unicode(ea1b);
   content: $icm-microPhone;
 }
 
+.icm-mouse::before {
+  content: $icm-mouse;
+}
+
 .icm-phone::before {
   content: $icm-phone;
 }
 
 .icm-playCirc::before {
   content: $icm-playCirc;
+}
+
+.icm-program::before {
+  content: $icm-program;
 }
 
 .icm-rgtArrow::before {
@@ -100,6 +132,10 @@ $icm-uni: unicode(ea1b);
 
 .icm-search::before {
   content: $icm-search;
+}
+
+.icm-searchFame::before {
+  content: $icm-searchFame;
 }
 
 .icm-sedePin::before {
@@ -140,6 +176,10 @@ $icm-uni: unicode(ea1b);
 
 .icm-student::before {
   content: $icm-student;
+}
+
+.icm-u::before {
+  content: $icm-u;
 }
 
 .icm-uni::before {

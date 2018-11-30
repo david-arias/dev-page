@@ -68,7 +68,7 @@
     </div>
 
     <div class="bottomBtn">
-      <button mat-button>Recibir más información</button>
+      <button mat-button (click)="openleadSm()">Recibir más información</button>
     </div>
 
   </div>
@@ -99,21 +99,40 @@
     </div>
     <div class="favItm favItm-2">
       <button>
-        <i class="icm icm-map"></i>
+        <i class="icm icm-contact"></i>
         <span>Contacto</span>
       </button>
     </div>
     <div class="favItm favItm-3">
-      <button>
-        <i class="icm icm-map"></i>
+      <button  (click)="openleadSm()">
+        <i class="icm icm-form"></i>
         <span>Incribité</span>
       </button>
     </div>
     <div class="favItm favItm-4">
       <button>
-        <i class="icm icm-map"></i>
+        <i class="icm icm-program"></i>
         <span>Programas</span>
       </button>
+    </div>
+  </div>
+</div>
+
+<div class="leadFormModalSm" *ngIf="w < 769">
+  <div class="closeleadFormSm">
+    <button mat-button  (click)="closeleadSm()">
+      <span>Close</span>
+    </button>
+  </div>
+
+  <div class="form">
+    <div class="formCont">
+      <div class="ttl">
+        Recibí información sobre tu carrera
+      </div>
+      <div class="inputWrap">
+        <app-lead-form-one></app-lead-form-one>
+      </div>
     </div>
   </div>
 </div>

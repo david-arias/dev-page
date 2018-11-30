@@ -51,10 +51,12 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
           bnnrBtn: [
             {
               type: "fill",
+              leadSm: true,
               btntext: "iniciar experiencia",
               icon: "",
             }, {
               type: "clear",
+              leadSm: false,
               btntext: "Ver video",
               icon: "rgtArrow",
             }
@@ -87,6 +89,7 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
           bnnrBtn: [
             {
               type: "fill",
+              leadSm: false,
               btntext: "Obtené una beca",
               icon: "",
             }
@@ -141,6 +144,7 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
           bnnrBtn: [
             {
               type: "fill",
+              leadSm: false,
               btntext: "Conocé más",
               icon: "",
             }
@@ -179,6 +183,13 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
     // set slide to 0
     $(".carItm0").addClass( "active" );
     $(".pagerItm-0").addClass( "active" );
+  }
+
+  // OPEN LEAD FORM SM
+  openleadSm( bool:boolean ) {
+    if ( bool ) {
+      $("body").addClass("leadSmOpen");
+    }
   }
 
   /* PARALLAX BACKGROUND */
