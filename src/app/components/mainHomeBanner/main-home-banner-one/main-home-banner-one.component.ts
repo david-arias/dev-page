@@ -9,14 +9,20 @@ declare var Parallax:any;
 @Component({
   selector: 'app-main-home-banner-one',
   templateUrl: './main-home-banner-one.component.html',
-  styleUrls: ['./main-home-banner-one.component.scss']
+  styleUrls: ['./main-home-banner-one.component.scss'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
+
+  w:any;
 
   sliderContent:any = [
     {
       type: "mouseParallax",
       class: "dark",
+      mobile: true,
       bgImgs: [
         {
           depth: "0",
@@ -66,6 +72,7 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
     }, {
       type: "basic",
       class: "dark",
+      mobile: true,
       bgImgs: [
         {
           depth: "0",
@@ -99,6 +106,7 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
     }, {
       type: "scrollParallax", 
       class: "light",
+      mobile: false,
       bgImgs: [
         {
           depth: "0",
@@ -154,6 +162,8 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
     },
   ];
 
+  sliderContentView:any = [];
+
   // banner info
   bnnrInfoActive:boolean = true;
   bnnrInfo:any = {
@@ -171,18 +181,47 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
 
   constructor() {
   }
-
+  
   ngOnInit() {
+    this.w = window.innerWidth;
+    this.filtSlides( this.w );
   }
 
   ngAfterViewInit() {
     //init slide
     this.parallaxBg();
     this.sliderChangeMouseDown();
+    // $('.mainBnnrSlider').carousel()
 
     // set slide to 0
     $(".carItm0").addClass( "active" );
     $(".pagerItm-0").addClass( "active" );
+  }
+
+  onResize(event) {
+    this.w = window.innerWidth;
+    this.filtSlides( this.w )
+    // $('.mainBnnrSlider').carousel()
+  }
+
+  filtSlides( width:number ) {
+    this.sliderContentView = [];
+
+    if( width < 766 ) {
+      
+      for (let s = 0; s < this.sliderContent.length; s++) {
+        if ( this.sliderContent[s].mobile ) {
+          this.sliderContentView.push( this.sliderContent[s] );
+        }
+      }
+
+    } else {
+
+      for (let s = 0; s < this.sliderContent.length; s++) {
+        this.sliderContentView.push(this.sliderContent[s]);
+      }
+
+    }
   }
 
   // OPEN LEAD FORM SM
@@ -194,10 +233,10 @@ export class MainHomeBannerOneComponent implements OnInit, AfterViewInit {
 
   /* PARALLAX BACKGROUND */
   parallaxBg() {
-    for (let i = 0; i < this.sliderContent.length; i++) {
+    for (let i = 0; i < this.sliderContentView.length; i++) {
 
-      if ( this.sliderContent[i].type == 'mouseParallax') {
-        const element = this.sliderContent[i];
+      if ( this.sliderContentView[i].type == 'mouseParallax') {
+        const element = this.sliderContentView[i];
         let scene = document.getElementById( `bannrSlider${i}` );
         let parallaxInstance = new Parallax(scene);
       }

@@ -21,7 +21,7 @@
           height: calc( 100vh + 110px );
      }
      @include mqH-phn {
-          height: calc( 100vh + 110px );
+          height: calc( 100vh + 140px );
      }
 
      .sliderWrap {
@@ -38,7 +38,7 @@
                     height: calc( 100vh + 110px );
                }
                @include mqH-phn {
-                    height: calc( 100vh + 110px );
+                    height: calc( 100vh + 140px );
                }
      
                picture {
@@ -54,7 +54,7 @@
                          height: calc( 100vh + 110px );
                     }
                     @include mqH-phn {
-                         height: calc( 100vh + 110px );
+                         height: calc( 100vh + 140px );
                     }
 
                     img {
@@ -128,7 +128,10 @@
           @include mq-tblt {
                @include prefix( transform,  translate(-55%, -30%) );
           }
-          
+          @include mq-tbltSmall {
+               @include prefix( transform,  translate(-55%, -50%) );
+          }
+
           @include mq-phn {
                width: 90vw;
                height: 380px;
@@ -281,20 +284,20 @@
                height: 340px;
                padding: 100px 0 0px;
                
+               @include mq-tbltSmall {
+                    height: 450px;
+                    padding: 150px 0 0px;
+               }
                @include mq-phn {
-                    height: 380px;
+                    height: 280px;
                     padding: 0px 0 0px;
                }
                @include mq-phnSmallest {
-                    height: 350px;
+                    height: 330px;
                }
                
                @include mqH-phn {
-                    height: 295px;
-                    padding: 80px 0 0px;
-               }
-               @include mqH-phnSmall {
-                    height: 290px;
+                    height: 300px;
                     padding: 80px 0 0px;
                }
 
@@ -319,11 +322,14 @@
                          font-size: 100px;
                          margin: 10px 0 20px;
                          text-shadow: 5px 5px 15px rgba(0,0,0,0.7);
-
+                         
                          animation-delay: 0.3s;
-
+                         
                          @include mq-tblt {
                               font-size: 80px;
+                         }
+                         @include mq-tbltSmall {
+                              margin: 10px 0 40px;
                          }
                          
                          @include mqH-phn {
@@ -335,10 +341,7 @@
 
                          @include mq-phn {
                               font-size: 45px;
-                              margin: 10px 0 120px;
-                         }
-                         @include mq-phnSmallest {
-                              margin: 10px 0 90px;
+                              margin: 10px 0 20px;
                          }
                          
                          @include mqH-phnSmallest {

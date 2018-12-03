@@ -20,6 +20,10 @@
      background: -webkit-linear-gradient(-45deg, #772583 0%,#005587 100%);
      background: linear-gradient(135deg, #772583 0%,#005587 100%);
 
+     @include mq-tblt {
+          padding: 80px 0;
+     }
+
      @include mq-tbltSmall {
           // height: 1050px;
      }
@@ -282,6 +286,10 @@
                display: flex;
                align-items: center;
                justify-content: center;
+
+               @include mq-tblt {
+                    margin: -50px 0 0 0;
+               }
 
                .pagerBtn_testi {
                     font-size: 0;

@@ -17,16 +17,16 @@
      padding: 150px 0;  
 
      @include mq-tblt {
+          padding: 80px 0;
           height: 150vh;
      }
      @include mq-tbltSmall {
           height: 100vh;
      }
      @include mq-phn {
-          height: 170vh;
+          height: 1040px;
      }
      @include mq-phnSmallest {
-          height: 200vh;
           padding: 100px 0;
      }
      
@@ -80,7 +80,7 @@
                          line-height: 1.4;
                     }
                     @include mq-tbltSmall {
-                         font-size: 30px;
+                         font-size: 38px;
                     }
                     @include mq-phn {
                          font-size: 25px;
@@ -346,7 +346,7 @@
                height: 100vh;
                @include prefix(transform, translate(0%, 0) scale( 1, 1 ) );
                border-radius: 0;
-               z-index: 700;
+               z-index: 7000;
                position: fixed;
                top: 0;
                left: 0;

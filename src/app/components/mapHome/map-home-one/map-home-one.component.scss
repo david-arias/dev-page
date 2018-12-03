@@ -59,7 +59,7 @@
      height: calc( 100vh - 75px );
      position: relative;
 
-     @include mq-tbltSmall {
+     @include mq-tblt {
           height: auto;
      }
      
@@ -71,9 +71,9 @@
           left: 0;
           z-index: 0;
 
-          @include mq-tbltSmall {
+          @include mq-tblt {
                position: relative;
-               height: 70vh;
+               height: 80vh;
           }
           @include mqH-phn {
                position: relative;
@@ -169,7 +169,7 @@
 
           box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 
-          @include mq-tbltSmall {
+          @include mq-tblt {
                position: relative;
                width: 100%;
                top: 0;
@@ -183,7 +183,7 @@
           .topBoxInfo {
                height: $topBoxH;
 
-               @include mq-tbltSmall {
+               @include mq-tblt {
                     height: auto;
                }
 
@@ -226,6 +226,14 @@
                     align-items: center;
                     width: 100%;
                     padding: 15px 20px;
+
+                    @include mq-tblt {
+                         width: 550px;
+                         margin: auto;
+                    }
+                    @include mq-tbltSmallest {
+                         width: 100%;
+                    }
      
                     .inputWrap {
                          width: calc( 100% - 50px );

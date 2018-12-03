@@ -942,17 +942,18 @@ $navHeight: 75px;
      position: fixed;
      z-index: 5500;
      background: white;
-     top: $navHeight;
+     // top: $navHeight;
+     top: 0;
      left: 0;
      display: flex;
      align-items: center;
      justify-content: center;
      width: 100%;
-     height: calc(50% - #{$navHeight});
+     height: 100%;
+     // height: calc(50% - #{$navHeight});
 
      @include mq-tbltSmallest {
-          width: 100%;
-          height: calc(100% - #{$navHeight});
+          // height: calc(100% - #{$navHeight});
      }
      
      .closeSearchSm {
@@ -1230,6 +1231,7 @@ $navHeight: 75px;
                     color: white;
                     text-transform: uppercase;
                     font-weight: 300;
+                    padding: 2px 40px;
                }
                
                @include mq-tbltSmall {

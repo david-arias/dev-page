@@ -11,7 +11,15 @@ export class TopAlertOneComponent implements OnInit {
 
   @Input('type') alertStyle: string = "";
 
-  constructor() { }
+  constructor() {
+
+    $( window ).on("load", function() {
+      setTimeout(() => {
+        $(".topAlertWrap").slideUp();
+      }, 7000);
+    });
+
+  }
 
   ngOnInit() {
   }

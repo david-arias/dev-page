@@ -6,7 +6,8 @@
   <div class="sliderWrap" (mousedown)="sliderChangeMouseDown()" (window:scroll)="bnnrScroll($event)">
     <div id="mainBnnrSlider" class="mainBnnrSlider carousel slide" data-interval="15000" data-ride="carousel">
       <div class="carousel-inner">
-        <div *ngFor="let bnnrItm of sliderContent; let i = index" class="carousel-item carItm{{i}}">
+        <div *ngFor="let bnnrItm of sliderContentView; let i = index" class="carousel-item carItm{{i}}">
+
           <!-- mouseParallax -->
           <div class="bnnr" *ngIf="bnnrItm.type == 'mouseParallax' ">
             <div class="bgParallax" id="bannrSlider{{i}}">
@@ -41,6 +42,7 @@
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </div>
@@ -84,7 +86,7 @@
 
     <!-- banner pager -->
     <div class="sliderPager">
-      <div *ngFor="let pager of sliderContent; let i = index" class="pagerItm pagerItm-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
+      <div *ngFor="let pager of sliderContentView; let i = index" class="pagerItm pagerItm-{{i}}" (click)="pagerSlide(i)">{{i}}</div>
     </div>
 
     

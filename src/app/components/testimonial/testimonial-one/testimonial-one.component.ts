@@ -73,6 +73,12 @@ export class TestimonialOneComponent implements OnInit, AfterViewInit {
   }
 
   /* * * */
+
+  openleadSm() {
+     $("body").addClass("leadSmOpen noScroll");
+  }
+
+  /* * * */
   reAsignVars( width:number ) {
 
     if ( this.w <= 766 ) {

@@ -224,6 +224,8 @@
                     color: $mainColorDark;
                     text-transform: uppercase;
                     font-weight: 300;
+
+                    padding: 2px 40px;
                }
                
                @include mq-tbltSmall {
@@ -278,6 +280,8 @@
                border-radius: 50%;
                background: white;
                color: $grey;
+
+               box-shadow: 5px 5px 10px rgba(0,0,0,0.5);
 
                align-items: center;
                justify-content: center;
@@ -451,6 +455,16 @@
      left: -100%;
 
      @include prefix(transition , all 0.3s cubic-bezier(.68, 1.55, .265, 1) 0.15s);
+
+     .logoleadFormSm {
+          position: absolute;
+          top: 20px;
+          left: 20px;
+
+          @include mq-phnSmallest {
+               display: none;
+          }
+     }
 
      .closeleadFormSm {
           position: absolute;
